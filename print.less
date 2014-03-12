@@ -1,0 +1,119 @@
+/* __________________________________ DEBUG __________________________________ */
+html.debug {
+    outline: 1px solid blue;
+}
+    html.debug body {
+        outline: 1px solid pink;
+    }
+    html.debug div.preview-page {
+        outline: 1px solid yellowgreen;
+    }
+
+    html.debug div#content {
+        outline: 1px solid red;
+    }
+
+/* __________________________________ VARIABLES __________________________________ */
+@crop-margin: 10mm;
+
+
+/* __________________________________ PAGE SETTINGS  __________________________________ */
+* {
+    -webkit-print-color-adjust: exact;  /* Allows printing of background colors */
+    box-sizing: border-box;
+}
+
+@page {
+    //size:148,50mm 210mm; // format coupé A5 
+    size:168,50mm 230mm;  // format A5 avec cropmarks
+    
+    margin: 5mm;
+}
+
+html {
+    //width: 870.55px;
+    width: 148.5mm;
+}
+body {
+}
+
+/* __________________________________ PRINT MARKS  __________________________________ */
+div#print-marks {
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    width: 100%; 
+}
+div.preview-page {
+    //position: absolute; 
+    position: relative;
+    height: 1220px;
+    width: 926px; 
+    z-index: -10;
+}
+ 
+/* __________________________________ CROP MARKS  __________________________________ */
+div.crop-top-left,
+div.crop-top-right,
+div.crop-bottom-right,
+div.crop-bottom-left {
+    height: 10mm;
+    width: 10mm;
+    position: absolute;
+    /*box-sizing: border-box;*/
+}
+ 
+div.crop-top-left {
+    left: 0;
+    top: 0;
+}
+div.crop-top-right {
+    right: 0;
+    top: 0;
+}
+div.crop-bottom-right {
+    right: 0;
+    bottom: 0;
+}
+div.crop-bottom-left {
+    left: 0;
+    bottom: 0;
+}
+div.crop-top,
+div.crop-right,
+div.crop-bottom,
+div.crop-left {
+    width: 5mm;
+    height: 5mm;
+    position: absolute;
+    /*box-sizing: border-box;*/
+}
+div.crop-top {
+    border-top: 1px solid black;
+}
+div.crop-right {
+    border-right: 1px solid black;
+}
+div.crop-bottom {
+    border-bottom: 1px solid black;
+}
+div.crop-left {
+    border-left: 1px solid black;
+}
+ 
+/* __________________________________ PAGINATION __________________________________ */
+div.folio {
+    position: absolute;
+    bottom: 20mm;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* __________________________________ CONTENT __________________________________ */
+div#content {
+    margin-top: @crop-margin;
+    width: 100%;
+    padding-left: @crop-margin + 5mm;
+    padding-right: 5mm;
+}
