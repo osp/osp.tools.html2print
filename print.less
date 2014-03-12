@@ -1,16 +1,19 @@
 /* __________________________________ DEBUG __________________________________ */
 html.debug {
-    /*outline: 1px solid blue;*/
+    /*outline: 1px solid purple;*/
 
     body {
         /*outline: 1px solid pink;*/
     }
     div.preview-page {
-        outline: 1px solid yellowgreen;
+        outline: 1px solid blue;
     }
 
     div#content {
         outline: 1px solid red;
+    }
+    .page-break {
+        border-top: 1px dashed blue;
     }
 }
 /* __________________________________ VARIABLES __________________________________ */
@@ -123,4 +126,22 @@ div#content {
     margin-right: @crop;
     padding-left: 5mm;
     padding-right: 5mm;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Avoids headings to be orphans. But it doesn't seem to work if the element after has a page-break-inside avoid. It tries its best! */
+    page-break-after: avoid;
+}
+
+/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE, HERE NO PARAGRAPH WILL BE CUT, BUT YOU MIGHT WANT TO DEACTIVATE THIS */
+p {
+    page-break-inside: avoid;
+}
+
+.page-break {
+    /* Apply this class to an element to put it on a new page.
+     * Hint: you can also use an empty <div class="page-break"></div> if you want to put manual page breaks without attaching it to an HTML element
+     */
+    page-break-before: always;
+    padding-top: @crop;
 }

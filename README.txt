@@ -3,6 +3,8 @@ HTML 2 print
 
 This little tool is a boilerplate, a minimal example to start a print project using HTML, less/CSS and Javascript/Jquery to design it.
 
+Example is based on an A5 format.
+
 You can't use less.js on a local file (URL starting with "file:///"). 
 To bypass this limitation, you can run a simple webserver with python. 
 To do so:
