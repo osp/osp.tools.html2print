@@ -1,21 +1,26 @@
 /* __________________________________ DEBUG __________________________________ */
 html.debug {
-    outline: 1px solid blue;
-}
-    html.debug body {
-        outline: 1px solid pink;
+    /*outline: 1px solid blue;*/
+
+    body {
+        /*outline: 1px solid pink;*/
     }
-    html.debug div.preview-page {
+    div.preview-page {
         outline: 1px solid yellowgreen;
     }
 
-    html.debug div#content {
+    div#content {
         outline: 1px solid red;
     }
-
+}
 /* __________________________________ VARIABLES __________________________________ */
-@crop-margin: 10mm;
-
+@page-width: 148.5mm;
+@page-height: 210mm;
+@crop-length: 7mm;
+@crop-offset: 5mm;
+@crop: @crop-length + @crop-offset;    // Based on Scribus cropmarks with 5mm of bleed -> 7mm of marks + 5mm of offset
+@page-width-crop: @page-width + (@crop*2); 
+@page-height-crop: @page-height + (@crop*2);
 
 /* __________________________________ PAGE SETTINGS  __________________________________ */
 * {
@@ -24,15 +29,14 @@ html.debug {
 }
 
 @page {
-    //size:148,50mm 210mm; // format coupé A5 
-    size:168,50mm 230mm;  // format A5 avec cropmarks
-    
-    margin: 5mm;
+    //size: @page-width @page-height; // format coupé
+    size: @page-width-crop @page-height-crop;  // format avec cropmarks
+    margin: 0;
 }
 
 html {
     //width: 870.55px;
-    width: 148.5mm;
+    width: @page-width-crop;
 }
 body {
 }
@@ -45,11 +49,13 @@ div#print-marks {
     width: 100%; 
 }
 div.preview-page {
+    width: @page-width-crop; 
+    height: @page-height-crop;
     //position: absolute; 
     position: relative;
-    height: 1220px;
-    width: 926px; 
     z-index: -10;
+    outline-offset: -@crop;
+    /*display: block;*/
 }
  
 /* __________________________________ CROP MARKS  __________________________________ */
@@ -57,8 +63,8 @@ div.crop-top-left,
 div.crop-top-right,
 div.crop-bottom-right,
 div.crop-bottom-left {
-    height: 10mm;
-    width: 10mm;
+    height: @crop;
+    width:  @crop;
     position: absolute;
     /*box-sizing: border-box;*/
 }
@@ -83,8 +89,8 @@ div.crop-top,
 div.crop-right,
 div.crop-bottom,
 div.crop-left {
-    width: 5mm;
-    height: 5mm;
+    width: @crop-length;
+    height: @crop-length;
     position: absolute;
     /*box-sizing: border-box;*/
 }
@@ -102,18 +108,19 @@ div.crop-left {
 }
  
 /* __________________________________ PAGINATION __________________________________ */
-div.folio {
-    position: absolute;
-    bottom: 20mm;
-    width: 100%;
-    text-align: center;
-    z-index: 1000;
-}
+/*div.folio {*/
+    /*position: absolute;*/
+    /*bottom: 20mm;*/
+    /*width: 100%;*/
+    /*text-align: center;*/
+    /*z-index: 1000;*/
+/*}*/
 
 /* __________________________________ CONTENT __________________________________ */
 div#content {
-    margin-top: @crop-margin;
-    width: 100%;
-    padding-left: @crop-margin + 5mm;
+    margin-top: @crop;
+    margin-left: @crop;
+    margin-right: @crop;
+    padding-left: 5mm;
     padding-right: 5mm;
 }
