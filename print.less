@@ -20,13 +20,22 @@ html.debug {
     }
 }
 /* __________________________________ VARIABLES __________________________________ */
-@page-width: 148.5mm;
+
+
 @page-height: 210mm;
+@page-width: 148.5mm;
+@spread: @page-width*2;
+
 @crop-length: 7mm;
 @crop-offset: 5mm;
 @crop: @crop-length + @crop-offset;    // Based on Scribus cropmarks with 5mm of bleed -> 7mm of marks + 5mm of offset
 @page-width-crop: @page-width + (@crop*2); 
 @page-height-crop: @page-height + (@crop*2);
+
+@page-margin-inside: 20mm;
+@page-margin-outside: 10mm;
+@page-margin-top: 10mm;
+@page-margin-bottom: 20mm;
 
 /* __________________________________ PAGE SETTINGS  __________________________________ */
 * {
@@ -41,7 +50,6 @@ html.debug {
 }
 
 html {
-    //width: 870.55px;
     width: @page-width-crop;
 }
 body {
@@ -52,6 +60,17 @@ body {
     width: @page-width;
     margin: @crop;
     margin-bottom: @crop*2;
+    padding-top: @page-margin-top;
+    padding-bottom: @page-margin-bottom;
+
+    &:nth-child(odd) {
+        padding-left: @page-margin-inside;
+        padding-right: @page-margin-outside;
+    }
+    &:nth-child(even) {
+        padding-left: @page-margin-outside;
+        padding-right: @page-margin-inside;
+    }
 }
 div#container .page {
     -webkit-flow-from: myFlow;
@@ -138,11 +157,6 @@ div.crop-left {
 
 /* __________________________________ CONTENT __________________________________ */
 div#content {
-    margin-top: @crop;
-    margin-left: @crop;
-    margin-right: @crop;
-    padding-left: 5mm;
-    padding-right: 5mm;
 }
 
 h1, h2, h3, h4, h5, h6 {
