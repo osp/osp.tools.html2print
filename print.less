@@ -49,8 +49,23 @@ html.debug {
     margin: 0;
 }
 
+html.spread {
+    width: @page-width-crop * 2;
+    .page {
+        float: left;
+
+        &:first-child {
+            margin-left: @page-width + @crop !important;
+        }
+        &:nth-child(odd) {
+            margin-left: -@crop;
+        }
+    }
+}
+
 html {
     width: @page-width-crop;
+
 }
 body {
 }
