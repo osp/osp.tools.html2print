@@ -71,6 +71,7 @@ body {
         padding-left: @page-margin-outside;
         padding-right: @page-margin-inside;
     }
+
 }
 div#container .page {
     -webkit-flow-from: myFlow;
@@ -95,6 +96,11 @@ div.preview-page {
     z-index: -10;
     outline-offset: -@crop;
     /*display: block;*/
+    counter-increment: page-counter;
+
+    &:after {
+        content: counter(page-counter);
+    }
 }
  
 /* __________________________________ CROP MARKS  __________________________________ */
