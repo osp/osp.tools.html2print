@@ -1,0 +1,13 @@
+========
+| TODO |
+========
+
+- crop marks with CSS
+- http links
+- Internal links
+- Table of contents
+- pagination inside page
+- pagination total (page 1/16, etc.)
+- CMYK color split with Ghostscript
+- multiple image sources
+- check image resolution
