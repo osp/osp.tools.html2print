@@ -17,4 +17,21 @@ $(window).load(function(){
         //$("#fakepage-p" + i + " .folio").html("<p>page " + (i+1) + "</p>");
     }
     $("#master-page").hide();
+
+
+
+    $("div.moveable").append("<div class='properties'>Properties</div>").draggable(
+            {
+                stack: "div.moveable", 
+            }).resizable();
+    $('.properties').on('click', function() {
+        var top = $(this).parent().css('top');
+        var left = $(this).parent().css('left');
+        var width = $(this).parent().width();
+        var height = $(this).parent().height();
+        var p = new Popelt({
+            title: "Properties to copy/paste into this object's style attribute.",
+            content: 'style = "top: ' + top + '; left: ' + left + '; width: ' + width + 'px; height: ' + height + 'px;"',
+        }).show();
+    });
 });
