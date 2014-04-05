@@ -217,6 +217,7 @@ p {
 .moveable {
     position: absolute;
     float: left;
+    overflow: hidden;
 
     &:hover {
         z-index: 1000;
@@ -239,7 +240,7 @@ p {
     display: block;
 }
 
-/* POPUP pour copier/coller propri des blocs drag n'drop */
+/* POPELT STYLES */
 .noscroll {overflow:hidden;}
 .pop-screen {
     background:#000; 
@@ -277,4 +278,14 @@ p {
     &:hover {
         color: red;
     }
+}
+
+/* __________________________________ IMAGES __________________________________ */
+/* Use those classes for images to fit width or height of parent elements or both. */
+
+img.fit-height {
+    height: 100%;
+}
+img.fit-width {
+    width: 100%;
 }
