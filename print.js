@@ -1,15 +1,15 @@
+$("section#container").load("content.html");
+nb_page = 164;
+
 $(window).load(function(){
     // __________________________________ PRINT MARKS __________________________________ //
     doc_height = $("body").height();
     page_height = $("#master-page").height(); 
-    //page_height = 22; 
-    //nb_page = Math.ceil(doc_height/page_height);
-    nb_page = 164;
-    //gutter = parseInt($("#fakepage").css("top"));  // = 1cm
 
-    console.log(doc_height);
-    console.log(page_height);
-    console.log(nb_page);
+    // DEBUG
+    console.log("Document height: " + doc_height);
+    console.log("Page height: " + page_height);
+    console.log("Number of pages: " + nb_page);
 
     for (i = 0; i < nb_page; i++){
         $("#master-page").clone().addClass("preview-page").attr("id","page"+i).insertBefore($("#master-page"));
