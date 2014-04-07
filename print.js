@@ -3,7 +3,8 @@ $(window).load(function(){
     doc_height = $("body").height();
     page_height = $("#master-page").height(); 
     //page_height = 22; 
-    nb_page = Math.ceil(doc_height/page_height);
+    //nb_page = Math.ceil(doc_height/page_height);
+    nb_page = 164;
     //gutter = parseInt($("#fakepage").css("top"));  // = 1cm
 
     console.log(doc_height);
@@ -12,9 +13,6 @@ $(window).load(function(){
 
     for (i = 0; i < nb_page; i++){
         $("#master-page").clone().addClass("preview-page").attr("id","page"+i).insertBefore($("#master-page"));
-            
-        // FOLIO
-        //$("#fakepage-p" + i + " .folio").html("<p>page " + (i+1) + "</p>");
     }
     $("#master-page").hide();
 
@@ -22,6 +20,7 @@ $(window).load(function(){
 
     $("div.moveable").append("<div class='properties'>Properties</div>").draggable(
             {
+                cursor: "move",
                 stack: "div.moveable", 
             }).resizable();
     $('.properties').on('click', function() {
@@ -31,7 +30,7 @@ $(window).load(function(){
         var height = $(this).parent().height();
         var p = new Popelt({
             title: "Properties to copy/paste into this object's style attribute.",
-            content: 'style = "top: ' + top + '; left: ' + left + '; width: ' + width + 'px; height: ' + height + 'px;"',
+            content: 'style="top: ' + top + '; left: ' + left + '; width: ' + width + 'px; height: ' + height + 'px;"',
         }).show();
     });
 });
