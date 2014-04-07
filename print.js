@@ -19,8 +19,8 @@ $(window).load(function(){
     });
 
     // __________________________________ PRINT MARKS __________________________________ //
-    doc_height = $("body").height();
-    page_height = $("#master-page").height(); 
+    var doc_height = $("body").height();
+    var page_height = $("#master-page").height(); 
 
     for (i = 0; i < nb_page; i++){
         $("#master-page").clone().addClass("preview-page").attr("id","page"+i).insertBefore($("#master-page"));
