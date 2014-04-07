@@ -19,6 +19,8 @@
 ===============
 
 - .moveable elements widen page width if outside the page.
-- .spread doesn't work with .moveable elements
+- .spread doesn't work with .moveable elements (need to shift their position)
+- when printing with .spread, javascript to remove the .spread class
 - crop marks are slightly shifted, it's obvious after a certain number of
   pages
+- View as spread (quite buggy when using absolute elements, also to export the PDF, you need to switch to single-page view)

@@ -2,12 +2,38 @@ HTML 2 print
 ============
 
 This little tool is a boilerplate, a minimal example to start a print project using HTML, less/CSS and Javascript/Jquery to design it.
+Why using this instead of libraries such as the PHP library tcpdf which
+transforms html to a PDF for print? 
 
-Example is based on an A5 format.
+Because CSS specifications for print are all settled, we are just waiting for browsers vendors to
+implement them in browsers. Meanwhile, it's already possible to send to an
+offset printer a file generated from a webpage. So why use a third party
+engine if you want to print HTML?
+
+But the most exciting reason to use HTML/CSS is the fact that you
+can go back and forth between code and visual manipulation thanks to the
+element inspector of browsers. With Javascript on top of it, you can
+access every object in the DOM and its properties or do
+programmatic manipulations.
+
+
+Features
+--------
+
+- Crop marks made in Javascript
+- Pagination in CSS
+- Mixing flowable content and absolute positioned content
+- Image fitting in frame
+- View as spread (quite buggy still, see TODO)
+
+
+* * *
 
 
 How
 ---
+
+Example is based on an A5 format.
 
 
 ### Less

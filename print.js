@@ -1,15 +1,14 @@
+// Choose the number of pages of the document
+var nb_page = 16;
+
+
+// Loads main content into <section id="container">
 $("section#container").load("content.html");
-nb_page = 16;
 
 $(window).load(function(){
     // __________________________________ PRINT MARKS __________________________________ //
     doc_height = $("body").height();
     page_height = $("#master-page").height(); 
-
-    // DEBUG
-    console.log("Document height: " + doc_height);
-    console.log("Page height: " + page_height);
-    console.log("Number of pages: " + nb_page);
 
     for (i = 0; i < nb_page; i++){
         $("#master-page").clone().addClass("preview-page").attr("id","page"+i).insertBefore($("#master-page"));
@@ -17,12 +16,15 @@ $(window).load(function(){
     $("#master-page").hide();
 
 
-
-    $("div.moveable").append("<div class='properties'>Properties</div>").draggable(
-            {
+    // __________________________________ MOVEABLE ELEMENTS __________________________________ //
+    $("div.moveable").
+        append("<div class='properties'>Properties</div>").
+        draggable({
                 cursor: "move",
                 stack: "div.moveable", 
-            }).resizable();
+        }).
+        resizable();
+
     $('.properties').on('click', function() {
         var top = $(this).parent().css('top');
         var left = $(this).parent().css('left');
