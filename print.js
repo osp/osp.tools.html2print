@@ -6,7 +6,14 @@ var nb_page = 16;
 $("section#container").load("content.html");
 
 $(window).load(function(){
-    // __________________________________ PRINT __________________________________ //
+    // __________________________________ DEBUG __________________________________ //
+    $("#debug").click(function(e){
+        e.preventDefault();
+        $("html").toggleClass("debug");
+    });
+
+
+    // __________________________________ PRINT PREVIEW __________________________________ //
     $("a#preview").click(function(e){
         e.preventDefault();
         $("html").toggleClass("export");
@@ -17,6 +24,7 @@ $(window).load(function(){
             $(this).attr("src", hires)
         });
     });
+
 
     // __________________________________ PRINT MARKS __________________________________ //
     var doc_height = $("body").height();
