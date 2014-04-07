@@ -1,5 +1,5 @@
 $("section#container").load("content.html");
-nb_page = 164;
+nb_page = 16;
 
 $(window).load(function(){
     // __________________________________ PRINT MARKS __________________________________ //

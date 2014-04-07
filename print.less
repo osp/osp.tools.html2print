@@ -83,19 +83,12 @@ body {
     padding-bottom: @page-margin-bottom;
     page-break-inside: never;
 
-    &:nth-child(odd) {
-        padding-left: @page-margin-inside;
-        padding-right: @page-margin-outside;
-    }
-    &:nth-child(even) {
-        padding-left: @page-margin-outside;
-        padding-right: @page-margin-inside;
-    }
 
 }
-div#container .page {
+.page {
     -webkit-flow-from: myFlow;
     page-break-after: always;
+    position: absolute;
 }
 div#content {
     -webkit-flow-into: myFlow;
@@ -120,6 +113,15 @@ div.preview-page {
 
     &:after {
         content: counter(page-counter);
+    }
+
+    &:nth-child(odd) .page {
+        padding-left: @page-margin-inside;
+        padding-right: @page-margin-outside;
+    }
+    &:nth-child(even) .page {
+        padding-left: @page-margin-outside;
+        padding-right: @page-margin-inside;
     }
 }
  
