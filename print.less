@@ -151,6 +151,7 @@ img.fit-width {
 * {
     -webkit-print-color-adjust: exact;  /* Allows printing of background colors */
     box-sizing: border-box;
+    text-rendering: optimizeLegibility;
 }
 
 @page {
@@ -241,7 +242,6 @@ div.crop-bottom-left {
     height: @crop;
     width:  @crop;
     position: absolute;
-    /*box-sizing: border-box;*/
 }
  
 div.crop-top-left {
@@ -267,7 +267,6 @@ div.crop-left {
     width: @crop-length;
     height: @crop-length;
     position: absolute;
-    /*box-sizing: border-box;*/
 }
 div.crop-top {
     border-top: 1px solid black;
