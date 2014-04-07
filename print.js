@@ -6,6 +6,18 @@ var nb_page = 16;
 $("section#container").load("content.html");
 
 $(window).load(function(){
+    // __________________________________ PRINT __________________________________ //
+    $("a#preview").click(function(e){
+        e.preventDefault();
+        $("html").toggleClass("export");
+        $("img").each(function(){
+            var hires = $(this).attr("data-alt-src");
+            var lores = $(this).attr("src");
+            $(this).attr("data-alt-src", lores)
+            $(this).attr("src", hires)
+        });
+    });
+
     // __________________________________ PRINT MARKS __________________________________ //
     doc_height = $("body").height();
     page_height = $("#master-page").height(); 
@@ -18,7 +30,7 @@ $(window).load(function(){
 
     // __________________________________ MOVEABLE ELEMENTS __________________________________ //
     $("div.moveable").
-        append("<div class='properties'>Properties</div>").
+        append("<div class='properties button'>Properties</div>").
         draggable({
                 cursor: "move",
                 stack: "div.moveable", 
