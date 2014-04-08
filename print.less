@@ -1,28 +1,4 @@
-/* __________________________________ DEBUG __________________________________ */
-html.debug {
-    /*outline: 1px solid purple;*/
-
-    body {
-        /*outline: 1px solid pink;*/
-    }
-    div.preview-page {
-        outline: 1px solid blue;
-    }
-
-    div#content {
-        outline: 1px solid red;
-    }
-    .region-break {
-        border-top: 1px dashed blue;
-    }
-    .page {
-        outline: 1px solid purple;
-    }
-    .moveable {
-        outline: 1px solid yellow;
-    }
-}
-/* __________________________________ VARIABLES __________________________________ */
+/* __________________________________ LOCAL SETTINGS __________________________________ */
 
 
 @page-height: 210mm;
@@ -38,9 +14,47 @@ html.debug {
 @page-margin-inside: 20mm;
 @page-margin-outside: 10mm;
 @page-margin-top: 10mm;
-@page-margin-bottom: 20mm;
+@page-margin-bottom: 15mm;
+
+@header-height: 10mm;
+@header-text: "HTML to Print Boilerplate";
+@footer-height: 10mm;
+@footer-text: counter(page-counter);
 
 
+/* __________________________________ DEBUG __________________________________ */
+html.debug {
+    /*outline: 1px solid purple;*/
+
+    body {
+        /*outline: 1px solid pink;*/
+    }
+    div.preview-page {
+        outline: 1px solid blue;
+    }
+    
+    section.header {
+        outline: 1px solid pink;
+    }
+
+    section.page {
+        outline: 1px solid purple;
+    }
+
+    section.footer {
+        outline: 1px solid pink;
+    }
+
+    div#content {
+        outline: 1px solid red;
+    }
+    .region-break {
+        border-top: 1px dashed blue;
+    }
+    .moveable {
+        outline: 1px solid yellow;
+    }
+}
 
 /* __________________________________ INTERFACE CLASSES  __________________________________ */
 .button {
@@ -184,24 +198,49 @@ body {
     position: absolute;
 }
 
-.page {
-    height: @page-height;
+/* __________________________________ HEADER __________________________________ */
+section.header {
+    position: absolute;
+    top: @crop;
+    margin: 0 @crop;
+    margin-top: @page-margin-top;
     width: @page-width;
-    margin: @crop;
-    margin-bottom: @crop*2;
-    padding-top: @page-margin-top;
-    padding-bottom: @page-margin-bottom;
-    page-break-inside: never;
+    height: @header-height;
+    text-align: left;
 
-
+    &:after {
+        content: @header-text;
+    }
 }
 .page {
-    -webkit-flow-from: myFlow;
+    height: @page-height - @header-height - @footer-height;
+    width: @page-width;
+    margin: @crop;
+    margin-bottom: @page-margin-bottom;
+    padding-top: @page-margin-top + @header-height;
+    padding-bottom: @page-margin-bottom;
+    page-break-inside: never;
     page-break-after: always;
+    -webkit-flow-from: myFlow;
     position: absolute;
 }
 div#content {
     -webkit-flow-into: myFlow;
+}
+/* __________________________________ FOOTER __________________________________ */
+section.footer {
+    position: absolute;
+    bottom: @crop;
+    margin: 0 @crop;
+    margin-top: @footer-height;
+    margin-bottom: @page-margin-bottom;
+    width: @page-width;
+    height: @footer-height;
+    text-align: center;
+
+    &:after {
+        content: @footer-text;
+    }
 }
 
 /* __________________________________ PRINT MARKS  __________________________________ */
@@ -214,22 +253,24 @@ div#print-marks {
 div.preview-page {
     width: @page-width-crop; 
     height: @page-height-crop;
-    //position: absolute; 
     position: relative;
     z-index: -10;
     outline-offset: -@crop;
-    /*display: block;*/
     counter-increment: page-counter;
 
-    &:after {
-        content: counter(page-counter);
+    &:nth-child(odd) .header {
+        text-align: right;
     }
 
-    &:nth-child(odd) .page {
+    &:nth-child(odd) .header,
+    &:nth-child(odd) .page,
+    &:nth-child(odd) .footer {
         padding-left: @page-margin-inside;
         padding-right: @page-margin-outside;
     }
-    &:nth-child(even) .page {
+    &:nth-child(even) .header,
+    &:nth-child(even) .page,
+    &:nth-child(even) .footer {
         padding-left: @page-margin-outside;
         padding-right: @page-margin-inside;
     }
@@ -282,14 +323,6 @@ div.crop-left {
     border-left: 1px solid black;
 }
  
-/* __________________________________ PAGINATION __________________________________ */
-/*div.folio {*/
-    /*position: absolute;*/
-    /*bottom: 20mm;*/
-    /*width: 100%;*/
-    /*text-align: center;*/
-    /*z-index: 1000;*/
-/*}*/
 
 /* __________________________________ CONTENT __________________________________ */
 div#content {
@@ -303,7 +336,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-region-break-after: avoid;
 }
 .region-break {
-    /* Apply this class to an element to put it on a new page.
+    /* Apply this class to an element to put it on a new region.
      * Hint: 
      * You can also use an empty <div class="page-break"></div> 
      * if you want to put manual page breaks without attaching it to an HTML element
@@ -315,6 +348,6 @@ h1, h2, h3, h4, h5, h6 {
  * HERE NO PARAGRAPH WILL BE CUT, 
  * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
 p {
-    /*region-break-inside: avoid;*/
+    /*-webkit-region-break-inside: avoid;*/
 }
 
