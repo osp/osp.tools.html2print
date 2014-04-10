@@ -25,6 +25,10 @@ Features
 - Mixing flowable content and absolute positioned content
 - Image fitting in frame
 - View as spread (quite buggy still, see TODO)
+- Preflight packages is built-in: use the "Save Complete Webpage" function of
+  your browser
+- PDF conversion from RGB to CMYK
+- Check color separation
 
 
 * * *

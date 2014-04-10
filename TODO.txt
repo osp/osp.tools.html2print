@@ -4,7 +4,6 @@
 
 - Table of contents (Internal links works with anchors; use Jquery to make a
   table of content / or use a jquery plugin to do so?)
-- pagination inside page
 - pagination total (page 1/16, etc.)
 - CMYK color split with Ghostscript
 - check image resolution
@@ -23,3 +22,4 @@
 - crop marks are slightly shifted, it's obvious after a certain number of
   pages
 - View as spread (quite buggy when using absolute elements, also to export the PDF, you need to switch to single-page view)
+- zooming in and out changes layout preview
