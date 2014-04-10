@@ -2,11 +2,16 @@
 |  T O D O  |
 =============
 
+- hide div#interface in print
+- add crop marks with Ghostscript
+- remove crop marks from html
+- add margins around pages on screen-only + background color
+- choice to give a page number or to calculate it automatically
 - Table of contents (Internal links works with anchors; use Jquery to make a
   table of content / or use a jquery plugin to do so?)
 - pagination total (page 1/16, etc.)
-- CMYK color split with Ghostscript
 - check image resolution
+- spot colors export in different PDFs with export class
 - put objects on spreads (as a jquery plugin, it would duplicate the object on
   the next page with an offset of "width and margin-left")
 - css columns → doesn't print as columns, we have to do css regions instead.
@@ -19,7 +24,4 @@
 - .moveable elements widen page width if outside the page.
 - .spread doesn't work with .moveable elements (need to shift their position)
 - when printing with .spread, javascript to remove the .spread class
-- crop marks are slightly shifted, it's obvious after a certain number of
-  pages
-- View as spread (quite buggy when using absolute elements, also to export the PDF, you need to switch to single-page view)
 - zooming in and out changes layout preview
