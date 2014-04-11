@@ -1,0 +1,24 @@
+
+    <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(".cyan, .magenta, .yellow, .black").hide();
+        $("img").lazyload({
+            skip_invisible : false
+        });
+        function showhide(color){
+            $("#" + color).click(function(){
+                $("img").hide();
+                $("." + color).show();
+            });
+        }
+        $(document).ready(function(){
+            showhide("all");
+            showhide("cyan");
+            showhide("magenta");
+            showhide("yellow");
+            showhide("black");
+        }); 
+    </script>
+</body>
+</html>

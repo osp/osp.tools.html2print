@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Check color separation</title>
+    
+    <style type="text/css" media="screen">
+        div#interface {
+            position: fixed;
+            z-index: 1000;
+            bottom: 10px;
+            right: 10px;
+        }
+        div#interface div {
+            background-color: black;
+            font-family:sans-serif; 
+            text-transform: uppercase;
+            font-size: 12px !important;
+            letter-spacing: 1px;
+            color: white;
+            padding: 5px 7px;
+            margin-bottom: 1em;
+            cursor: pointer;
+        }
+        div#interface div:hover {
+                background-color: white;
+                color: black;
+                outline: 1px solid black;
+            }
+        img {
+            position: absolute;
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="interface">
+        <div id="all">All</div>
+        <div id="cyan">Cyan</div>
+        <div id="magenta">Magenta</div>
+        <div id="yellow">Yellow</div>
+        <div id="black">Black</div>
+    </div>
+
