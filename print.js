@@ -32,7 +32,7 @@ $(window).load(function(){
     var doc_height = $("body").height();
     var page_height = $("#master-page").height(); 
 
-    for (i = 0; i < nb_page; i++){
+    for (i = 1; i < nb_page; i++){
         $("#master-page").clone().addClass("preview-page").attr("id","page-"+i).insertBefore($("#master-page"));
     }
     $("#master-page").hide();
