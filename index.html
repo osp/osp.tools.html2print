@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html class="spread">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>HTML to Print Boilerplate</title>
@@ -11,7 +11,7 @@
 <body>
     <!-- PRINT MARKS -->
     <div id="print-marks">
-        <div id="master-page" class="preview-page">
+        <div id="master-page">
             <!--<img src="page-height.png" />-->
             <div class="crop-top-left">
                 <div class="crop-right" style="top: 0; right: 0;"></div>
@@ -42,8 +42,12 @@
     </div>
 
     <div id="interface">
-        <a id="debug" class="button" href="#">Debug</a>
-        <a id="preview" class="button" href="#">Preview</a>
+        <button id="debug" class="button" href="#">Debug</button>
+        <button id="preview" class="button" href="#">Preview</button>
+        <div id="toc">
+            <button id="goto" class="button" href="#">Go to</button>
+            <ul id="toc-pages"></ul>
+        </div>
     </div>
 
     <section id="container">

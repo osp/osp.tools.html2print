@@ -31,9 +31,21 @@ $(window).load(function(){
     var page_height = $("#master-page").height(); 
 
     for (i = 0; i < nb_page; i++){
-        $("#master-page").clone().addClass("preview-page").attr("id","page"+i).insertBefore($("#master-page"));
+        $("#master-page").clone().addClass("preview-page").attr("id","page-"+i).insertBefore($("#master-page"));
     }
     $("#master-page").hide();
+
+
+    // __________________________________ TOC __________________________________ //
+    $(".preview-page").each(function(){
+        page = $(this).attr("id");
+        $("#toc-pages").append("<li><a href='#" + page + "'>" + page.replace("-", " ") + "</a></li>")
+    });
+    $("#goto").click(function(e){
+        e.preventDefault();
+        $(this).toggleClass("button-active");
+        $("#toc-pages").toggle();
+    });
 
 
     // __________________________________ MOVEABLE ELEMENTS __________________________________ //

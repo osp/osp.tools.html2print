@@ -24,75 +24,119 @@
 
 /* __________________________________ DEBUG __________________________________ */
 html.debug {
-    /*outline: 1px solid purple;*/
+    /*outline: 1pt solid purple;*/
 
     body {
-        /*outline: 1px solid pink;*/
+        /*outline: 1pt solid pink;*/
     }
     div.preview-page {
-        outline: 1px solid blue;
+        outline: 1pt solid blue;
     }
     
     section.header {
-        outline: 1px solid pink;
+        outline: 1pt solid pink;
     }
 
     section.page {
-        outline: 1px solid purple;
+        outline: 1pt solid purple;
     }
 
     section.footer {
-        outline: 1px solid pink;
+        outline: 1pt solid pink;
     }
 
     div#content {
-        outline: 1px solid red;
+        outline: 1pt solid red;
     }
     .region-break {
-        border-top: 1px dashed blue;
+        border-top: 1pt dashed blue;
     }
     .moveable {
-        outline: 1px solid yellow;
+        outline: 1pt solid yellow;
     }
 }
 
 /* __________________________________ INTERFACE CLASSES  __________________________________ */
+@media print {
+    .button,
+    #interface {
+        display: none;
+    }
+}
 .button {
     z-index: 1000;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
     background-color: black;
     font-family:sans-serif; 
     text-transform: uppercase;
-    font-size: 12px !important;
-    letter-spacing: 1px;
+    font-size: 9pt !important;
+    letter-spacing: 1pt;
     color: white;
-    padding: 5px 7px;
+    margin: 0;
+    padding: 5pt 7pt;
     cursor: pointer;
+    border: 0;
 
     &:hover {
         background-color: white;
         color: black;
-        outline: 1px solid black;
+        outline: 1pt solid black;
     }
+}
+.button-active {
+    background-color: white;
+    color: black;
+    outline: 1pt solid black;
 }
 
 div#interface {
+    font-family:sans-serif; 
+    text-transform: uppercase;
+    font-size: 10pt !important;
+    line-height: 14pt;
+    letter-spacing: 1pt;
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    bottom: 10pt;
+    right: 10pt;
 
     a {
         text-decoration: none;
         position: static;
+    }
+
+    div#toc {
+        display: inline-block;
+
+        ul#toc-pages {
+            padding: 0.5em 0;
+            display: none;
+            background-color: black;
+            position: absolute;
+            right: 0;
+            bottom: 2em;
+            height: 200pt;
+            width: 80pt;
+            overflow: auto;
+
+            a {
+                padding: 0 1em;
+                color: white;
+
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+        button {
+            width: 80pt;
+        }
     }
 }
 
 /* __________________________________ ABSOLUTE POSITIONNED OBJECTS __________________________________ */
 /* Adding .moveable class to an object makes it absolutely positionned on the page.
  * You can then move it around and resize it.
- * Copy its properties (i.e. "top: 22px; left: 101px; width: 212px; height: 244px;).
+ * Copy its properties (i.e. "top: 22pt; left: 101pt; width: 212pt; height: 244pt;).
  * Paste those properties back to the object's "style" attribute.
  */
 .moveable {
@@ -122,27 +166,27 @@ div#interface {
     display:none;
 }
 .pop-wrap {position:fixed; left:0;right:0;top:0;bottom:0; z-index:9995; overflow:auto; display:none; }
-.pop-container {margin:40px auto; display:block; width: 50% !important; background:white; position:relative;}
+.pop-container {margin:40pt auto; display:block; width: 50% !important; background:white; position:relative;}
 .pop-block {
     position:relative;
     padding: 1em;
 }
-.pop-content {padding:20px; color:#333; word-wrap:break-word; overflow:auto;
-        outline: 2px solid black;
+.pop-content {padding:20pt; color:#333; word-wrap:break-word; overflow:auto;
+        outline: 2pt solid black;
         margin: 1em;
         font-family: monospace;
         font-size: 2em;
 }
 .pop-content h1:first-child, .pop-content h2:first-child, .pop-content p:first-child {margin-top:0;}
-.pop-action-block {background:#eee; padding:15px 20px; border-top:1px solid #ccc; text-align:right;}
-.pop-title {margin:0;  padding:20px; padding-bottom:0; font-size:26px; font-weight:bold; line-height:28px; margin-bottom:0; font-family: sans-serif;}
+.pop-action-block {background:#eee; padding:15pt 20pt; border-top:1pt solid #ccc; text-align:right;}
+.pop-title {margin:0;  padding:20pt; padding-bottom:0; font-size:26pt; font-weight:bold; line-height:28pt; margin-bottom:0; font-family: sans-serif;}
 .pop-btn-close {
     position:absolute; 
-    right:0px; top:0px; 
-    width:30px; height:30px; 
+    right:0pt; top:0pt; 
+    width:30pt; height:30pt; 
     font-family:sans-serif; 
-    font-size:28px; 
-    line-height:31px; 
+    font-size:28pt; 
+    line-height:31pt; 
     text-align:center; 
     cursor:pointer; 
 
@@ -176,6 +220,11 @@ img.fit-width {
 }
 
 
+
+html {
+    width: @page-width-crop;
+
+}
 html.spread {
     width: @page-width-crop * 2;
     .page {
@@ -188,11 +237,6 @@ html.spread {
             margin-left: -@crop;
         }
     }
-}
-
-html {
-    width: @page-width-crop;
-
 }
 body {
     position: absolute;
@@ -223,6 +267,8 @@ section.header {
     page-break-after: always;
     -webkit-flow-from: myFlow;
     position: absolute;
+    top: 0; left: 0;
+    overflow: hidden;
 }
 div#content {
     -webkit-flow-into: myFlow;
@@ -311,16 +357,16 @@ div.crop-left {
     position: absolute;
 }
 div.crop-top {
-    border-top: 1px solid black;
+    border-top: 1pt solid black;
 }
 div.crop-right {
-    border-right: 1px solid black;
+    border-right: 1pt solid black;
 }
 div.crop-bottom {
-    border-bottom: 1px solid black;
+    border-bottom: 1pt solid black;
 }
 div.crop-left {
-    border-left: 1px solid black;
+    border-left: 1pt solid black;
 }
  
 
