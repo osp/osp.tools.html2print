@@ -7,15 +7,17 @@ $("section#container").load("content.html");
 
 $(window).load(function(){
     // __________________________________ DEBUG __________________________________ //
-    $("#debug").click(function(e){
+    $("button#debug").click(function(e){
         e.preventDefault();
+        $(this).toggleClass("button-active");
         $("html").toggleClass("debug");
     });
 
 
     // __________________________________ PRINT PREVIEW __________________________________ //
-    $("a#preview").click(function(e){
+    $("button#preview").click(function(e){
         e.preventDefault();
+        $(this).toggleClass("button-active");
         $("html").toggleClass("export");
         $("img").each(function(){
             var hires = $(this).attr("data-alt-src");
