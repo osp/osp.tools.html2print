@@ -31,6 +31,7 @@ html.debug {
     }
     div.preview-page {
         outline: 1pt solid blue;
+        border: 1px solid red;
     }
     
     section.header {
@@ -263,12 +264,8 @@ section.header {
     margin-bottom: @page-margin-bottom;
     padding-top: @page-margin-top + @header-height;
     padding-bottom: @page-margin-bottom;
-    page-break-inside: never;
-    page-break-after: always;
     -webkit-flow-from: myFlow;
     position: absolute;
-    top: 0; left: 0;
-    overflow: hidden;
 }
 div#content {
     -webkit-flow-into: myFlow;
@@ -303,6 +300,8 @@ div.preview-page {
     z-index: -10;
     outline-offset: -@crop;
     counter-increment: page-counter;
+    page-break-inside: avoid;
+    page-break-after: always;
 
     &:nth-child(odd) .header {
         text-align: right;
