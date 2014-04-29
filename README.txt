@@ -74,6 +74,9 @@ an option; type in a terminal:
 If you have the error «pdf viewer is not available», you need to install
 chromium-libpdf (tested on Arch Linux).
 
+On some install, you need
+    chromium-browser --enable-print-preview
+
 
 
 First launch
@@ -87,6 +90,10 @@ webkit-based browser and activate the «experimental web platform features».
 To do so, you can visit the URL:
 
     chrome://flags/#enable-experimental-web-platform-features
+
+And search in the long list for «experimental web platform features» to enable.
+(or the equivalent in the language of your browser)
+
 
 
 Development
