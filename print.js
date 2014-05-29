@@ -1,5 +1,5 @@
 // Choose the number of pages of the document
-var nb_page = 400;
+var nb_page = 4t01;
 
 
 // Loads main content into <section id="container">
@@ -13,6 +13,12 @@ $(window).load(function(){
         $("html").toggleClass("debug");
     });
 
+    // __________________________________ SPREAD __________________________________ //
+    $("button#spread").click(function(e){
+        e.preventDefault();
+        $(this).toggleClass("button-active");
+        $("html").toggleClass("spread");
+    });
 
     // __________________________________ HIGH RESOLUTION __________________________________ //
     $("button#hi-res").click(function(e){

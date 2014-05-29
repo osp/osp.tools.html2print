@@ -221,24 +221,28 @@ img.fit-width {
 }
 
 
+html.spread {
+    width: @page-width-crop * 2;
+
+    .preview-page {
+        outline: 1px solid black;
+        float: left;
+
+        &:first-child {
+            margin-left: @page-width !important;
+        }
+        &:nth-child(odd) {
+            margin-left: -@crop * 2;
+            left: 1px;
+        }
+    }
+}
 
 html {
     width: @page-width-crop;
 
 }
-html.spread {
-    width: @page-width-crop * 2;
-    .page {
-        float: left;
 
-        &:first-child {
-            margin-left: @page-width + @crop !important;
-        }
-        &:nth-child(odd) {
-            margin-left: -@crop;
-        }
-    }
-}
 body {
     position: absolute;
 }
