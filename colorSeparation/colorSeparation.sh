@@ -23,7 +23,7 @@ echo "REMOVE TIF FILES"
 rm *tif
 
 echo "GENERATE HTML PREVIEW PAGE"
-cat ../header.html > ${bn}-checkcolors.html
+cat ../colorSeparation_header.html > ${bn}-checkcolors.html
 
 start=1
 end=$(( $(ls | wc -l) /5))
@@ -44,4 +44,4 @@ do
     echo "</div>" >> ${bn}-checkcolors.html
 done
 
-cat ../footer.html  >> ${bn}-checkcolors.html
+cat ../colorSeparation_footer.html  >> ${bn}-checkcolors.html
