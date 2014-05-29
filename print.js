@@ -1,5 +1,5 @@
 // Choose the number of pages of the document
-var nb_page = 122;
+var nb_page = 400;
 
 
 // Loads main content into <section id="container">
@@ -14,8 +14,8 @@ $(window).load(function(){
     });
 
 
-    // __________________________________ PRINT PREVIEW __________________________________ //
-    $("button#preview").click(function(e){
+    // __________________________________ HIGH RESOLUTION __________________________________ //
+    $("button#hi-res").click(function(e){
         e.preventDefault();
         $(this).toggleClass("button-active");
         $("html").toggleClass("export");
