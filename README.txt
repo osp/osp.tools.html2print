@@ -58,10 +58,13 @@ We use them in order to:
     - add crop marks
     - paginate
 
+
 ### Print
 
 To make a PDF, just open the webpage in the browser, print the page within the browser, and
 choose «Print to file».
+
+Currently, and idealy, Chromium version 33 seems the best version to use. We investigate to document this question more deeply.
 
 In Chrome, you can have a print preview within the browser, which can save
 some time as the system print dialogue is not optimal (you need to change the
@@ -76,7 +79,6 @@ chromium-libpdf (tested on Arch Linux).
 
 On some install, you need
     chromium-browser --enable-print-preview
-
 
 
 First launch
@@ -95,10 +97,8 @@ And search in the long list for «experimental web platform features» to enable
 (or the equivalent in the language of your browser)
 
 
-
 Development
 -----------
-
 
 ### Local micro-server
 
@@ -115,4 +115,22 @@ To do so:
 - Visit the URL "http://localhost:8000/"!
 
 
+Needed files
+------------
 
+- lib directory
+- index.html 
+	- change title to change pdf name
+	- section for crops
+	- sections header, page, footer
+	- interface : preview to switch between hi and low res, toc to go to a specific page
+	- container : where jquery will put content.html 
+- content.html : filled from etherpad with a curl in a terminal like 
+	curl http://osp.kitchen:9999/p/variable_publication/export/txt >| content.html
+- print.js
+- print.less
+
+### others :
+- check : to test/compare
+- iceberg : internal use
+- img : for test
