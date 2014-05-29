@@ -132,5 +132,6 @@ Needed files
 
 ### others :
 - check : to test/compare
+- colorSeparation: utilities to trasform a PDF from RGB to CMYK + an HTML page to preview the color layers
 - iceberg : internal use
 - img : for test
