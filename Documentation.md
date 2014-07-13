@@ -4,9 +4,63 @@ Advanced documentation
 To know basic information and how to first start the project, please read the README.md.
 
 
+
+Anatomy of the repo
+-------------------
+
+The folder tries to present you with the minimum files at first: a couple of html files, a stylesheet, assets folder and this readme.
+That is all you need to get started. Refer to the "Development" section to get your environment up and running.
+
+#### /content.html
+This is where you place your marked up content. The main index file contains all the lib calls and interface elements so clearing the content to this specific folder helps ease of use.
+
+#### /setup
+
+- `/setup.js/` Set the number of pages for your document and the source of your content. By default this is set to pull in the content from 'content.html' but you could also set this to the export address of a pad for collaborative editing.
+- `/setup.less/` Sets the basic rules of your document. Page width, page height, inside, outside, top and bottom margins and the running title content, injected in CSS.
+
+#### /main.less
+The main stylesheet. In fact, it only reroutes to other `.less` partial files. It pulls different stylesheets which have different functions. This structure is up to you, but in our experience, fragmenting into several small stylesheets really helps the authoring experience.
+
+#### /main.css
+Compiled .less files into a .css file, used for the polyfill. To generate it, do in the terminal: `lessc main.less main.css`. (You need to install the software `npm` first, and install `lessc` with the command `sudo npm install -g less`.
+
+#### /index.html
+This is where it all comes together. We pull together all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
+
+#### /assets
+
+- `/lib/` → all that we need for interface elements, less processing, resetting browser attitudes, etc→
+- `/js/` → interface element actions & attitudes, as well as general variable settings, namely, the amount of pages for your document.
+- `/less/` → .less partials
+
+#### /examples/
+
+Concrete examples from which you can copy/paste specific features like:
+- 2columns.html: Multi-column layout.
+- imposition.html (to come): Makes an imposition plan to print your booklet at home.
+- load-external-webpage.html: Loads as content a part of an existing webpage (i.e. from a newspaper website, a blogpost, a wiki…).
+- master-pages.html: Applying different master pages.
+- moveable.html: Move and resize elements with the mouse to make your layout and then report the properties back into the code.
+- one-layout-per-page.html: when page number set to 0, then you can specify each page structure individually.
+- pagination_region-breaks.html: Page-breaks examples + pagination starting at page 3.
+- polyfill.html: A javascript mimicking the CSS Regions in non-webkit browsers.
+- polyfill.html: Loading an external webpage and using the polyfill at the same time (be careful of order of scripts loading).
+
+#### /iceberg/
+	Snapshots of the project, for OSP website previews!
+
+
+
+
+
 Collaborative design
 --------------------
 Because everything is text-based, you can work on the HTML and/or on the CSS files from an Etherpad, a collaborative text editor. To do so, open a pad, go to Export options and copy the link of the "plain text" export button. Then paste the url in `setup/setup.js` in from of `var content = `.
+
+
+
+
 
 Region-breaks
 -------------
@@ -27,11 +81,31 @@ other properties available to you with CSS regions:
 with assignable values of: `always;` or `avoid;`
 
 
+
+
+
 Pagination
 ----------
 
 Applying a 'counter-reset: page-counter -3;'
 then hiding the footer with visibility:none on pages where one would not want the counter to display.
+
+
+
+
+
+Opening several projects
+------------------------
+
+By default, the `start` script uses the port 8000. If you want to launch another project at the same time, you need to launch the mini-server by yourself on another port (i.e. 8888).
+
+- Open a terminal.
+- Run these:
+
+   - `cd /path/to/this/directory/`
+   - `python -m SimpleHTTPServer 8888`
+
+- Go to <http://localhost:8888/> !
 
 
 

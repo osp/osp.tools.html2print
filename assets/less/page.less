@@ -75,6 +75,7 @@
 
 
 body {
+    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
     text-rendering: optimizeLegibility;
 }
 
@@ -102,26 +103,5 @@ p {
     /*-webkit-region-break-inside: avoid;*/
 }
 
-* {
-    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
-}
 
-.debug .header {
-    outline: 1pt solid pink;
-}
-.debug .body {
-    outline: 1pt solid purple;
-}
-.debug .footer {
-    outline: 1pt solid pink;
-}
 
-/* __________________________________ IMAGES __________________________________ */
-/* Use those classes for images to fit width or height of parent elements or both. */
-
-img.fit-height {
-    height: 100%;
-}
-img.fit-width {
-    width: 100%;
-}

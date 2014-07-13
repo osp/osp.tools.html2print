@@ -165,9 +165,6 @@
         outline: 1px solid lightgray;
         background-color: white;
     }
-    .debug #story {
-        outline: 1pt solid green;
-    }
 }
 
 
@@ -183,110 +180,6 @@
     }
 }
 
-/**
- * UI
- */
-@media screen {
-    .button {
-        z-index: 1000;
-        background-color: black;
-        font-family: sans-serif; 
-        text-transform: uppercase;
-        font-size: 9pt !important;
-        letter-spacing: 1pt;
-        color: white;
-        margin: 0;
-        padding: 5pt 7pt;
-        cursor: pointer;
-        border: 0;
-    }
-    .button:hover {
-        background-color: white;
-        color: black;
-        outline: 1pt solid black;
-    }
-    .button-active {
-        background-color: white;
-        color: black;
-        outline: 1pt solid black;
-    }
-    .lo-res {
-        outline: 10px solid red;
-    }
-    #interface {
-        font-family: sans-serif; 
-        text-transform: uppercase;
-        font-size: 10pt !important;
-        line-height: 14pt;
-        letter-spacing: 1pt;
-        position: fixed;
-        bottom: 10pt;
-        right: 10pt;
-    }
-
-    #interface a {
-        text-decoration: none;
-        position: static;
-    }
-
-
-    div.dropdown {
-        display: inline-block;
-        position: relative;
-
-        ul {
-            padding: 0.5em 0;
-            display: none;
-            background-color: black;
-            position: absolute;
-            right: 0;
-            bottom: 2em;
-            height: 200pt;
-            width: 80pt;
-            overflow: auto;
-
-            a {
-                padding: 0 1em;
-                color: white;
-                display: block;
-
-                &:hover {
-                    background-color: white;
-                    color: black;
-                }
-            }
-        }
-        button {
-            width: 80pt;
-        }
-    }
-
-    #toc {
-        display: inline-block;
-    }
-    #toc-pages {
-        padding: 0.5em 0;
-        display: none;
-        background-color: black;
-        position: absolute;
-        right: 0;
-        bottom: 2em;
-        height: 200pt;
-        width: 80pt;
-        overflow: auto;
-    }
-    #toc-pages a {
-        padding: 0 1em;
-        color: white;
-    }
-    #toc-pages a:hover {
-        background-color: white;
-        color: black;
-    }
-    #toc-pages button {
-        width: 80pt;
-    }
-}
 
 @media print {
     #interface {
@@ -305,7 +198,4 @@
      * if you want to put manual page breaks without attaching it to an HTML element
      */
     -webkit-region-break-before: always;
-}
-.debug .region-break {
-    border-top: 1pt dashed blue;
 }
