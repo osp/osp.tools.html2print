@@ -38,49 +38,72 @@
         height: @paper-height;
         box-sizing: border-box;
 
-        /* Crop marks */
-        padding: @crop;
-
         counter-increment: page-counter;
 
-        /* utile ou non? pour éviter qu'un papier soit coupé par le format de la
-        * page lors de la conversion et l'arrondis des unités */
+        // To make sure that one paper sheet is not splitted into different pages in the PDF
         page-break-inside: avoid;
         page-break-after: always;
         overflow: hidden;
 
         /* Crop marks */
-        background-image:
-            -webkit-linear-gradient(90deg, black 0, black 100%),
-            -webkit-linear-gradient(0deg, black 0, black 100%),
-            -webkit-linear-gradient(90deg, black 0, black 100%),
-            -webkit-linear-gradient(0deg, black 0, black 100%),
-            -webkit-linear-gradient(90deg, black 0, black 100%),
-            -webkit-linear-gradient(0deg, black 0, black 100%),
-            -webkit-linear-gradient(90deg, black 0, black 100%),
-            -webkit-linear-gradient(0deg, black 0, black 100%)
-        ;
-        background-size: 
-            @crop-size 1px,
-            1px @crop-size,
-            @crop-size 1px,
-            1px @crop-size,
-            @crop-size 1px,
-            1px @crop-size,
-            @crop-size 1px,
-            1px @crop-size
-        ;
-        background-position:
-            left @crop,
-            @crop top,
-            right @crop,
-            (@paper-width - @crop) top,
-            right (@paper-height - @crop),
-            (@paper-width - @crop) bottom,
-            left (@paper-height - @crop),
-            @crop bottom
-        ;
-        background-repeat: no-repeat;
+        padding: @crop;
+        position: relative;
+        .crops {
+            width: @paper-width; 
+            height: @paper-height;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            div {
+                border-style: solid;
+                border-color: black;
+                border-width: 0;
+                width: @crop;
+                height: @crop;
+                position: absolute;
+                box-sizing: border-box;
+
+                span {
+                    width: @bleed;
+                    height: @bleed;
+                    background-color: white;
+                    position: absolute;
+                }
+            }
+            .crop-top-left {
+                border-right-width: 1px;
+                border-bottom-width: 1px;
+                top: 0;
+                left: 0;
+
+                span { right: -1px; bottom: -1px;}
+            }
+            .crop-top-right {
+                border-left-width: 1px;
+                border-bottom-width: 1px;
+                top: 0;
+                right: 0;
+
+                span { left: -1px; bottom: -1px;}
+            }
+            .crop-bottom-right {
+                border-left-width: 1px;
+                border-top-width: 1px;
+                right: 0;
+                bottom: 0;
+
+                span { left: -1px; top: -1px;}
+            }
+            .crop-bottom-left {
+                border-right-width: 1px;
+                border-top-width: 1px;
+                left: 0;
+                bottom: 0;
+
+                span { right: -1px; top: -1px;}
+            }
+        }
     }
     .page {
         width: @page-width;

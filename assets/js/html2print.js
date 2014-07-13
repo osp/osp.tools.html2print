@@ -1,5 +1,8 @@
 $(function() {
     // ________________________________ INIT __________________________________ //
+    // Creating crop marks
+    $("#master-page").append("<div class='crops'><div class='crop-top-left'><span class='bleed'></span></div><div class='crop-top-right'><span class='bleed'></span></div><div class='crop-bottom-right'><span class='bleed'></span></div><div class='crop-bottom-left'><span class='bleed'></span></div></div>")
+
     // Cloning the master page
     for (i = 1; i < nb_page; i++){
         $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
