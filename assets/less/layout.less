@@ -6,8 +6,6 @@
 
 /* __________________________________ HEADER __________________________________ */
 .header {
-    /*position: absolute;*/
-    /*margin-top: @page-margin-top;*/
     top: 0;
     margin: 0;
     padding-top: @page-margin-top;
@@ -23,7 +21,6 @@
 .body {
     height: @page-height - @header-height - @footer-height;
     width: @page-width;
-    /*margin: @crop;*/
     margin-bottom: @page-margin-bottom;
     padding-top: @page-margin-top + @header-height;
     padding-bottom: @page-margin-bottom;
@@ -53,7 +50,7 @@
     }
 }
 
-/* for spreads only */
+/* mirrored pages */
 .paper {
     &:nth-child(odd) .header {
         text-align: right;
@@ -71,12 +68,6 @@
         padding-left: @page-margin-outside;
         padding-right: @page-margin-inside;
     }
-}
-
-
-body {
-    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
-    text-rendering: optimizeLegibility;
 }
 
 img {

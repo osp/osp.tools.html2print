@@ -94,6 +94,15 @@ then hiding the footer with visibility:none on pages where one would not want th
 
 
 
+Changing the visual structure of the document
+---------------------------------------------
+
+If you want to have another type of layout than header/body/footer, you might want to edit the pages `index.html` and `/assets/less/layout.less`. Look at the code in the `examples` folder for more help.
+
+
+
+
+
 Opening several projects
 ------------------------
 
@@ -110,6 +119,18 @@ By default, the `start` script uses the port 8000. If you want to launch another
 
 
 
+
+Troubleshooting
+===============
+
+### When I launch the server (by opening the `start` file or through the terminal, I got the following error: "socket.error: [Errno 98] Address already in use"
+
+Run the mini-server on another port (see section "Opening several projects).
+
+
+
+
+
 PDFutils
 ========
 See the repository PDFutils <http://osp.kitchen/tools/PDFutils/> for
@@ -117,3 +138,6 @@ pre-press tools such as:
 
 - PDF conversion from RGB to CMYK via Ghostscript
 - Check color separation
+
+See <http://stdin.fr/Bazar/Ghostscript> for Ghostscript tips (PDF manipulation software).
+

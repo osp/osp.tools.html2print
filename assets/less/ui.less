@@ -2,6 +2,44 @@
  * User Interface
  */
 @media screen {
+    // C A N V A S
+    body {
+        background-color: #F0F0F0;
+    }
+    #pages {
+        width: @paper-width; 
+        height: @paper-height;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .spread #pages {
+        width: @paper-width * 2; 
+        height: @paper-height * 2;
+    }
+    .paper {
+        /* centrer la page à l'écran */
+        background-color: white;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    .normal .paper {
+        //outline: 1px solid lightgray;
+    }
+    .normal .page {
+        outline: 1px dashed lightsalmon;
+    }
+    .preview .paper {
+        background: none;
+    }
+    .preview .page {
+        outline: 1px solid lightgray;
+        background-color: white;
+    }
+
+
+
+    // M E N U
     .button {
         z-index: 1000;
         background-color: black;
@@ -103,3 +141,10 @@
     }
 }
 
+
+
+@media print {
+    #interface {
+        display: none;
+    }
+}
