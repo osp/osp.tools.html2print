@@ -126,11 +126,11 @@ the imagined workflow will be to use both laidout and undertype: undertype will 
             console.log(page_height);
             console.log(pages);
 
-            $("#master-page").hide();
-
             for(i = 1; i <= pages; i++){
-                $("section#source").before("<section class='page' id='page-" + i + "'></section>");
+                //$("section#source").before("<section class='page' id='page-" + i + "'></section>");
+                $("#master-page").clone().addClass("page").attr("id","page-"+i).insertAfter($("#master-page"));
             }
+            $("#master-page").hide();
         });
     </script>
 </body>
