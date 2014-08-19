@@ -265,6 +265,7 @@ section.header {
         content: @header-text;
     }
 }
+/* __________________________________ MAIN SECTION __________________________________ */
 .page {
     height: @page-height - @header-height - @footer-height;
     width: @page-width;
@@ -310,6 +311,7 @@ div.preview-page {
     counter-increment: page-counter;
     page-break-inside: avoid;
     page-break-after: always;
+    overflow: hidden;
 
     &:nth-child(odd) .header {
         text-align: right;
