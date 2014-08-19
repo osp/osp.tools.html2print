@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Regions-polyfill</title>
+    
+    <style type="text/css" media="screen, print">
+        html, 
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #source {
+          -webkit-flow-into: myFlow;
+          -adobe-flow-into: myFlow;
+            width: 105mm;
+        }
+        .page {
+            outline: 1px solid red;
+            width: 105mm;
+            height: 148mm;
+          -webkit-flow-from: myFlow;
+          -adobe-flow-from: myFlow;
+        }
+        @page {
+            size: 105mm 148mm;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <section id="source">
+        <h1 style="font-size: 2em;">HTML to print</h1>
+        <p style="font-size: 1.5em; margin: 1em;">
+            This is an example document to test different layout features to design printed documents with HTML/CSS/Javascript.
+            <a href="http://osp.constantvzw.org/tools/html2print/">Clone the repository.</a> 
+        </p>
+
+        <p>
+splinter fields is an initiative of brussels based organizations active within the fields of technological and media arts (constant, foam, nadine and okno) to foster collaborative, agile and flexible learning. the programme of workshops, study-groups and field-tests is open to artists, designers, technologists and other generalists curious to explore tools and mindware for experiments in contemporary culture and daily life.
+        </p>
+        <p>
+undertype was originally built as an educationnal platform to make apparent the processes that a typesetting engine may go through. it was purposely rudimentary and bare. for todays purpose, pierre built a version that allows for copying and pasting functions. we may take these abilities for granted, but they didn't necessarely fit in the original idea of the program. undertype imitates a linotype machine as is sets slugs of text line by line and one by one. reenacting digitally what these machines did with masters and hot lead. 
+        </p>
+        <p>
+the imagined workflow will be to use both laidout and undertype: undertype will be the tool to set the text in sections. this combination came about as laidout does not enable text setting functions. outputted pdf files from undertype will be rasterised and imported into laidout as images (the idea from the beggining is to print the flyers on a risograph machine) then images, logos, etc will be laidout in laidout.
+        </p>
+
+
+        <h1 style="font-size: 2em;">Test of image resolution</h1>
+        <!--<img style="width: 100%;" src="img/collaborative-plotting-small.png" data-alt-src="img/collaborative-plotting.png" />-->
+
+
+        <p>
+splinter fields is an initiative of brussels based organizations active within the fields of technological and media arts (constant, foam, nadine and okno) to foster collaborative, agile and flexible. 
+        </p>
+
+
+        <h1 class="region-break" style="font-size: 2em;">
+            I'm a heading and I don't want to be alone.
+        </h1>
+
+        <a href="#come-here">Let's see what's next.</a>
+        <p>
+undertype was originally built as an educationnal platform to make apparent the processes that a typesetting engine may go through. it was purposely rudimentary and bare. for todays purpose, pierre built a version that allows for copying and pasting functions. we may take these abilities for granted, but they didn't necessarely fit in the original idea of the program. undertype imitates a linotype machine as is sets slugs of text line by line and one by one. reenacting digitally what these machines did with masters and hot lead. undertype was originally built as an educationnal platform to make apparent the processes that a typesetting engine may go through. it was purposely rudimentary and bare. for todays purpose, pierre built a version that allows for copying and pasting functions. we may take these abilities for granted, but they didn't necessarely fit in the original idea of the program. undertype imitates a linotype machine as is sets slugs of text line by line and one by one. reenacting digitally what these machines did with masters and hot lead. 
+        </p>
+        <p>
+the imagined workflow will be to use both laidout and undertype: undertype will be the tool to set the text in sections. this combination came about as laidout does not enable text setting functions. outputted pdf files from undertype will be rasterised and imported into laidout as images (the idea from the beggining is to print the flyers on a risograph machine) then images, logos, etc will be laidout in laidout.
+        </p>
+        <!--<img style="width: 100%;" src="img/collaborative-plotting.png" />-->
+        <p>
+splinter fields is an initiative of brussels based organizations active within the fields of technological and media arts (constant, foam, nadine and okno) to foster collaborative, agile and flexible learning. the programme of workshops, study-groups and field-tests is open to artists, designers, technologists and other generalists curious to explore tools and mindware for experiments in contemporary culture and daily life.
+        </p>
+        <p>
+undertype was originally built as an educationnal platform to make apparent the processes that a typesetting engine may go through. it was purposely rudimentary and bare. for todays purpose, pierre built a version that allows for copying and pasting functions. we may take these abilities for granted, but they didn't necessarely fit in the original idea of the program. undertype imitates a linotype machine as is sets slugs of text line by line and one by one. reenacting digitally what these machines did with masters and hot lead. 
+        </p>
+
+
+        <div class="region-break"></div>
+
+
+        <p>
+the imagined workflow will be to use both laidout and undertype: undertype will be the tool to set the text in sections. this combination came about as laidout does not enable text setting functions. outputted pdf files from undertype will be rasterised and imported into laidout as images (the idea from the beggining is to print the flyers on a risograph machine) then images, logos, etc will be laidout in laidout.
+        </p>
+
+
+        <h1 id="come-here" class="region-break" style="font-size: 2em;">
+            I'm a heading and I want to be linked.
+        </h1>
+        <!--<img style="width: 100%;" src="img/collaborative-plotting.png" />-->
+gg        <p>
+splinter fields is an initiative of brussels based organizations active within the fields of technological and media arts (constant, foam, nadine and okno) to foster collaborative, agile and flexible learning. the programme of workshops, study-groups and field-tests is open to artists, designers, technologists and other generalists curious to explore tools and mindware for experiments in contemporary culture and daily life.
+        </p>
+        <p>
+undertype was originally built as an educationnal platform to make apparent the processes that a typesetting engine may go through. it was purposely rudimentary and bare. for todays purpose, pierre built a version that allows for copying and pasting functions. we may take these abilities for granted, but they didn't necessarely fit in the original idea of the program. undertype imitates a linotype machine as is sets slugs of text line by line and one by one. reenacting digitally what these machines did with masters and hot lead. 
+        </p>
+        <p>
+the imagined workflow will be to use both laidout and undertype: undertype will be the tool to set the text in sections. this combination came about as laidout does not enable text setting functions. outputted pdf files from undertype will be rasterised and imported into laidout as images (the idea from the beggining is to print the flyers on a risograph machine) then images, logos, etc will be laidout in laidout.
+        </p>
+        <!--<img style="width: 100%;" src="img/collaborative-plotting.png" />-->
+gg        <p>
+splinter fields is an initiative of brussels based organizations active within the fields of technological and media arts (constant, foam, nadine and okno) to foster collaborative, agile and flexible learning. the programme of workshops, study-groups and field-tests is open to artists, designers, technologists and other generalists curious to explore tools and mindware for experiments in contemporary culture and daily life.
+        </p>
+        <p>
+undertype was originally built as an educationnal platform to make apparent the processes that a typesetting engine may go through. it was purposely rudimentary and bare. for todays purpose, pierre built a version that allows for copying and pasting functions. we may take these abilities for granted, but they didn't necessarely fit in the original idea of the program. undertype imitates a linotype machine as is sets slugs of text line by line and one by one. reenacting digitally what these machines did with masters and hot lead. 
+        </p>
+        <p>
+the imagined workflow will be to use both laidout and undertype: undertype will be the tool to set the text in sections. this combination came about as laidout does not enable text setting functions. outputted pdf files from undertype will be rasterised and imported into laidout as images (the idea from the beggining is to print the flyers on a risograph machine) then images, logos, etc will be laidout in laidout.
+        </p>
+    </section> 
+
+
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="css-regions-polyfill/cssregions.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            $("section#source").before("<section class='page' id='master-page'></section>");
+            height = $("section#source").height();
+            page_height = $("#master-page").height();
+            pages = Math.ceil(height / page_height);
+
+            console.log(height);
+            console.log(page_height);
+            console.log(pages);
+
+            $("#master-page").hide();
+
+            for(i = 1; i <= pages; i++){
+                $("section#source").before("<section class='page' id='page-" + i + "'></section>");
+            }
+            
+            //$("#source").css({"-webkit-flow-into": "myFlow !important", "-adobe-flow-into": "myFlow !important"});
+            //$(".page").css({"outline-color": "blue", "-webkit-flow-from": "myFlow", "-adobe-flow-from": "myFlow"});
+            window.setTimeout(function(){
+                console.log("do it");
+                    CSSRegions.doLayout();
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

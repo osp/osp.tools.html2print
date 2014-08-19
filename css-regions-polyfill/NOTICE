@@ -1,0 +1,35 @@
+CSS Regions Polyfill
+Copyright 2012 Adobe Systems Incorporated
+
+This software is licensed under the Apache License, Version 2.0 (see
+LICENSE file).
+
+This software uses the following third party libraries that may have
+licenses differing from that of the software itself. You can find the
+libraries and their respective licenses below.
+
+- content-folding - ./playground/content-folding
+
+    This is a modified version of this demo:
+    http://css-tricks.com/content-folding/
+
+    There are no license information available for this. However Chris Coyier (the author of this example) has
+    agreed to let us use his work.
+
+- Paginated Content - ./playground/paginated-content
+
+    Original example can be found here: http://christiancantrell.com/adobe/hlp/callout.html
+    The text is from Mark Twain's novel A Connecticut Yankee in King Arthur's Court.
+
+- Complex Content Flow - ./playground/the-first-example/image.png ./playground/the-first-example/complex-flow.png
+
+    These two images are from the CSS Regions spec (http://dev.w3.org/csswg/css3-regions/).
+
+    License information: http://www.w3.org/Consortium/Legal/2002/copyright-documents-20021231
+
+- Breaking News Example - ./playground/breaking-news
+
+    This example is from the CSS Regions Use Cases page from W3C:
+    http://wiki.csswg.org/spec/css3-regions/regions-use-cases
+
+    License information: http://www.w3.org/Consortium/Legal/2002/copyright-documents-20021231
