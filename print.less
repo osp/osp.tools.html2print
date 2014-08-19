@@ -29,7 +29,7 @@ html.debug {
     body {
         /*outline: 1pt solid pink;*/
     }
-    div.preview-page {
+    div.page {
         outline: 1pt solid blue;
         border: 1px solid red;
     }
@@ -38,7 +38,7 @@ html.debug {
         outline: 1pt solid pink;
     }
 
-    section.page {
+    section.main-section {
         outline: 1pt solid purple;
     }
 
@@ -228,7 +228,7 @@ img.fit-width {
 html.spread {
     width: @page-width-crop * 2;
 
-    .preview-page {
+    .page {
         outline: 1px solid black;
         float: left;
 
@@ -266,7 +266,7 @@ section.header {
     }
 }
 /* __________________________________ MAIN SECTION __________________________________ */
-.page {
+.main-section {
     height: @page-height - @header-height - @footer-height;
     width: @page-width;
     margin: @crop;
@@ -302,7 +302,7 @@ div#print-marks {
     z-index: -1000;
     width: 100%; 
 }
-div.preview-page {
+div.page {
     width: @page-width-crop; 
     height: @page-height-crop;
     position: relative;
@@ -318,13 +318,13 @@ div.preview-page {
     }
 
     &:nth-child(odd) .header,
-    &:nth-child(odd) .page,
+    &:nth-child(odd) .main-section,
     &:nth-child(odd) .footer {
         padding-left: @page-margin-inside;
         padding-right: @page-margin-outside;
     }
     &:nth-child(even) .header,
-    &:nth-child(even) .page,
+    &:nth-child(even) .main-section,
     &:nth-child(even) .footer {
         padding-left: @page-margin-outside;
         padding-right: @page-margin-inside;
