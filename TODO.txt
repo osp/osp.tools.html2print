@@ -24,3 +24,14 @@
 
 - when printing with .spread, javascript to remove the .spread class
 - zooming in and out changes layout preview
+
+
+==============================
+|  D O C U M E N T A T I O N |
+==============================
+
+- draw a schema to show the links between files
+- produce pdf / images to show examples of the features list
+- add links to jobs we did with the tool
+- links to Balsamine interview http://osp.constantvzw.org:9999/p/balsa-docu
+- add some testimonials as in Prince http://www.princexml.com/ ?
