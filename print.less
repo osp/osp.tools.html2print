@@ -24,10 +24,10 @@
 
 /* __________________________________ DEBUG __________________________________ */
 html.debug {
-    /*outline: 1pt solid purple;*/
+    outline: 1pt solid purple;
 
     body {
-        /*outline: 1pt solid pink;*/
+        outline: 1pt solid pink;
     }
     div.page {
         outline: 1pt solid blue;
@@ -226,25 +226,38 @@ img.fit-width {
 
 
 html.spread {
-    width: @page-width-crop * 2;
+    //width: @page-width-crop * 2;
+
+    //.page {
+        //outline: 1px solid black;
+        //float: left;
+
+        //&:first-child {
+            //margin-left: @page-width !important;
+        //}
+        //&:nth-child(odd) {
+            //margin-left: -@crop * 2;
+            //left: 1px;
+        //}
+    //}
 
     .page {
         outline: 1px solid black;
         float: left;
 
-        &:first-child {
-            margin-left: @page-width !important;
-        }
         &:nth-child(odd) {
             margin-left: -@crop * 2;
             left: 1px;
         }
     }
+    #page-1 {
+        margin-left: @page-width !important;
+    }
 }
 
 html {
     width: @page-width-crop;
-
+    position: absolute;
 }
 
 body {

@@ -1,5 +1,5 @@
 // Choose the number of pages of the document
-var nb_page = 40;
+var nb_page = 7;
 
 
 // Loads main content into <section id="container">
@@ -16,8 +16,16 @@ $(window).load(function(){
     // __________________________________ SPREAD __________________________________ //
     $("button#spread").click(function(e){
         e.preventDefault();
+        //$(this).toggleClass("button-active");
+        //$("html").toggleClass("spread");
+
+
+
         $(this).toggleClass("button-active");
         $("html").toggleClass("spread");
+        w = parseInt($("html").css("width")) * 2;
+        console.log(w);
+        $("html").css("width",  w + "px");
     });
 
     // __________________________________ HIGH RESOLUTION __________________________________ //
