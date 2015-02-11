@@ -2,8 +2,8 @@
 var nb_page = 7;
 
 
-// Loads main content into <section id="container">
-$("section#container").load("content.html");
+// Loads main content into <section id="story">
+$("#story").load("content.html");
 
 $(window).load(function(){
     // __________________________________ DEBUG __________________________________ //
@@ -23,8 +23,7 @@ $(window).load(function(){
 
         $(this).toggleClass("button-active");
         $("html").toggleClass("spread");
-        w = parseInt($("html").css("width")) * 2;
-        console.log(w);
+        w = parseInt($(".paper:first-child").css("width")) * 2;
         $("html").css("width",  w + "px");
     });
 
@@ -62,13 +61,13 @@ $(window).load(function(){
     var page_height = $("#master-page").height(); 
 
     for (i = 1; i < nb_page; i++){
-        $("#master-page").clone().addClass("page").attr("id","page-"+i).insertBefore($("#master-page"));
+        $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
     }
     $("#master-page").hide();
 
 
     // __________________________________ TOC __________________________________ //
-    $(".page").each(function(){
+    $(".paper").each(function(){
         page = $(this).attr("id");
         $("#toc-pages").append("<li><a href='#" + page + "'>" + page.replace("-", " ") + "</a></li>")
     });

@@ -1,20 +1,24 @@
-/* __________________________________ LOCAL SETTINGS __________________________________ */
+/* ______________________________ USER DEFINED VARIABLES ______________________________ */
 
-
-@page-height: 210mm;
 @page-width: 148.5mm;
-@spread: @page-width*2;
+@page-height: 210mm;
 
 @crop-length: 7mm;
-@crop-offset: 5mm;
-@crop: @crop-length + @crop-offset;    // Based on Scribus cropmarks with 5mm of bleed -> 7mm of marks + 5mm of offset
-@page-width-crop: @page-width + (@crop*2); 
-@page-height-crop: @page-height + (@crop*2);
+@crop-bleed: 5mm;
 
 @page-margin-inside: 20mm;
 @page-margin-outside: 10mm;
 @page-margin-top: 10mm;
 @page-margin-bottom: 15mm;
+
+/* __________________________________ LOCAL SETTINGS __________________________________ */
+
+
+@spread: @page-width * 2;
+
+@crop: @crop-length + @crop-bleed;    // Based on Scribus cropmarks with 5mm of bleed -> 7mm of marks + 5mm of bleed
+@page-width-crop: @page-width + (@crop*2); 
+@page-height-crop: @page-height + (@crop*2);
 
 @header-height: 10mm;
 @header-text: "HTML to Print Boilerplate";
@@ -29,7 +33,7 @@ html.debug {
     body {
         outline: 1pt solid pink;
     }
-    div.page {
+    .page {
         outline: 1pt solid blue;
         border: 1px solid red;
     }
@@ -38,7 +42,7 @@ html.debug {
         outline: 1pt solid pink;
     }
 
-    section.main-section {
+    section.body {
         outline: 1pt solid purple;
     }
 
@@ -46,7 +50,7 @@ html.debug {
         outline: 1pt solid pink;
     }
 
-    div#content {
+    #story {
         outline: 1pt solid red;
     }
     .region-break {
@@ -241,13 +245,12 @@ html.spread {
         //}
     //}
 
-    .page {
-        outline: 1px solid black;
+    .paper {
         float: left;
 
         &:nth-child(odd) {
             margin-left: -@crop * 2;
-            left: 1px;
+            left: -1px;
         }
     }
     #page-1 {
@@ -256,21 +259,22 @@ html.spread {
 }
 
 html {
-    width: @page-width-crop;
-    position: absolute;
+    /*width: @page-width-crop;*/
+    /*position: absolute;*/
 }
 
 body {
-    position: absolute;
+    /*position: absolute;*/
 }
 
 /* __________________________________ HEADER __________________________________ */
 section.header {
-    position: absolute;
-    top: @crop;
-    margin: 0 @crop;
-    margin-top: @page-margin-top;
-    width: @page-width;
+    /*position: absolute;*/
+    /*margin-top: @page-margin-top;*/
+    top: 0;
+    margin: 0;
+    padding-top: @page-margin-top;
+    width: 100%;
     height: @header-height;
     text-align: left;
 
@@ -279,27 +283,27 @@ section.header {
     }
 }
 /* __________________________________ MAIN SECTION __________________________________ */
-.main-section {
+.body {
     height: @page-height - @header-height - @footer-height;
     width: @page-width;
-    margin: @crop;
+    /*margin: @crop;*/
     margin-bottom: @page-margin-bottom;
     padding-top: @page-margin-top + @header-height;
     padding-bottom: @page-margin-bottom;
     -webkit-flow-from: myFlow;
     position: absolute;
 }
-div#content {
+#story {
     -webkit-flow-into: myFlow;
 }
 /* __________________________________ FOOTER __________________________________ */
 section.footer {
     position: absolute;
-    bottom: @crop;
-    margin: 0 @crop;
+    bottom: 0;
+    margin: 0;
     margin-top: @footer-height;
     margin-bottom: @page-margin-bottom;
-    width: @page-width;
+    width: 100%;
     height: @footer-height;
     text-align: center;
 
@@ -309,18 +313,55 @@ section.footer {
 }
 
 /* __________________________________ PRINT MARKS  __________________________________ */
-div#print-marks {
+
+// FIXME: à quoi ça sert?  → à ne pas avoir de page blanche entre chaque page
+#pages {
     position: absolute;
     top: 0;
     z-index: -1000;
     width: 100%; 
 }
-div.page {
+
+.paper {
+    padding: @crop;
+    background-image:
+        linear-gradient(90deg, red @crop-length, red @crop-bleed, white @crop-bleed),
+        linear-gradient(0deg, white @crop-bleed, red @crop-bleed, red @crop-length),
+        linear-gradient(90deg, white @crop-bleed, red @crop-bleed, red @crop-length),
+        linear-gradient(0deg, white @crop-bleed, red @crop-bleed, red @crop-length),
+        linear-gradient(90deg, white @crop-bleed, red @crop-bleed, red @crop-length),
+        linear-gradient(0deg, red @crop-bleed, red @crop-length, white @crop-length),
+        linear-gradient(90deg, red @crop-length, red @crop-bleed, white @crop-bleed),
+        linear-gradient(0deg, red @crop-bleed, red @crop-length, white @crop-length)
+    ;
+    background-size: 
+        @crop 1px,
+        1px @crop,
+        @crop 1px,
+        1px @crop,
+        @crop 1px,
+        1px @crop,
+        @crop 1px,
+        1px @crop
+    ;
+    background-position:
+        left @crop,
+        @crop top,
+        right @crop,
+        right @crop top,
+        right bottom @crop,
+        right @crop bottom,
+        left bottom @crop,
+        @crop bottom
+    ;
+    background-repeat: no-repeat;
+}
+
+.paper {
     width: @page-width-crop; 
     height: @page-height-crop;
     position: relative;
     z-index: -10;
-    outline-offset: -@crop;
     counter-increment: page-counter;
     page-break-inside: avoid;
     page-break-after: always;
@@ -331,70 +372,20 @@ div.page {
     }
 
     &:nth-child(odd) .header,
-    &:nth-child(odd) .main-section,
+    &:nth-child(odd) .body,
     &:nth-child(odd) .footer {
         padding-left: @page-margin-inside;
         padding-right: @page-margin-outside;
     }
     &:nth-child(even) .header,
-    &:nth-child(even) .main-section,
+    &:nth-child(even) .body,
     &:nth-child(even) .footer {
         padding-left: @page-margin-outside;
         padding-right: @page-margin-inside;
     }
 }
- 
-/* __________________________________ CROP MARKS  __________________________________ */
-div.crop-top-left,
-div.crop-top-right,
-div.crop-bottom-right,
-div.crop-bottom-left {
-    height: @crop;
-    width:  @crop;
-    position: absolute;
-}
- 
-div.crop-top-left {
-    left: 0;
-    top: 0;
-}
-div.crop-top-right {
-    right: 0;
-    top: 0;
-}
-div.crop-bottom-right {
-    right: 0;
-    bottom: 0;
-}
-div.crop-bottom-left {
-    left: 0;
-    bottom: 0;
-}
-div.crop-top,
-div.crop-right,
-div.crop-bottom,
-div.crop-left {
-    width: @crop-length;
-    height: @crop-length;
-    position: absolute;
-}
-div.crop-top {
-    border-top: 1pt solid black;
-}
-div.crop-right {
-    border-right: 1pt solid black;
-}
-div.crop-bottom {
-    border-bottom: 1pt solid black;
-}
-div.crop-left {
-    border-left: 1pt solid black;
-}
- 
 
 /* __________________________________ CONTENT __________________________________ */
-div#content {
-}
 
 h1, h2, h3, h4, h5, h6 {
     /* Avoids headings to be cut or to be orphans. 
@@ -419,3 +410,32 @@ p {
     /*-webkit-region-break-inside: avoid;*/
 }
 
+
+
+/* Alex */
+html {
+    background-color: white;
+}
+.paper {
+    margin: 0 auto;
+}
+.page {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+@media screen {
+    .page {
+        outline: 1px solid lightgray;
+        box-shadow: 2px 2px 1px 1px lightgray;
+    }
+    .paper {
+        margin-bottom: 1em;
+    }
+}
+@media print {
+    html {
+        width: @page-width-crop;
+    }
+}

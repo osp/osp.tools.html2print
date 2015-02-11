@@ -12,6 +12,7 @@
   the next page with an offset of "width and margin-left")
 - css columns → doesn't print as columns, we have to do css regions instead.
   can we make a javascript to do so? as it is much shorter to write it in css?
+- several flows/stories
 
 =================
 | TO  M E R G E |

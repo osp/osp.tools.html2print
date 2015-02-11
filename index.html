@@ -11,33 +11,17 @@
 <body>
     <!-- PAGES -->
     <div id="pages">
-        <div id="master-page">
-            <!--<img src="page-height.png" />-->
-            <div class="crop-top-left">
-                <div class="crop-right" style="top: 0; right: 0;"></div>
-                <div class="crop-bottom" style="bottom: 0cm; left: 0;"></div>
-            </div>
-            <div class="crop-top-right">
-                <div class="crop-left" style="top: 0; left: 0;"></div>
-                <div class="crop-bottom" style="bottom: 0; right: 0;"></div>
-            </div>
-            <div class="crop-bottom-right">
-                <div class="crop-left" style="left: 0; bottom: 0;"></div>
-                <div class="crop-top" style="right: 0cm; top: 0;"></div>
-            </div>
-            <div class="crop-bottom-left">
-                <div class="crop-right" style="bottom: 0cm; right: 0;"></div>
-                <div class="crop-top" style="left: 0cm; top: 0"></div>
-            </div>
+        <div id="master-page" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
 
-            <section class="header">
-            </section>
+                <section class="body recipient">
+                </section>
 
-            <section class="main-section">
-            </section>
-
-            <section class="footer">
-            </section>
+                <section class="footer">
+                </section>
+            </div>
         </div>
     </div>
 
@@ -51,35 +35,11 @@
         </div>
     </div>
 
-    <section id="container">
+    <section id="story">
         <!-- Content will be loaded here with Jquery. -->
     </section>
-    
-    
-    <!-- MOVEABLE ELEMENTS -->
-    <div class="moveable"  style="top: 7186.65625px; left: 98.9375px; width: 300px; height: 80px; font-size: 2em; font-family: sans-serif;">
-        I'm a moveable element.
-    </div>
 
-    <div class="moveable"  style="top: 7309.47314453125px; left: 103.95795440673828px; width: 488px; height: 386px; font-size: 2em; font-family: sans-serif;">
-        <p style="position: absolute;">I'm a moveable image with no scaling. I behave like this by default. Use negative margins on my &lt;img&gt; tag to see another part of my body.</p>
-        <img class="" style="margin-top: -150px; margin-left: -100px;" src="img/collaborative-plotting.png" />
-    </div>
 
-    <div class="moveable"  style="top: 8036.11865234375px; left: 85.98197937011719px; width: 492px; height: 126px; font-size: 2em; font-family: sans-serif;">
-        <p style="position: absolute;">I'm a moveable image fitting my height. Give me the class "fit-height".</p>
-        <img class="fit-height" src="img/collaborative-plotting.png" />
-    </div>
-    
-    <div class="moveable"  style="top: 8187.71875px; left: 87.9375px; width: 204px; height: 582px; font-size: 2em; font-family: sans-serif;">
-        <p style="position: absolute;">I'm a moveable image fitting my width. Give me the class "fit-width".</p>
-        <img class="fit-width" src="img/collaborative-plotting.png" />
-    </div>
-
-    <div class="moveable"  style="top: 8189.92724609375px; left: 312.8723449707031px; width: 270px; height: 578px; font-size: 2em; font-family: sans-serif;">
-        <p style="position: absolute;">I'm a moveable image fitting in my frame. Give me the classes "fit-wdith fit-height".</p>
-        <img class="fit-width fit-height" src="img/collaborative-plotting.png" />
-    </div>
 
     <!-- JAVASCRIPT -->
     <script type="text/javascript" src="lib/jquery.min.js"></script>
