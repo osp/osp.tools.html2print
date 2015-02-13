@@ -1,20 +1,20 @@
 HTML 2 print
 ============
 
-This little tool is a boilerplate, a minimal example to start a print project using HTML, less/CSS and Javascript/Jquery to design it.
-Why using this instead of libraries such as the PHP library tcpdf which
-transforms html to a PDF for print? 
+This little tool is a boilerplate, a minimal example to start a print project
+using HTML, less/CSS and Javascript/Jquery to design it.  Why using this
+instead of libraries such as the PHP library tcpdf which transforms html to a
+PDF for print?
 
-Because CSS specifications for print are all settled, we are just waiting for browsers vendors to
-implement them in browsers. Meanwhile, it's already possible to send to an
-offset printer a file generated from a webpage. So why use a third party
-engine if you want to print HTML?
+Because CSS specifications for print are all settled, we are just waiting for
+browsers vendors to implement them in browsers. Meanwhile, it's already
+possible to send to an offset printer a file generated from a webpage. So why
+use a third party engine if you want to print HTML?
 
-But the most exciting reason to use HTML/CSS is the fact that you
-can go back and forth between code and visual manipulation thanks to the
-element inspector of browsers. With Javascript on top of it, you can
-access every object in the DOM and its properties or do
-programmatic manipulations.
+But the most exciting reason to use HTML/CSS is the fact that you can go back
+and forth between code and visual manipulation thanks to the element inspector
+of browsers. With Javascript on top of it, you can access every object in the
+DOM and its properties or do programmatic manipulations.
 
 
 Features
@@ -88,7 +88,7 @@ First launch
 
 We use CSS regions to make text flow into different divs (just like a print
 layout software). As it is not fully implemented yet, you need to use a
-webkit-based browser and activate the «experimental web platform features». 
+webkit-based browser and activate the «experimental web platform features».
 To do so, you can visit the URL:
 
     chrome://flags/#enable-experimental-web-platform-features
@@ -102,8 +102,8 @@ Development
 
 ### Local micro-server
 
-You can't use less.js on a local file (URL starting with "file:///"). 
-To bypass this limitation, you can run a simple webserver with python. 
+You can't use less.js on a local file (URL starting with "file:///").
+To bypass this limitation, you can run a simple webserver with python.
 To do so:
 
 - Open a terminal.
@@ -119,13 +119,13 @@ Needed files
 ------------
 
 - lib directory
-- index.html 
+- index.html
 	- change title to change pdf name
 	- section for crops
 	- sections header, page, footer
 	- interface : preview to switch between hi and low res, toc to go to a specific page
-	- container : where jquery will put content.html 
-- content.html : filled from etherpad with a curl in a terminal like 
+	- container : where jquery will put content.html
+- content.html : filled from etherpad with a curl in a terminal like
 	curl http://osp.kitchen:9999/p/variable_publication/export/txt >| content.html
 - print.js
 - print.less
@@ -135,3 +135,6 @@ Needed files
 - colorSeparation: utilities to trasform a PDF from RGB to CMYK + an HTML page to preview the color layers
 - iceberg : internal use
 - img : for test
+
+
+vim: ft=markdown :

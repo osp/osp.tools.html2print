@@ -19,10 +19,10 @@ $(window).load(function(){
         //$(this).toggleClass("button-active");
         //$("html").toggleClass("spread");
 
-
-
         $(this).toggleClass("button-active");
         $("html").toggleClass("spread");
+
+        /* TODO: switch to CSS */
         w = parseInt($(".paper:first-child").css("width")) * 2;
         $("html").css("width",  w + "px");
     });

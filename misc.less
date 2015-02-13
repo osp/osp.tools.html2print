@@ -1,0 +1,71 @@
+/* __________________________________ ABSOLUTE POSITIONNED OBJECTS __________________________________ */
+/* Adding .moveable class to an object makes it absolutely positionned on the page.
+ * You can then move it around and resize it.
+ * Copy its properties (i.e. "top: 22pt; left: 101pt; width: 212pt; height: 244pt;).
+ * Paste those properties back to the object's "style" attribute.
+ */
+.moveable {
+    position: absolute;
+    float: left;
+    overflow: hidden;
+
+    &:hover {
+        z-index: 1000;
+    }
+}
+.moveable .properties {
+    display: none;
+}
+.moveable:hover .properties {
+    display: block;
+}
+
+/* POPELT STYLES */
+.noscroll {overflow:hidden;}
+.pop-screen {
+    background:#000; 
+    opacity:0.9; 
+    position:fixed; 
+    left:0; top:0; right:0; bottom:0; 
+    z-index:9994; 
+    display:none;
+}
+.pop-wrap {position:fixed; left:0;right:0;top:0;bottom:0; z-index:9995; overflow:auto; display:none; }
+.pop-container {margin:40pt auto; display:block; width: 50% !important; background:white; position:relative;}
+.pop-block {
+    position:relative;
+    padding: 1em;
+}
+.pop-content {padding:20pt; color:#333; word-wrap:break-word; overflow:auto;
+        outline: 2pt solid black;
+        margin: 1em;
+        font-family: monospace;
+        font-size: 2em;
+}
+.pop-content h1:first-child, .pop-content h2:first-child, .pop-content p:first-child {margin-top:0;}
+.pop-action-block {background:#eee; padding:15pt 20pt; border-top:1pt solid #ccc; text-align:right;}
+.pop-title {margin:0;  padding:20pt; padding-bottom:0; font-size:26pt; font-weight:bold; line-height:28pt; margin-bottom:0; font-family: sans-serif;}
+.pop-btn-close {
+    position:absolute; 
+    right:0pt; top:0pt; 
+    width:30pt; height:30pt; 
+    font-family:sans-serif; 
+    font-size:28pt; 
+    line-height:31pt; 
+    text-align:center; 
+    cursor:pointer; 
+
+    &:hover {
+        color: red;
+    }
+}
+
+/* __________________________________ IMAGES __________________________________ */
+/* Use those classes for images to fit width or height of parent elements or both. */
+
+img.fit-height {
+    height: 100%;
+}
+img.fit-width {
+    width: 100%;
+}

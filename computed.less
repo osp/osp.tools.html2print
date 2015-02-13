@@ -1,0 +1,4 @@
+@spread: @page-width * 2;
+@crop: @crop-length + @crop-bleed;    // Based on Scribus cropmarks with 5mm of bleed -> 7mm of marks + 5mm of bleed
+@page-width-crop: @page-width + ( @crop * 2 ); // TODO: @paper-width
+@page-height-crop: @page-height + ( @crop * 2 ); // TODO: @paper-height

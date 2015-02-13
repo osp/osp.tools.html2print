@@ -1,0 +1,72 @@
+/* __________________________________ LOCAL SETTINGS __________________________________ */
+
+@header-height: 10mm;
+@header-text: "HTML to Print Boilerplate";
+@footer-height: 10mm;
+@footer-text: counter(page-counter);
+
+/* __________________________________ HEADER __________________________________ */
+section.header {
+    /*position: absolute;*/
+    /*margin-top: @page-margin-top;*/
+    top: 0;
+    margin: 0;
+    padding-top: @page-margin-top;
+    width: 100%;
+    height: @header-height;
+    text-align: left;
+
+    &:after {
+        content: @header-text;
+    }
+}
+/* __________________________________ MAIN SECTION __________________________________ */
+.body {
+    height: @page-height - @header-height - @footer-height;
+    width: @page-width;
+    /*margin: @crop;*/
+    margin-bottom: @page-margin-bottom;
+    padding-top: @page-margin-top + @header-height;
+    padding-bottom: @page-margin-bottom;
+    -webkit-flow-from: myFlow;
+    position: absolute;
+}
+
+#story {
+    -webkit-flow-into: myFlow;
+}
+
+/* __________________________________ FOOTER __________________________________ */
+section.footer {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    margin-top: @footer-height;
+    margin-bottom: @page-margin-bottom;
+    width: 100%;
+    height: @footer-height;
+    text-align: center;
+
+    &:after {
+        content: @footer-text;
+    }
+}
+
+.paper {
+    &:nth-child(odd) .header {
+        text-align: right;
+    }
+
+    &:nth-child(odd) .header,
+    &:nth-child(odd) .body,
+    &:nth-child(odd) .footer {
+        padding-left: @page-margin-inside;
+        padding-right: @page-margin-outside;
+    }
+    &:nth-child(even) .header,
+    &:nth-child(even) .body,
+    &:nth-child(even) .footer {
+        padding-left: @page-margin-outside;
+        padding-right: @page-margin-inside;
+    }
+}
