@@ -1,4 +1,9 @@
+/* the size of a 2 pages spread */
 @spread: @page-width * 2;
-@crop: @crop-length + @crop-bleed;    // Based on Scribus cropmarks with 5mm of bleed -> 7mm of marks + 5mm of bleed
-@page-width-crop: @page-width + ( @crop * 2 ); // TODO: @paper-width
-@page-height-crop: @page-height + ( @crop * 2 ); // TODO: @paper-height
+
+/* the extra space around the page */
+@crop: @crop-size + @bleed; // TODO: find a more appropriate name
+
+/* geometry of the print sheet */
+@paper-width: @page-width + ( @crop * 2 );
+@paper-height: @page-height + ( @crop * 2 );

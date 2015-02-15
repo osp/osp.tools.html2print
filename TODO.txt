@@ -13,6 +13,7 @@
 - css columns → doesn't print as columns, we have to do css regions instead.
   can we make a javascript to do so? as it is much shorter to write it in css?
 - several flows/stories
+- http://www.bramstein.com/projects/typeset/ et http://jsfiddle.net/p8omquam/
 
 =================
 | TO  M E R G E |

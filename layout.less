@@ -6,7 +6,7 @@
 @footer-text: counter(page-counter);
 
 /* __________________________________ HEADER __________________________________ */
-section.header {
+.header {
     /*position: absolute;*/
     /*margin-top: @page-margin-top;*/
     top: 0;
@@ -37,7 +37,7 @@ section.header {
 }
 
 /* __________________________________ FOOTER __________________________________ */
-section.footer {
+.footer {
     position: absolute;
     bottom: 0;
     margin: 0;
@@ -52,6 +52,7 @@ section.footer {
     }
 }
 
+/* for spreads only */
 .paper {
     &:nth-child(odd) .header {
         text-align: right;

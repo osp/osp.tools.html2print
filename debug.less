@@ -1,35 +1,26 @@
-/* __________________________________ DEBUG __________________________________ */
-html.debug {
-    outline: 1pt solid purple;
-
-    body {
-        outline: 1pt solid pink;
-    }
-    .page {
-        outline: 1pt solid blue;
-        border: 1px solid red;
-    }
-    
-    section.header {
-        outline: 1pt solid pink;
-    }
-
-    section.body {
-        outline: 1pt solid purple;
-    }
-
-    section.footer {
-        outline: 1pt solid pink;
-    }
-
-    #story {
-        outline: 1pt solid green;
-    }
-    .region-break {
-        border-top: 1pt dashed blue;
-    }
-    .moveable {
-        outline: 1pt solid yellow;
-    }
+.debug .paper:nth-child(even) {
+    background-color: yellow;
+}
+.debug .paper:nth-child(odd) {
+    background-color: cyan;
 }
 
+.debug #story {
+    outline: 1pt solid green;
+}
+.debug .region-break {
+    border-top: 1pt dashed blue;
+}
+
+.debug .moveable {
+    outline: 1pt solid yellow;
+}
+.debug .header {
+    outline: 1pt solid pink;
+}
+.debug .body {
+    outline: 1pt solid purple;
+}
+.debug .footer {
+    outline: 1pt solid pink;
+}

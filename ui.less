@@ -1,80 +1,79 @@
 /* __________________________________ INTERFACE CLASSES  __________________________________ */
-@media print {
-    .button,
-    #interface {
-        display: none;
+@media screen {
+    .button {
+        z-index: 1000;
+        background-color: black;
+        font-family: sans-serif; 
+        text-transform: uppercase;
+        font-size: 9pt !important;
+        letter-spacing: 1pt;
+        color: white;
+        margin: 0;
+        padding: 5pt 7pt;
+        cursor: pointer;
+        border: 0;
     }
-}
-.button {
-    z-index: 1000;
-    background-color: black;
-    font-family:sans-serif; 
-    text-transform: uppercase;
-    font-size: 9pt !important;
-    letter-spacing: 1pt;
-    color: white;
-    margin: 0;
-    padding: 5pt 7pt;
-    cursor: pointer;
-    border: 0;
-
-    &:hover {
+    .button:hover {
         background-color: white;
         color: black;
         outline: 1pt solid black;
     }
-}
-.button-active {
-    background-color: white;
-    color: black;
-    outline: 1pt solid black;
-}
-
-.lo-res {
-    outline: 10px solid red;
-}
-
-div#interface {
-    font-family:sans-serif; 
-    text-transform: uppercase;
-    font-size: 10pt !important;
-    line-height: 14pt;
-    letter-spacing: 1pt;
-    position: fixed;
-    bottom: 10pt;
-    right: 10pt;
-
-    a {
-        text-decoration: none;
-        position: static;
+    .button-active {
+        background-color: white;
+        color: black;
+        outline: 1pt solid black;
     }
+    .lo-res {
+        outline: 10px solid red;
+    }
+    #interface {
+        font-family: sans-serif; 
+        text-transform: uppercase;
+        font-size: 10pt !important;
+        line-height: 14pt;
+        letter-spacing: 1pt;
+        position: fixed;
+        bottom: 10pt;
+        right: 10pt;
 
-    div#toc {
-        display: inline-block;
+        a {
+            text-decoration: none;
+            position: static;
+        }
 
-        ul#toc-pages {
-            padding: 0.5em 0;
-            display: none;
-            background-color: black;
-            position: absolute;
-            right: 0;
-            bottom: 2em;
-            height: 200pt;
-            width: 80pt;
-            overflow: auto;
+        #toc {
+            display: inline-block;
 
-            a {
-                padding: 0 1em;
-                color: white;
+            #toc-pages {
+                padding: 0.5em 0;
+                display: none;
+                background-color: black;
+                position: absolute;
+                right: 0;
+                bottom: 2em;
+                height: 200pt;
+                width: 80pt;
+                overflow: auto;
 
-                &:hover {
-                    background-color: white;
-                    color: black;
+                a {
+                    padding: 0 1em;
+                    color: white;
+
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                    }
                 }
             }
+            button {
+                width: 80pt;
+            }
         }
-        button {
-            width: 80pt;
-        }
+    }
+}
+
+@media print {
+    #interface {
+        display: none;
     }
 }

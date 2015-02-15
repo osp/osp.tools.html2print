@@ -6,15 +6,22 @@ var nb_page = 7;
 $("#story").load("content.html");
 
 $(window).load(function(){
+    // ________________________________ PREVIEW __________________________________ //
+    $("#preview").click(function(e){
+        e.preventDefault();
+        $(this).toggleClass("button-active");
+        $("html").toggleClass("preview normal");
+    });
+
     // __________________________________ DEBUG __________________________________ //
-    $("button#debug").click(function(e){
+    $("#debug").click(function(e){
         e.preventDefault();
         $(this).toggleClass("button-active");
         $("html").toggleClass("debug");
     });
 
     // __________________________________ SPREAD __________________________________ //
-    $("button#spread").click(function(e){
+    $("#spread").click(function(e){
         e.preventDefault();
         //$(this).toggleClass("button-active");
         //$("html").toggleClass("spread");
@@ -22,13 +29,13 @@ $(window).load(function(){
         $(this).toggleClass("button-active");
         $("html").toggleClass("spread");
 
-        /* TODO: switch to CSS */
-        w = parseInt($(".paper:first-child").css("width")) * 2;
-        $("html").css("width",  w + "px");
+        //[> TODO: switch to CSS <]
+        //w = parseInt($(".paper:first-child").css("width")) * 2;
+        //$("html").css("width",  w + "px");
     });
 
     // __________________________________ HIGH RESOLUTION __________________________________ //
-    $("button#hi-res").click(function(e){
+    $("#hi-res").click(function(e){
         e.preventDefault();
         $(this).toggleClass("button-active");
         $("html").toggleClass("export");
