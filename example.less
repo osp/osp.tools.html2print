@@ -28,12 +28,12 @@
     margin-bottom: @page-margin-bottom;
     padding-top: @page-margin-top + @header-height;
     padding-bottom: @page-margin-bottom;
-    -webkit-flow-from: myFlow;
+    -webkit-flow-from: myStory;
     position: absolute;
 }
 
-#story {
-    -webkit-flow-into: myFlow;
+#my-story {
+    -webkit-flow-into: myStory;
 }
 
 /* __________________________________ FOOTER __________________________________ */
@@ -70,4 +70,67 @@
         padding-left: @page-margin-outside;
         padding-right: @page-margin-inside;
     }
+}
+
+
+body {
+    font-size: 85%;
+    line-height: 1.25;
+}
+h1,
+h2,
+h3 { 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+h1 { 
+    font-size: 1.5em;
+    padding: 1.45833em 0;
+}
+h2 { 
+    font-size: 1.33333em; 
+    padding: 1.25em 0; 
+}
+h3 { 
+    font-size: 1.16667em;
+    padding: 1.51786em 0;
+}
+
+img { 
+    max-width: 100%; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* Avoids headings to be cut or to be orphans. 
+     * But it doesn't seem to work 
+     * if the element after has a page-break-inside avoid. It tries its best! */
+    -webkit-region-break-inside: avoid;
+    -webkit-region-break-after: avoid;
+}
+
+/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE, 
+ * HERE NO PARAGRAPH WILL BE CUT, 
+ * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
+p {
+    /*-webkit-region-break-inside: avoid;*/
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
+}
+
+.debug .header {
+    outline: 1pt solid pink;
+}
+.debug .body {
+    outline: 1pt solid purple;
+}
+.debug .footer {
+    outline: 1pt solid pink;
 }

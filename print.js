@@ -3,7 +3,7 @@ var nb_page = 7;
 
 
 // Loads main content into <section id="story">
-$("#story").load("content.html");
+$("#my-story").load("content.html");
 
 $(window).load(function(){
     // ________________________________ PREVIEW __________________________________ //
@@ -23,15 +23,8 @@ $(window).load(function(){
     // __________________________________ SPREAD __________________________________ //
     $("#spread").click(function(e){
         e.preventDefault();
-        //$(this).toggleClass("button-active");
-        //$("html").toggleClass("spread");
-
         $(this).toggleClass("button-active");
         $("html").toggleClass("spread");
-
-        //[> TODO: switch to CSS <]
-        //w = parseInt($(".paper:first-child").css("width")) * 2;
-        //$("html").css("width",  w + "px");
     });
 
     // __________________________________ HIGH RESOLUTION __________________________________ //
@@ -64,9 +57,6 @@ $(window).load(function(){
 
 
     // __________________________________ PRINT MARKS __________________________________ //
-    var doc_height = $("body").height();
-    var page_height = $("#master-page").height(); 
-
     for (i = 1; i < nb_page; i++){
         $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
     }
@@ -78,6 +68,7 @@ $(window).load(function(){
         page = $(this).attr("id");
         $("#toc-pages").append("<li><a href='#" + page + "'>" + page.replace("-", " ") + "</a></li>")
     });
+
     $("#goto").click(function(e){
         e.preventDefault();
         $(this).toggleClass("button-active");

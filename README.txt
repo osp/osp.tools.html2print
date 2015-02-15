@@ -136,5 +136,10 @@ Needed files
 - iceberg : internal use
 - img : for test
 
+Resources
+---------
+
+- <http://alistapart.com/article/building-books-with-css3>
+
 
 vim: ft=markdown :
