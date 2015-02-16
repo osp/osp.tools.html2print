@@ -32,8 +32,12 @@
         background-color: white;
     }
     .paper {
-        width: @paper-width; 
-        height: @paper-height;
+        width: @page-width; 
+        height: @page-height;
+
+        /* Crop marks */
+        padding: @crop;
+
         counter-increment: page-counter;
 
         /* utile ou non? pour éviter qu'un papier soit coupé par le format de la
@@ -42,12 +46,11 @@
         page-break-after: always;
         overflow: hidden;
 
-        /* Crop marks */
-        padding: @crop;
     }
     .page {
-        width: 100%;
-        height: 100%;
+        width: @page-width;
+        height: @page-height;
+
         position: relative;
     }
 
@@ -56,9 +59,13 @@
         float: left;
     }
     .spread .paper:first-child {
-        margin-left: @paper-width !important;
+        margin-left: @paper-width - @crop !important;
     }
     .spread .paper:nth-child(odd) {
+        padding-left: 0;
+    }
+    .spread .paper:nth-child(even) {
+        padding-right: 0;
     }
 }
 

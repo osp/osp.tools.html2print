@@ -5,6 +5,13 @@
 @footer-height: 10mm;
 @footer-text: counter(page-counter);
 
+
+.header,
+.body,
+.footer {
+    box-sizing: border-box;
+}
+
 /* __________________________________ HEADER __________________________________ */
 .header {
     /*position: absolute;*/
@@ -121,7 +128,6 @@ p {
 }
 
 * {
-    box-sizing: border-box;
     -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
 }
 
