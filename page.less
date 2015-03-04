@@ -1,7 +1,7 @@
 /* __________________________________ LOCAL SETTINGS __________________________________ */
 
 @header-height: 10mm;
-@header-text: "HTML to Print Boilerplate";
+@header-text: "testing printing in html";
 @footer-height: 10mm;
 @footer-text: counter(page-counter);
 
@@ -88,25 +88,25 @@ body {
 }
 h1,
 h2,
-h3 { 
+h3 {
     margin-top: 0;
     margin-bottom: 0;
 }
-h1 { 
+h1 {
     font-size: 1.5em;
     padding: 1.45833em 0;
 }
-h2 { 
-    font-size: 1.33333em; 
-    padding: 1.25em 0; 
+h2 {
+    font-size: 1.33333em;
+    padding: 1.25em 0;
 }
-h3 { 
+h3 {
     font-size: 1.16667em;
     padding: 1.51786em 0;
 }
 
-img { 
-    max-width: 100%; 
+img {
+    max-width: 100%;
 }
 
 h1,
@@ -115,15 +115,15 @@ h3,
 h4,
 h5,
 h6 {
-    /* Avoids headings to be cut or to be orphans. 
-     * But it doesn't seem to work 
+    /* Avoids headings to be cut or to be orphans.
+     * But it doesn't seem to work
      * if the element after has a page-break-inside avoid. It tries its best! */
     -webkit-region-break-inside: avoid;
     -webkit-region-break-after: avoid;
 }
 
-/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE, 
- * HERE NO PARAGRAPH WILL BE CUT, 
+/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
+ * HERE NO PARAGRAPH WILL BE CUT,
  * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
 p {
     /*-webkit-region-break-inside: avoid;*/
@@ -141,4 +141,14 @@ p {
 }
 .debug .footer {
     outline: 1pt solid pink;
+}
+
+/* __________________________________ IMAGES __________________________________ */
+/* Use those classes for images to fit width or height of parent elements or both. */
+
+img.fit-height {
+    height: 100%;
+}
+img.fit-width {
+    width: 100%;
 }
