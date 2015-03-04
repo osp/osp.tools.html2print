@@ -33,6 +33,28 @@ Features
 
 * * *
 
+Anatomy of this repo
+--------------------
+
+The folder tries to present you with the minimum files at first: a couple of html files, a stylesheet, assets folder and this readme.
+That is all you need to get started. Refer to the ### Development section to get your environment up and running.
+
+#### -content.html
+	This is where you place your markup. The main index file contains all the lib calls and interface elements so clearing the content to this specific folder helps ease of use.
+ 
+#### -main.less
+	The main stylesheet. In fact, it only reroutes to other .less partial files. It pulls different stylesheets that have different fuctions. This structure is up to you, but in our experience, fragmenting into sevoural small stylesheets really helps the authoring experience.
+
+#### -index.html
+	This is where it all happens. We pull toghether all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
+
+#### -/assets
+	/lib/ = all that we need for interface elements, less processing, resetting browser attitudes, etc
+	/js/ = interface element actions & attitudes, as well as general variable settings, namely, the amout of pages for your document.
+	/css/ = .less partials
+
+#### -/iceberg/
+	for Visual Culture previews! 
 
 How
 ---
@@ -48,7 +70,8 @@ that allow you to make CSS that is more maintainable, themable and
 extendable.»
 — http://lesscss.org/
 
-We use Less to easily change page dimensions, crop marks size.
+We use Less to harness the power of variables to easily change page dimensions, crop marks size.
+It is also generally a good idea to use a CSS preprocessor for your authoring experience. We use Less, but any of the SASS SCSS would work too.
 
 
 ### Javascript/Jquery
@@ -113,28 +136,6 @@ To do so:
     python -m SimpleHTTPServer
 
 - Visit the URL "http://localhost:8000/"!
-
-
-Needed files
-------------
-
-- lib directory
-- index.html
-	- change title to change pdf name
-	- section for crops
-	- sections header, page, footer
-	- interface : preview to switch between hi and low res, toc to go to a specific page
-	- container : where jquery will put content.html
-- content.html : filled from etherpad with a curl in a terminal like
-	curl http://osp.kitchen:9999/p/variable_publication/export/txt >| content.html
-- print.js
-- print.less
-
-### others :
-- check : to test/compare
-- colorSeparation: utilities to trasform a PDF from RGB to CMYK + an HTML page to preview the color layers
-- iceberg : internal use
-- img : for test
 
 Resources
 ---------
