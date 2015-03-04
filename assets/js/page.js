@@ -1,6 +1,6 @@
 $(function() {
     // Choose the number of pages of the document
-    var nb_page = 4;
+    var nb_page = 6;
 
     for (i = 1; i < nb_page; i++){
         $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
