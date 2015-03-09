@@ -149,15 +149,21 @@ To do so:
 - Open a terminal.
 - Run these:
 
-    `cd /path/to/this/directory/`
-    `python -m SimpleHTTPServer`
+   - `cd /path/to/this/directory/`
+   - `python -m SimpleHTTPServer`
 
-- Visit the URL <http://localhost:8000/> !
+- Go to <http://localhost:8000/> !
 
 Resources
 ---------
 
 - <http://alistapart.com/article/building-books-with-css3>
+
+### Still need to document
+- the workings of *CSS Regions* flow-into for example
+- the running title
+- pagination styling (and offset?)
+- the variables in `page.less` & `page_document_setup.less`
 
 
 vim: ft=markdown :
