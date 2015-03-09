@@ -19,13 +19,12 @@ Etherpad to design with several people at the same time.
 ### Why use this instead of libraries such as the PHP library tcpdf which transforms html to a PDF for print?
 
 Because CSS specifications for print are all settled, we are just waiting for
-browsers vendors to implement them in browsers. Meanwhile, it's already
+browsers vendors to implement them *well*. Meanwhile, it's already
 possible to send to an offset printer a file generated from a webpage. So why
 use a third party engine if you want to print HTML?
 
 Features
 --------
-
 - Crop marks made with CSS gradients
 - Pagination in pure CSS
 - Mixing flowable content and absolute positioned content
@@ -37,7 +36,7 @@ Features
 
 PDFutils
 --------
-See the repository PDFutils <<http://osp.kitchen/tools/PDFutils/>> for
+See the repository PDFutils <http://osp.kitchen/tools/PDFutils/> for
 pre-press tools such as:
 
 - PDF conversion from RGB to CMYK via Ghostscript
@@ -105,20 +104,21 @@ To make a PDF, just open the webpage in the browser, print the page within the b
 choose «Print to file».
 
 Currently, and idealy, Chromium version 33 seems the best version to use. We investigate to document this question more deeply.
+Tested browsers:
+- [Midori](http://midori-browser.org/)
 
-In Chrome, you can have a print preview within the browser, which can save
+In Chrome(ium), you can have a print preview within the browser, which can save
 some time as the system print dialogue is not optimal (you need to change the
 filename everytime otherwise it doesn't export the PDF; if not A4, you have to
 change the paper format every time). On Linux, you can use chromium by adding
 an option; type in a terminal:
-
-    chromium --enable-print-preview
+     `chromium --enable-print-preview`
 
 If you have the error «pdf viewer is not available», you need to install
 chromium-libpdf (tested on Arch Linux).
 
 On some install, you need
-    chromium-browser --enable-print-preview
+    `chromium-browser --enable-print-preview`
 
 
 First launch
@@ -147,12 +147,12 @@ To bypass this limitation, you can run a simple webserver with python.
 To do so:
 
 - Open a terminal.
-- Run those sommands:
+- Run these:
 
-    cd /path/to/this/directory/
-    python -m SimpleHTTPServer
+    `cd /path/to/this/directory/`
+    `python -m SimpleHTTPServer`
 
-- Visit the URL "http://localhost:8000/"!
+- Visit the URL <http://localhost:8000/> !
 
 Resources
 ---------
