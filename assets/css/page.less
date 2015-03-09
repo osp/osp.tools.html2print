@@ -1,0 +1,153 @@
+/* __________________________________ LOCAL SETTINGS __________________________________ */
+
+@header-height: 10mm;
+@header-text: " A Romance of Many Dimensions";
+@footer-height: 10mm;
+@footer-text: counter(page-counter);
+
+
+.header,
+.body,
+.footer {
+    box-sizing: border-box;
+}
+
+/* __________________________________ HEADER __________________________________ */
+.header {
+    /*position: absolute;*/
+    /*margin-top: @page-margin-top;*/
+    top: 0;
+    margin: 0;
+    padding-top: @page-margin-top;
+    width: 100%;
+    height: @header-height;
+    text-align: left;
+
+    &:after {
+        content: @header-text;
+    }
+}
+/* __________________________________ MAIN SECTION __________________________________ */
+.body {
+    height: @page-height - @header-height - @footer-height;
+    width: @page-width;
+    /*margin: @crop;*/
+    margin-bottom: @page-margin-bottom;
+    padding-top: @page-margin-top + @header-height;
+    padding-bottom: @page-margin-bottom;
+    -webkit-flow-from: myStory;
+    -adobe-flow-from: myStory;
+    position: absolute;
+}
+
+#my-story {
+    -webkit-flow-into: myStory;
+    -adobe-flow-into: myStory;
+}
+
+/* __________________________________ FOOTER __________________________________ */
+.footer {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    height: @footer-height;
+    text-align: center;
+
+    &:after {
+        content: @footer-text;
+    }
+}
+
+/* for spreads only */
+.paper {
+    &:nth-child(odd) .header {
+        text-align: right;
+    }
+
+    &:nth-child(odd) .header,
+    &:nth-child(odd) .body,
+    &:nth-child(odd) .footer {
+        padding-left: @page-margin-inside;
+        padding-right: @page-margin-outside;
+    }
+    &:nth-child(even) .header,
+    &:nth-child(even) .body,
+    &:nth-child(even) .footer {
+        padding-left: @page-margin-outside;
+        padding-right: @page-margin-inside;
+    }
+}
+
+
+body {
+    text-rendering: optimizeLegibility;
+    font-size: 85%;
+    line-height: 1.5;
+}
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+h1 {
+    font-size: 2em;
+    padding: 1.45833em 0;
+}
+h2 {
+    font-size: 1.5em;
+    padding: 1.25em 0;
+}
+h3 {
+    font-size: 1.16667em;
+    padding: 1.51786em 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* Avoids headings to be cut or to be orphans.
+     * But it doesn't seem to work
+     * if the element after has a page-break-inside avoid. It tries its best! */
+    -webkit-region-break-inside: avoid;
+    -webkit-region-break-after: avoid;
+}
+
+/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
+ * HERE NO PARAGRAPH WILL BE CUT,
+ * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
+p {
+    /*-webkit-region-break-inside: avoid;*/
+}
+
+* {
+    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
+}
+
+.debug .header {
+    outline: 1pt solid pink;
+}
+.debug .body {
+    outline: 1pt solid purple;
+}
+.debug .footer {
+    outline: 1pt solid pink;
+}
+
+/* __________________________________ IMAGES __________________________________ */
+/* Use those classes for images to fit width or height of parent elements or both. */
+
+img.fit-height {
+    height: 100%;
+}
+img.fit-width {
+    width: 100%;
+}

@@ -1,0 +1,247 @@
+/**
+ * Computation
+ */
+
+/* the size of a 2 pages spread */
+@spread: @page-width * 2;
+
+/* the extra space around the page */
+@crop: @crop-size + @bleed; // TODO: find a more appropriate name
+
+/* geometry of the print sheet */
+@paper-width: @page-width + ( @crop * 2 );
+@paper-height: @page-height + ( @crop * 2 );
+
+
+/**
+ * Definition of the page
+ */
+@page {
+    /* Support for `marks` is missing in every single web browser out there*/
+    size: @paper-width @paper-height;  // format avec cropmarks
+    margin: 0;
+}
+
+
+/**
+ * Canvas
+ */
+
+@media all {
+    html {
+        background-color: white;
+    }
+    .paper {
+        width: @page-width; 
+        height: @page-height;
+
+        /* Crop marks */
+        padding: @crop;
+
+        counter-increment: page-counter;
+
+        /* utile ou non? pour éviter qu'un papier soit coupé par le format de la
+        * page lors de la conversion et l'arrondis des unités */
+        page-break-inside: avoid;
+        page-break-after: always;
+        overflow: hidden;
+
+    }
+    .page {
+        width: @page-width;
+        height: @page-height;
+
+        position: relative;
+    }
+
+    // TODO: changer le format du papier en spread pour pouvoir imprimer en planche
+    .spread .paper {
+        float: left;
+    }
+    .spread .paper:first-child {
+        margin-left: @paper-width - @crop !important;
+    }
+    .spread .paper:nth-child(odd) {
+        padding-left: 0;
+    }
+    .spread .paper:nth-child(even) {
+        padding-right: 0;
+    }
+}
+
+@media screen {
+    #pages {
+        width: @paper-width; 
+        height: @paper-height;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .spread #pages {
+        width: @paper-width * 2; 
+        height: @paper-height * 2;
+    }
+    .paper {
+        /* centrer la page à l'écran */
+        background-color: white;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    .page {
+        text-rendering: optimizeLegibility;
+    }
+    .normal .paper {
+        outline: 1px solid lightgray;
+        box-shadow: 2px 2px 1px 1px lightgray;
+    }
+    .normal .page {
+        outline: 1px solid gold;
+    }
+    .preview .page {
+        outline: 1px solid lightgray;
+        box-shadow: 2px 2px 1px 1px lightgray;
+    }
+    .debug #story {
+        outline: 1pt solid green;
+    }
+}
+
+@media print {
+    html {
+        width: @paper-width;
+    }
+    body {
+        /* Allows printing of background colors */
+        -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+    }
+    .paper {
+        /* Crop marks */
+        background-image:
+            linear-gradient(90deg, red 0, red 100%),
+            linear-gradient(0deg, red 0, red 100%),
+            linear-gradient(90deg, red 0, red 100%),
+            linear-gradient(0deg, red 0, red 100%),
+            linear-gradient(90deg, red 0, red 100%),
+            linear-gradient(0deg, red 0, red 100%),
+            linear-gradient(90deg, red 0, red 100%),
+            linear-gradient(0deg, red 0, red 100%),
+        ;
+        background-size: 
+            @crop-size 2px,
+            2px @crop-size,
+            @crop-size 2px,
+            2px @crop-size,
+            @crop-size 2px,
+            2px @crop-size,
+            @crop-size 2px,
+            2px @crop-size
+        ;
+        background-position:
+            left @crop,
+            @crop top,
+            right @crop,
+            right @crop top,
+            right bottom @crop,
+            right @crop bottom,
+            left bottom @crop,
+            @crop bottom
+        ;
+        background-repeat: no-repeat;
+    }
+}
+
+/**
+ * UI
+ */
+@media screen {
+    .button {
+        z-index: 1000;
+        background-color: black;
+        font-family: sans-serif; 
+        text-transform: uppercase;
+        font-size: 9pt !important;
+        letter-spacing: 1pt;
+        color: white;
+        margin: 0;
+        padding: 5pt 7pt;
+        cursor: pointer;
+        border: 0;
+    }
+    .button:hover {
+        background-color: white;
+        color: black;
+        outline: 1pt solid black;
+    }
+    .button-active {
+        background-color: white;
+        color: black;
+        outline: 1pt solid black;
+    }
+    .lo-res {
+        outline: 10px solid red;
+    }
+    #interface {
+        font-family: sans-serif; 
+        text-transform: uppercase;
+        font-size: 10pt !important;
+        line-height: 14pt;
+        letter-spacing: 1pt;
+        position: fixed;
+        bottom: 10pt;
+        right: 10pt;
+    }
+
+    #interface a {
+        text-decoration: none;
+        position: static;
+    }
+
+    #toc {
+        display: inline-block;
+    }
+    #toc-pages {
+        padding: 0.5em 0;
+        display: none;
+        background-color: black;
+        position: absolute;
+        right: 0;
+        bottom: 2em;
+        height: 200pt;
+        width: 80pt;
+        overflow: auto;
+    }
+    #toc-pages a {
+        padding: 0 1em;
+        color: white;
+    }
+    #toc-pages a:hover {
+        background-color: white;
+        color: black;
+    }
+    #toc-pages button {
+        width: 80pt;
+    }
+}
+
+@media print {
+    #interface {
+        display: none;
+    }
+}
+
+/**
+ * Helpers
+ */
+
+.region-break {
+    /* Apply this class to an element to put it on a new region.
+     * Hint: 
+     * You can also use an empty <div class="page-break"></div> 
+     * if you want to put manual page breaks without attaching it to an HTML element
+     */
+    -webkit-region-break-before: always;
+}
+.debug .region-break {
+    border-top: 1pt dashed blue;
+}
