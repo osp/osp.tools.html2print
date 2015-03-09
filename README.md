@@ -4,7 +4,7 @@ HTML 2 print
 This little tool is a boilerplate, a minimal example to start a print project
 using HTML, less/CSS and Javascript/Jquery to design it.  
 
-## Why using html to make printed matters?
+### Why use html to make printed matters?
 
 The most exciting reason to use HTML/CSS is the fact that you can go back
 and forth between code and visual manipulation thanks to the element inspector
@@ -16,7 +16,7 @@ The second strong reason why we set this up is that because the design is made
 with code/text, it means we can use collaborative text editors such as
 Etherpad to design with several people at the same time.
 
-## Why using this instead of libraries such as the PHP library tcpdf which transforms html to a PDF for print?
+### Why use this instead of libraries such as the PHP library tcpdf which transforms html to a PDF for print?
 
 Because CSS specifications for print are all settled, we are just waiting for
 browsers vendors to implement them in browsers. Meanwhile, it's already
@@ -52,16 +52,16 @@ Anatomy of this repo
 The folder tries to present you with the minimum files at first: a couple of html files, a stylesheet, assets folder and this readme.
 That is all you need to get started. Refer to the "Development" section to get your environment up and running.
 
-#### • content.html
-	This is where you place your marked up content. The main index file contains all the lib calls and interface elements so clearing the content to this specific folder helps ease of use.
+#### content.html
+This is where you place your marked up content. The main index file contains all the lib calls and interface elements so clearing the content to this specific folder helps ease of use.
  
-#### • main.less
-	The main stylesheet. In fact, it only reroutes to other `.less` partial files. It pulls different stylesheets which have different functions. This structure is up to you, but in our experience, fragmenting into several small stylesheets really helps the authoring experience.
+#### main.less
+The main stylesheet. In fact, it only reroutes to other `.less` partial files. It pulls different stylesheets which have different functions. This structure is up to you, but in our experience, fragmenting into several small stylesheets really helps the authoring experience.
 
-#### • index.html
-	This is where it all happens. We pull toghether all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
+#### index.html
+This is where it all happens. We pull toghether all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
 
-#### • /assets
+#### /assets
 
 - `/lib/` → all that we need for interface elements, less processing, resetting browser attitudes, etc→
 - `/js/` → interface element actions & attitudes, as well as general variable settings, namely, the amount of pages for your document.
@@ -74,11 +74,10 @@ That is all you need to get started. Refer to the "Development" section to get y
 
 
 
-How
+How to?
 ---
 
 Example is based on an A5 format.
-
 
 ### Less
 
@@ -88,16 +87,16 @@ that allow you to make CSS that is more maintainable, themable and
 extendable.»
 > <footer>— <http://lesscss.org/></footer>
 
-We use Less to harness the power of variables to easily change page dimensions, crop marks size.
+We use Less to harness the power of variables to easily change page dimensions, crop marks & sizes generally.
 It is also generally a good idea to use a CSS preprocessor for your authoring experience. We use Less, but any of the SASS SCSS would work too.
 
 
 ### Javascript/Jquery
 
 We use them in order to:
-    - add a running title
-    - add crop marks
-    - paginate
+- add a running title
+- add crop marks
+- paginate
 
 
 ### Print
