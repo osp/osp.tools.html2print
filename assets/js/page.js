@@ -1,14 +1,5 @@
 $(function() {
-    // Choose the number of pages of the document
-    var nb_page = 6;
 
-    for (i = 1; i < nb_page; i++){
-        $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
-    }
-    $("#master-page").hide();
-
-    // Loads main content into <article id="my-story">
-    $("#my-story").load("content.html");
 
     // __________________________________ MOVEABLE ELEMENTS __________________________________ //
     $("div.moveable").

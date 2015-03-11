@@ -1,4 +1,15 @@
 $(function() {
+    // ________________________________ INIT __________________________________ //
+    // Cloning the master page
+    for (i = 1; i < nb_page; i++){
+        $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
+    }
+    $("#master-page").hide();
+
+    // Loads main content into <article id="my-story">
+    $("#my-story").load(content);
+
+
     // ________________________________ PREVIEW __________________________________ //
     $("#preview").click(function(e){
         e.preventDefault();
