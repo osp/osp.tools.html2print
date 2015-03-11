@@ -197,6 +197,38 @@
         position: static;
     }
 
+
+    div.dropdown {
+        display: inline-block;
+        position: relative;
+
+        ul {
+            padding: 0.5em 0;
+            display: none;
+            background-color: black;
+            position: absolute;
+            right: 0;
+            bottom: 2em;
+            height: 200pt;
+            width: 80pt;
+            overflow: auto;
+
+            a {
+                padding: 0 1em;
+                color: white;
+                display: block;
+
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+        button {
+            width: 80pt;
+        }
+    }
+
     #toc {
         display: inline-block;
     }

@@ -71,4 +71,19 @@ $(function() {
         $(this).toggleClass("button-active");
         $("#toc-pages").toggle();
     });
+
+
+    // __________________________________ ZOOM __________________________________ //
+    $("#zoom").click(function(e){
+        e.preventDefault();
+        $(this).toggleClass("button-active");
+        $("#zoom-list").toggle();
+    });
+    $("#zoom-list a").click(function(e){
+        e.preventDefault();
+        zoom = $(this).attr("title") / 100 ;
+        unzoom = 1 / zoom;
+        $("#pages").css("-webkit-transform", "scale(" + zoom + ")");
+        $("#pages").css("-webkit-transform-origin", "0 0");
+    });
 });
