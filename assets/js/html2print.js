@@ -4,7 +4,7 @@ $(function() {
     for (i = 1; i < nb_page; i++){
         $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
     }
-    $("#master-page").hide();
+    $("#master-page").attr("data-width", $(".paper:first-child").width()).hide();
 
     // Loads main content into <article id="my-story">
     $("#my-story").load(content);
@@ -29,6 +29,10 @@ $(function() {
         e.preventDefault();
         $(this).toggleClass("button-active");
         $("html").toggleClass("spread");
+        w = parseInt($("#master-page").attr("data-width")) * 2 + 100;
+        $("#pages").css("width",  w + "px");
+        $("html").css("width",  w + "px");
+        $(".paper:first-child").css("margin-left", w/2);
     });
 
     // __________________________________ HIGH RESOLUTION __________________________________ //
@@ -86,4 +90,7 @@ $(function() {
         $("#pages").css("-webkit-transform", "scale(" + zoom + ")");
         $("#pages").css("-webkit-transform-origin", "0 0");
     });
+
+
+    
 });
