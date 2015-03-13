@@ -2,7 +2,7 @@ HTML 2 print
 ============
 
 This little tool is a boilerplate, a minimal example to start a print project
-using HTML, less/CSS and Javascript/Jquery to design it.  
+using HTML, less/CSS and Javascript/Jquery to design it.
 
 ### Why use html to make printed matters?
 
@@ -51,14 +51,19 @@ Anatomy of this repo
 The folder tries to present you with the minimum files at first: a couple of html files, a stylesheet, assets folder and this readme.
 That is all you need to get started. Refer to the "Development" section to get your environment up and running.
 
+#### /setup
+
+- `/setup.js/` Set the number of pages for your document and the source of your content. By default this is set to pull in the content from 'content.html' but you could also set this to the export address of a pad for collaborative editing.
+- `/setup.less/` Sets the basic rules of your document. Page width, page height, inside, outside, top and bottom margins and the running title content, injected in CSS.
+
 #### content.html
 This is where you place your marked up content. The main index file contains all the lib calls and interface elements so clearing the content to this specific folder helps ease of use.
- 
+
 #### main.less
 The main stylesheet. In fact, it only reroutes to other `.less` partial files. It pulls different stylesheets which have different functions. This structure is up to you, but in our experience, fragmenting into several small stylesheets really helps the authoring experience.
 
 #### index.html
-This is where it all happens. We pull toghether all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
+This is where it all comes together. We pull toghether all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
 
 #### /assets
 
@@ -67,7 +72,7 @@ This is where it all happens. We pull toghether all the requirements, all the li
 - `/css/` → .less partials
 
 #### • /iceberg/
-	Snapshots of the project, for OSP website previews! 
+	Snapshots of the project, for OSP website previews!
 
 
 
@@ -103,26 +108,15 @@ We use them in order to:
 To make a PDF, just open the webpage in the browser, print the page within the browser, and
 choose «Print to file».
 
-Currently, and idealy, Chromium version 33 seems the best version to use. We investigate to document this question more deeply.
+Currently, and idealy, Chromium version 33 seems the best version to use. Chrome does a handy print preview when 'exporting'. We investigate to document this question more deeply.
 Tested browsers:
 - [Midori](http://midori-browser.org/)
+- Arora
+- Safari > 7.0
+- Chrome from versions 29 to 33
 
-In Chrome(ium), you can have a print preview within the browser, which can save
-some time as the system print dialogue is not optimal (you need to change the
-filename everytime otherwise it doesn't export the PDF; if not A4, you have to
-change the paper format every time). On Linux, you can use chromium by adding
-an option; type in a terminal:
-     `chromium --enable-print-preview`
-
-If you have the error «pdf viewer is not available», you need to install
-chromium-libpdf (tested on Arch Linux).
-
-On some install, you need
-    `chromium-browser --enable-print-preview`
-
-
-First launch
-------------
+For Chrome only
+---------------
 
 ### Experimental Webkit features
 
@@ -137,8 +131,8 @@ And search in the long list for «experimental web platform features» to enable
 (or the equivalent in the language of your browser)
 
 
-Development
------------
+First launch
+------------
 
 ### Local micro-server
 
@@ -154,16 +148,35 @@ To do so:
 
 - Go to <http://localhost:8000/> !
 
+About region-break
+------------------
+
+Built into html2print.less is a little class that you can apply to an element to put it on a new region.
+Hint:
+You can also use an empty <div class="page-break"></div>
+if you want to put manual page breaks without attaching it to an HTML element
+
+other values available to you with CSS regions:
+
+-webkit-region-break-after:
+-webkit-region-break-before:
+-webkit-region-break-inside:
+
+with assignable values of: always; or avoid;
+
+Pagination
+----------
+
+applying a 'counter-reset: page-counter -3;'
+then hiding the footer with visibility:none on pages where one would not want the counter to display.
+
 Resources
 ---------
 
 - <http://alistapart.com/article/building-books-with-css3>
 
 ### Still need to document
-- the workings of *CSS Regions* flow-into for example
 - the running title
 - pagination styling (and offset?)
-- the variables in `page.less` & `page_document_setup.less`
 
 
-vim: ft=markdown :
