@@ -27,16 +27,25 @@
     margin-bottom: @page-margin-bottom;
     padding-top: @page-margin-top + @header-height;
     padding-bottom: @page-margin-bottom;
+    position: absolute;
+}
+
+.column {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 47%;
+    margin-right: 10px;
     -webkit-flow-from: myStory;
     -adobe-flow-from: myStory;
-    position: absolute;
+    height: 100%;
+
 }
 
 #my-story {
     -webkit-flow-into: myStory;
     -adobe-flow-into: myStory;
 }
-
 /* __________________________________ FOOTER __________________________________ */
 .footer {
     position: absolute;
