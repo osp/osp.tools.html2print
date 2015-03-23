@@ -34,13 +34,6 @@ Features
 - Preflight packages is built-in: use the "Save Complete Webpage" function of
   your browser
 
-PDFutils
---------
-See the repository PDFutils <http://osp.kitchen/tools/PDFutils/> for
-pre-press tools such as:
-
-- PDF conversion from RGB to CMYK via Ghostscript
-- Check color separation
 
 * * *
 
@@ -60,6 +53,20 @@ To do so:
    - `python -m SimpleHTTPServer`
 
 - Go to <http://localhost:8000/> !
+
+
+### Print
+
+To make a PDF, print the page within the browser, and choose «Print to file».
+Important: choose the right page format (only Chromium's print preview can take the format specified by the CSS).
+In order to know your paper format (with the crop marks), inspect one ".paper" element with you web inspector, and look at its dimensions in mm.
+
+Tested browsers:
+- [Midori](http://midori-browser.org/)
+- Arora
+- Safari > 7.0
+- Chromium from versions 29 to 33
+
 
 Anatomy of this repo
 --------------------
@@ -87,8 +94,22 @@ This is where it all comes together. We pull together all the requirements, all 
 - `/js/` → interface element actions & attitudes, as well as general variable settings, namely, the amount of pages for your document.
 - `/css/` → .less partials
 
+#### /examples/
+
+Concrete examples from which you can copy/paste specific features like:
+- 2columns.html: multi-column layout
+- pagination_region-breaks.html: Page-breaks examples + pagination starting at page 3
+- one-layout-per-page.html: when page number set to 0, then you can specify each page structure individually
+- master-pages.html: Applying different master pages
+- draggable and resizeable elements (to come)
+
 #### • /iceberg/
 	Snapshots of the project, for OSP website previews!
+
+
+
+
+
 
 How to?
 ---
@@ -108,25 +129,15 @@ It is also generally a good idea to use a CSS preprocessor for your authoring ex
 
 ### Javascript/Jquery
 
-We use them in order to:
-- add a running title
-- add crop marks
-- paginate
+We use them for the interface actions like:
+- zoom
+- jump to a page
+- view as spread
+- toggle hi- and lo-res images
 
-### Print
 
-To make a PDF, just open the webpage in the browser, print the page within the browser, and
-choose «Print to file».
-
-Currently, and idealy, Chromium version 33 seems the best version to use. Chrome does a handy print preview when 'exporting'. We investigate to document this question more deeply.
-Tested browsers:
-- [Midori](http://midori-browser.org/)
-- Arora
-- Safari > 7.0
-- Chrome from versions 29 to 33
-
-For Chrome only
----------------
+For Chrome only (from version 29 to 33)
+---------------------------------------
 
 ### Experimental Webkit features
 
@@ -140,27 +151,7 @@ To do so, you can visit the URL:
 And search in the long list for «experimental web platform features» to enable.
 (or the equivalent in the language of your browser)
 
-About region-break
-------------------
 
-Built into html2print.less is a little class that you can apply to an element to put it on a new region.
-Hint:
-You can also use an empty <div class="page-break"></div>
-if you want to put manual page breaks without attaching it to an HTML element
-
-other values available to you with CSS regions:
-
--webkit-region-break-after:
--webkit-region-break-before:
--webkit-region-break-inside:
-
-with assignable values of: always; or avoid;
-
-Pagination
-----------
-
-applying a 'counter-reset: page-counter -3;'
-then hiding the footer with visibility:none on pages where one would not want the counter to display.
 
 Resources
 ---------

@@ -13,10 +13,15 @@
             padding-left: 0.5em !important; 
             padding-right: 0.5em !important;
         }
-        /* It is named column50 because it's 50% wide but you can't use the % sign in a class name */
-        /* We recommend adding new classes for other column width so that you can reuse them later on. */
-        .column50 {
-            width: 50%;
+        .column33 {
+            width: 33%;
+            height: 100%;
+            padding: 0 0.5em;
+            float: left;
+            box-sizing: border-box;
+        }
+        .column66 {
+            width: 66%;
             height: 100%;
             padding: 0 0.5em;
             float: left;
@@ -32,9 +37,35 @@
                 <section class="header">
                 </section>
 
+                <section class="body recipient">
+                </section>
+
+                <section class="footer">
+                </section>
+            </div>
+        </div>
+        <div id="master-Odd" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
+
                 <section class="body">
-                    <div class="column50 recipient"> </div>
-                    <div class="column50 recipient"> </div>
+                    <div class="column66 recipient"> </div>
+                    <div class="column33 recipient"> </div>
+                </section>
+
+                <section class="footer">
+                </section>
+            </div>
+        </div>
+        <div id="master-Even" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
+
+                <section class="body">
+                    <div class="column33 recipient"> </div>
+                    <div class="column66 recipient"> </div>
                 </section>
 
                 <section class="footer">
@@ -233,6 +264,13 @@ rank, or relapses to the Triangular.
     <script type="text/javascript" src="assets/lib/jquery.min.js"></script>
     <script type="text/javascript" src="setup/setup.js"></script>
     <script type="text/javascript" src="assets/js/html2print.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            $("#page-2").empty().html($("#master-Even").html());
+            $("#page-3").empty().html($("#master-Odd").html());
+        });
+    </script>
 
 </body>
 </html>

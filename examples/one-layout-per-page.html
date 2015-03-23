@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>HTML2print</title>
 
-    <link rel="stylesheet" href="/assets/lib/reset.css" type="text/css" />
     <link rel="stylesheet" href="/main.less" type="text/less" media="all" charset="utf-8">
     <link rel="stylesheet" href="/assets/lib/jquery-ui-1.10.3/css/smoothness/jquery-ui-1.10.3.custom.min.css" type="text/css" media="all" charset="utf-8">
 
@@ -13,8 +12,18 @@
             padding-left: 0.5em !important; 
             padding-right: 0.5em !important;
         }
-        /* It is named column50 because it's 50% wide but you can't use the % sign in a class name */
-        /* We recommend adding new classes for other column width so that you can reuse them later on. */
+        .intro { 
+            width: 100%; 
+            height: 4em;
+            margin-bottom: 1.5em;
+        }
+        .column33 {
+            width: 33%;
+            height: 100%;
+            padding: 0 0.5em;
+            float: left;
+            box-sizing: border-box;
+        }
         .column50 {
             width: 50%;
             height: 100%;
@@ -23,16 +32,61 @@
             box-sizing: border-box;
         }
     </style>
+
 </head>
+
 <body>
     <!-- PAGES -->
     <div id="pages">
+        <div id="page-1" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
+
+                <section class="body recipient">
+                </section>
+
+                <section class="footer">
+                </section>
+            </div>
+        </div>
+        <div id="page-2" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
+
+                <section class="body">
+                    <div class="intro recipient"> </div>
+                    <div class="column50 recipient"> </div>
+                    <div class="column50 recipient"> </div>
+                </section>
+
+                <section class="footer">
+                </section>
+            </div>
+        </div>
+        <div id="page-3" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
+
+                <section class="body">
+                    <div class="column33 recipient"> </div>
+                    <div class="column33 recipient"> </div>
+                    <div class="column33 recipient"> </div>
+                </section>
+
+                <section class="footer">
+                </section>
+            </div>
+        </div>
         <div id="master-page" class="paper">
             <div class="page">
                 <section class="header">
                 </section>
 
                 <section class="body">
+                    <div class="intro recipient"> </div>
                     <div class="column50 recipient"> </div>
                     <div class="column50 recipient"> </div>
                 </section>
@@ -73,11 +127,12 @@
         <article id="my-story">
 <h1>Flatland <br> A Romance of Many Dimensions</h1>
 
-<h2>Concerning the Inhabitants of Flatland
-</h2>
+<div class="region-break"> </div>
+
+<h2>Concerning the Inhabitants of Flatland</h2>
 
 
-<p><font size=+2>T</font>HE GREATEST length or breadth of a full grown inhabitant of
+<p>THE GREATEST length or breadth of a full grown inhabitant of
 Flatland may be estimated at about eleven of your inches.  Twelve
 inches may be regarded as a maximum.
 </p>
@@ -161,70 +216,6 @@ again, for fear lest the freshly developed organism may, by force of
 unconscious imitation, fall back again into his hereditary level.
 </p>
 
-<p>The occasional emergence of an Equilateral from the ranks of his
-serf-born ancestors is welcomed, not only by the poor serfs
-themselves, as a gleam of light and hope shed upon the monotonous
-squalor of their existence, but also by the Aristocracy at large; for
-all the higher classes are well aware that these rare phenomena, while
-they do little or nothing to vulgarize their own privileges, serve as
-almost useful barrier against revolution from below.
-</p>
-
-<p>Had the acute-angled rabble been all, without exception,
-absolutely destitute of hope and of ambition, they might have found
-leaders in some of their many seditious outbreaks, so able as to
-render their superior numbers and strength too much even for the
-wisdom of the Circles.  But a wise ordinance of Nature has decreed
-that, in proportion as the working-classes increase in intelligence,
-knowledge, and all virtue, in that same proportion their acute angle
-(which makes them physically terrible) shall increase also and
-approximate to their comparatively harmless angle of the Equilateral
-Triangle.  Thus, in the most brutal and formidable off the soldier
-class--creatures almost on a level with women in their lack of
-intelligence--it is found that, as they wax in the mental ability
-necessary to employ their tremendous penetrating power to advantage,
-so do they wane in the power of penetration itself.
-</p>
-
-<p>How admirable is the Law of Compensation!  And how perfect a proof
-of the natural fitness and, I may almost say, the divine origin of the
-aristocratic constitution of the States of Flatland!  By a juidicious
-use of this Law of Nature, the Polygons and Circles are almost always
-able to stifle sedition in its very cradle, taking advantage of the
-irrepressible and boundless hopefulness of the human mind.  Art also
-comes to the aid of Law and Order.  It is generally found
-possible--by a little artificial compression or
-expansion on the part of the
-State physicians--to make some of the more intelligent leaders of a
-rebellion perfectly Regular, and to admit them at once into the
-privileged classes; a much larger number, who are still below the
-standard, allured by the prospect of being ultimately ennobled, are
-induced to enter the State Hospitals, where they are kept in
-honourable confinement for life; one or two alone of the most
-obstinate, foolish, and hopelessly irregular are led to execution.
-</p>
-
-<p>Then the wretched rabble of the Isosceles, planless and
-leaderless, are ether transfixed without resistance by the small body
-of their brethren whom the Chief Circle keeps in pay for emergencies
-of this kind; or else more often, by means of jealousies and
-suspicious skillfully fomented among them by the Circular party, they
-are stirred to mutual warfare, and perish by one another's angles.  No
-less than one hundred and twenty rebellions are recorded in our
-annals, besides minor outbreaks numbered at two hundred and
-thirty-five; and they have all ended thus.
-</p>
-
-
-<p>&quot;What need of a certificate?&quot; a Spaceland critic may ask:
-&quot;Is not the procreation of a Square Son a certificate from Nature
-herself, proving the Equal-sidedness of the Father?&quot;  I reply that no
-Lady of any position will marry an uncertified Triangle.  Square
-offspring has sometimes resulted from a slightly Irregular Triangle;
-but in almost every such case the Irregularity of the first generation
-is visited on the third; which either fails to attain the Pentagonal
-rank, or relapses to the Triangular.
-</p>
         </article>
     </div>
 
@@ -233,6 +224,11 @@ rank, or relapses to the Triangular.
     <script type="text/javascript" src="assets/lib/jquery.min.js"></script>
     <script type="text/javascript" src="setup/setup.js"></script>
     <script type="text/javascript" src="assets/js/html2print.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        // This cancels the automatic cloning of the pages, allowing for a specifi structure for each page.
+        var nb_page = 0;
+    </script>
 
 </body>
 </html>
