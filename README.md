@@ -101,6 +101,7 @@ Concrete examples from which you can copy/paste specific features like:
 - pagination_region-breaks.html: Page-breaks examples + pagination starting at page 3
 - one-layout-per-page.html: when page number set to 0, then you can specify each page structure individually
 - master-pages.html: Applying different master pages
+- load-external-webpage.html: Loads as content a part of an existing webpage (i.e. from a newspaper website, a blogpost, a wiki...)
 - draggable and resizeable elements (to come)
 
 #### • /iceberg/

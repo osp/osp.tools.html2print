@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en" class="normal">
+<head>
+    <meta charset="utf-8">
+    <title>HTML2print</title>
+
+    <link rel="stylesheet" href="/main.less" type="text/less" media="all" charset="utf-8">
+    <link rel="stylesheet" href="/assets/lib/jquery-ui-1.10.3/css/smoothness/jquery-ui-1.10.3.custom.min.css" type="text/css" media="all" charset="utf-8">
+</head>
+<body>
+    <!-- PAGES -->
+    <div id="pages">
+        <div id="master-page" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
+
+                <section class="body recipient">
+                </section>
+
+                <section class="footer">
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="interface">
+        <button id="preview" class="button">Preview</button>
+        <button id="debug" class="button">Debug</button>
+        <button id="spread" class="button">Spread</button>
+        <button id="hi-res" class="button">Hi-res</button>
+
+        <div class="dropdown">
+            <button id="zoom" class="button">Zoom</button>
+            <ul id="zoom-list">
+                <li><a href="#" title="25">25&thinsp;%</a></li>
+                <li><a href="#" title="33">33&thinsp;%</a></li>
+                <li><a href="#" title="50">50&thinsp;%</a></li>
+                <li><a href="#" title="75">75&thinsp;%</a></li>
+                <li><a href="#" title="100">100&thinsp;%</a></li>
+                <li><a href="#" title="150">150&thinsp;%</a></li>
+                <li><a href="#" title="200">200&thinsp;%</a></li>
+                <li><a href="#" title="300">300&thinsp;%</a></li>
+            </ul>
+        </div>
+
+        <div id="toc">
+            <button id="goto" class="button" href="#">Go&nbsp;to</button>
+            <ul id="toc-pages"></ul>
+        </div>
+    </div>
+
+    <div id="stories">
+        <article id="my-story"></article>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="/assets/lib/less-1.3.0.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/jquery.xdomainajax.js"></script>
+
+    <script type="text/javascript" src="/setup/setup.js"></script>
+    <script type="text/javascript" src="/assets/js/html2print.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $.ajax({
+            // HERE THE URL YOU WANT TO LOAD
+            url: 'http://diplomes2014.villa-arson.org/2014/06/25/lucile-diacono/',
+            type: 'GET',
+            success: function(res) {
+                var html = $(res.responseText);
+                // REPLACE '.main-content' WITH THE IDENTIFIER CORRESPONDING TO THE PART OF THE WEBPAGE YOU WANT TO LOAD
+                // (USE THE WEB ELEMENT INSPECTOR TO GET IT)
+                html.find('.main-content').appendTo($("#my-story"));
+            }
+        });
+    </script>
+</body>
+</html>
