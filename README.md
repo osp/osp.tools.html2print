@@ -42,8 +42,24 @@ pre-press tools such as:
 - PDF conversion from RGB to CMYK via Ghostscript
 - Check color separation
 
-
 * * *
+
+First launch
+------------
+
+### Local micro-server
+
+You can't use less.js on a local file (URL starting with "file:///").
+To bypass this limitation, you can run a simple webserver with python.
+To do so:
+
+- Open a terminal.
+- Run these:
+
+   - `cd /path/to/this/directory/`
+   - `python -m SimpleHTTPServer`
+
+- Go to <http://localhost:8000/> !
 
 Anatomy of this repo
 --------------------
@@ -51,19 +67,19 @@ Anatomy of this repo
 The folder tries to present you with the minimum files at first: a couple of html files, a stylesheet, assets folder and this readme.
 That is all you need to get started. Refer to the "Development" section to get your environment up and running.
 
+#### content.html
+This is where you place your marked up content. The main index file contains all the lib calls and interface elements so clearing the content to this specific folder helps ease of use.
+
 #### /setup
 
 - `/setup.js/` Set the number of pages for your document and the source of your content. By default this is set to pull in the content from 'content.html' but you could also set this to the export address of a pad for collaborative editing.
 - `/setup.less/` Sets the basic rules of your document. Page width, page height, inside, outside, top and bottom margins and the running title content, injected in CSS.
 
-#### content.html
-This is where you place your marked up content. The main index file contains all the lib calls and interface elements so clearing the content to this specific folder helps ease of use.
-
 #### main.less
 The main stylesheet. In fact, it only reroutes to other `.less` partial files. It pulls different stylesheets which have different functions. This structure is up to you, but in our experience, fragmenting into several small stylesheets really helps the authoring experience.
 
 #### index.html
-This is where it all comes together. We pull toghether all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
+This is where it all comes together. We pull together all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
 
 #### /assets
 
@@ -73,10 +89,6 @@ This is where it all comes together. We pull toghether all the requirements, all
 
 #### • /iceberg/
 	Snapshots of the project, for OSP website previews!
-
-
-
-
 
 How to?
 ---
@@ -94,14 +106,12 @@ extendable.»
 We use Less to harness the power of variables to easily change page dimensions, crop marks & sizes generally.
 It is also generally a good idea to use a CSS preprocessor for your authoring experience. We use Less, but any of the SASS SCSS would work too.
 
-
 ### Javascript/Jquery
 
 We use them in order to:
 - add a running title
 - add crop marks
 - paginate
-
 
 ### Print
 
@@ -129,24 +139,6 @@ To do so, you can visit the URL:
 
 And search in the long list for «experimental web platform features» to enable.
 (or the equivalent in the language of your browser)
-
-
-First launch
-------------
-
-### Local micro-server
-
-You can't use less.js on a local file (URL starting with "file:///").
-To bypass this limitation, you can run a simple webserver with python.
-To do so:
-
-- Open a terminal.
-- Run these:
-
-   - `cd /path/to/this/directory/`
-   - `python -m SimpleHTTPServer`
-
-- Go to <http://localhost:8000/> !
 
 About region-break
 ------------------
@@ -178,5 +170,4 @@ Resources
 ### Still need to document
 - the running title
 - pagination styling (and offset?)
-
 
