@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html lang="en" class="normal">
+<head>
+    <meta charset="utf-8">
+    <title>HTML2print</title>
+
+    <link rel="stylesheet" href="/assets/lib/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/main.less" type="text/less" media="all" charset="utf-8">
+    <link rel="stylesheet" href="/assets/lib/jquery-ui-1.10.3/css/smoothness/jquery-ui-1.10.3.custom.min.css" type="text/css" media="all" charset="utf-8">
+
+    <style type="text/css" media="all">
+        .body {
+            padding-left: 0.5em !important; 
+            padding-right: 0.5em !important;
+        }
+        .column50 {
+            width: 50%;
+            height: 100%;
+            padding: 0 0.5em;
+            float: left;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGES -->
+    <div id="pages">
+        <div id="master-page" class="paper">
+            <div class="page">
+                <section class="header">
+                </section>
+
+                <section class="body">
+                    <div class="column50 recipient"> </div>
+                    <div class="column50 recipient"> </div>
+                </section>
+
+                <section class="footer">
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="interface">
+        <button id="preview" class="button">Preview</button>
+        <button id="debug" class="button">Debug</button>
+        <button id="spread" class="button">Spread</button>
+        <button id="hi-res" class="button">Hi-res</button>
+
+        <div class="dropdown">
+            <button id="zoom" class="button">Zoom</button>
+            <ul id="zoom-list">
+                <li><a href="#" title="25">25&thinsp;%</a></li>
+                <li><a href="#" title="33">33&thinsp;%</a></li>
+                <li><a href="#" title="50">50&thinsp;%</a></li>
+                <li><a href="#" title="75">75&thinsp;%</a></li>
+                <li><a href="#" title="100">100&thinsp;%</a></li>
+                <li><a href="#" title="150">150&thinsp;%</a></li>
+                <li><a href="#" title="200">200&thinsp;%</a></li>
+                <li><a href="#" title="300">300&thinsp;%</a></li>
+            </ul>
+        </div>
+
+        <div id="toc">
+            <button id="goto" class="button" href="#">Go&nbsp;to</button>
+            <ul id="toc-pages"></ul>
+        </div>
+    </div>
+
+    <div id="stories">
+        <article id="my-story">
+<h1>Flatland <br> A Romance of Many Dimensions</h1>
+
+<h2>Concerning the Inhabitants of Flatland
+</h2>
+
+
+<p><font size=+2>T</font>HE GREATEST length or breadth of a full grown inhabitant of
+Flatland may be estimated at about eleven of your inches.  Twelve
+inches may be regarded as a maximum.
+</p>
+
+<p>Our Women are Straight Lines.
+</p>
+
+<p>Our Soldiers and Lowest Class of Workmen are Triangles with two
+equal sides, each about eleven inches long, and a base or third side
+so short (often not exceeding half an inch) that they form at their
+vertices a very sharp and formidable angle.  Indeed when their bases
+are of the most degraded type (not more than the eighth part of an
+inch in size), they can hardly be distinguished from Straight lines or
+Women; so extremely pointed are their vertices.  With us, as with you,
+these Triangles are distinguished from others by being called
+Isosceles; and by this name I shall refer to them in the following
+pages.
+</p>
+
+<p>Our Middle Class consists of Equilateral or Equal-Sided Triangles.
+</p>
+
+<p>Our Professional Men and Gentlemen are Squares (to which class I
+myself belong) and Five-Sided Figures or Pentagons.
+</p>
+
+<p>Next above these come the Nobility, of whom there are several
+degrees, beginning at Six-Sided Figures, or Hexagons, and from thence
+rising in the number of their sides till they receive the honourable
+title of Polygonal, or many-Sided.  Finally when the number of the
+sides becomes so numerous, and the sides themselve so small, that the
+figure cannot be distinguished from a circle, he is included in the
+Circular or Priestly order; and this is the highest class of all.
+</p>
+
+<p>It is a Law of Nature with us that a male child shall have one
+more side than his father, so that each generation shall rise (as a
+rule) one step in the scale of development and nobility.  <blockquote>Thus the son
+of a Square is a Pentagon; the son of a Pentagon, a Hexagon; and so
+on.</blockquote>
+</p>
+
+<p>But this rule applies not always to the Tradesman, and still less
+often to the Soldiers, and to the Workmen; who indeed can hardly be
+said to deserve the name of human Figures, since they have not all
+their sides equal.  With them therefore the Law of Nature does not
+hold; and the son of an Isosceles (i.e. a Triangle with two sides
+equal) remains Isosceles still.  Nevertheless, all hope is not such
+out, even from the Isosceles, that his posterity may ultimately rise
+above his degraded condition.  For, after a long series of military
+successes, or diligent and skillful labours, it is generally found
+that the more intelligent among the Artisan and Soldier classes
+manifest a slight increase of their third side or base, and a
+shrinkage of the two other sides.  Intermarriages (arranged by the
+Priests) between the sons and daughters of these more intellectual
+members of the lower classes generally result in an offspring
+approximating still more to the type of the Equal-Sided Triangle.
+</p>
+
+<p>Rarely--in proportion to the vast numbers of Isosceles
+births--is a genuine and certifiable
+Equal-Sided Triangle produced from
+Isosceles parents. Such a birth requires, as its
+antecedents, not only a series of carefully arranged intermarriages,
+but also a long-continued exercise of frugality and self-control on
+the part of the would-be ancestors of the coming Equilateral, and a
+patient, systematic, and continuous development of the Isosceles
+intellect through many generations.
+</p>
+
+<p>The birth
+ of a True Equilateral Triangle from Isosceles parents is
+the subject of rejoicing in our country for many furlongs round.
+After a strict examination conducted by the Sanitary and Social Board,
+the infant, if certified as Regular, is with solemn ceremonial
+admitted into the class of Equilaterals.  He is then immediately taken
+from his proud yet sorrowing parents and adopted by some childless
+Equilateral, who is bound by oath never to permit the child henceforth
+to enter his former home or so much as to look upon his relations
+again, for fear lest the freshly developed organism may, by force of
+unconscious imitation, fall back again into his hereditary level.
+</p>
+
+<p>The occasional emergence of an Equilateral from the ranks of his
+serf-born ancestors is welcomed, not only by the poor serfs
+themselves, as a gleam of light and hope shed upon the monotonous
+squalor of their existence, but also by the Aristocracy at large; for
+all the higher classes are well aware that these rare phenomena, while
+they do little or nothing to vulgarize their own privileges, serve as
+almost useful barrier against revolution from below.
+</p>
+
+<p>Had the acute-angled rabble been all, without exception,
+absolutely destitute of hope and of ambition, they might have found
+leaders in some of their many seditious outbreaks, so able as to
+render their superior numbers and strength too much even for the
+wisdom of the Circles.  But a wise ordinance of Nature has decreed
+that, in proportion as the working-classes increase in intelligence,
+knowledge, and all virtue, in that same proportion their acute angle
+(which makes them physically terrible) shall increase also and
+approximate to their comparatively harmless angle of the Equilateral
+Triangle.  Thus, in the most brutal and formidable off the soldier
+class--creatures almost on a level with women in their lack of
+intelligence--it is found that, as they wax in the mental ability
+necessary to employ their tremendous penetrating power to advantage,
+so do they wane in the power of penetration itself.
+</p>
+
+<p>How admirable is the Law of Compensation!  And how perfect a proof
+of the natural fitness and, I may almost say, the divine origin of the
+aristocratic constitution of the States of Flatland!  By a juidicious
+use of this Law of Nature, the Polygons and Circles are almost always
+able to stifle sedition in its very cradle, taking advantage of the
+irrepressible and boundless hopefulness of the human mind.  Art also
+comes to the aid of Law and Order.  It is generally found
+possible--by a little artificial compression or
+expansion on the part of the
+State physicians--to make some of the more intelligent leaders of a
+rebellion perfectly Regular, and to admit them at once into the
+privileged classes; a much larger number, who are still below the
+standard, allured by the prospect of being ultimately ennobled, are
+induced to enter the State Hospitals, where they are kept in
+honourable confinement for life; one or two alone of the most
+obstinate, foolish, and hopelessly irregular are led to execution.
+</p>
+
+<p>Then the wretched rabble of the Isosceles, planless and
+leaderless, are ether transfixed without resistance by the small body
+of their brethren whom the Chief Circle keeps in pay for emergencies
+of this kind; or else more often, by means of jealousies and
+suspicious skillfully fomented among them by the Circular party, they
+are stirred to mutual warfare, and perish by one another's angles.  No
+less than one hundred and twenty rebellions are recorded in our
+annals, besides minor outbreaks numbered at two hundred and
+thirty-five; and they have all ended thus.
+</p>
+
+
+<p>&quot;What need of a certificate?&quot; a Spaceland critic may ask:
+&quot;Is not the procreation of a Square Son a certificate from Nature
+herself, proving the Equal-sidedness of the Father?&quot;  I reply that no
+Lady of any position will marry an uncertified Triangle.  Square
+offspring has sometimes resulted from a slightly Irregular Triangle;
+but in almost every such case the Irregularity of the first generation
+is visited on the third; which either fails to attain the Pentagonal
+rank, or relapses to the Triangular.
+</p>
+        </article>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="assets/lib/less-1.3.0.min.js"></script>
+    <script type="text/javascript" src="assets/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="setup/setup.js"></script>
+    <script type="text/javascript" src="assets/js/html2print.js"></script>
+
+</body>
+</html>
