@@ -28,8 +28,8 @@
  */
 
 @media all {
-    html {
-        background-color: white;
+    body {
+        margin: 0;
     }
     .paper {
         width: @page-width; 
@@ -46,12 +46,45 @@
         page-break-after: always;
         overflow: hidden;
 
+        /* Crop marks */
+        background-image:
+            -webkit-linear-gradient(90deg, black 0, black 100%),
+            -webkit-linear-gradient(0deg, black 0, black 100%),
+            -webkit-linear-gradient(90deg, black 0, black 100%),
+            -webkit-linear-gradient(0deg, black 0, black 100%),
+            -webkit-linear-gradient(90deg, black 0, black 100%),
+            -webkit-linear-gradient(0deg, black 0, black 100%),
+            -webkit-linear-gradient(90deg, black 0, black 100%),
+            -webkit-linear-gradient(0deg, black 0, black 100%)
+        ;
+        background-size: 
+            @crop-size 1px,
+            1px @crop-size,
+            @crop-size 1px,
+            1px @crop-size,
+            @crop-size 1px,
+            1px @crop-size,
+            @crop-size 1px,
+            1px @crop-size
+        ;
+        background-position:
+            left @crop,
+            @crop top,
+            right @crop,
+            (@paper-width - @crop) top,
+            right (@paper-height - @crop),
+            (@paper-width - @crop) bottom,
+            left (@paper-height - @crop),
+            @crop bottom
+        ;
+        background-repeat: no-repeat;
     }
     .page {
         width: @page-width;
         height: @page-height;
 
         position: relative;
+        text-rendering: optimizeLegibility;
     }
 
     // TODO: changer le format du papier en spread pour pouvoir imprimer en planche
@@ -70,6 +103,10 @@
 }
 
 @media screen {
+    body {
+        background-color: #F0F0F0;
+    }
+
     #pages {
         width: @paper-width; 
         height: @paper-height;
@@ -87,24 +124,24 @@
         margin-top: 1em;
         margin-bottom: 1em;
     }
-    .page {
-        text-rendering: optimizeLegibility;
-    }
     .normal .paper {
-        outline: 1px solid lightgray;
-        box-shadow: 2px 2px 1px 1px lightgray;
+        //outline: 1px solid lightgray;
     }
     .normal .page {
-        outline: 1px solid gold;
+        outline: 1px dashed lightsalmon;
+    }
+    .preview .paper {
+        background: none;
     }
     .preview .page {
         outline: 1px solid lightgray;
-        box-shadow: 2px 2px 1px 1px lightgray;
+        background-color: white;
     }
     .debug #story {
         outline: 1pt solid green;
     }
 }
+
 
 @media print {
     html {
@@ -112,42 +149,9 @@
     }
     body {
         /* Allows printing of background colors */
+        background-color: white;
         -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
-    }
-    .paper {
-        /* Crop marks */
-        background-image:
-            linear-gradient(90deg, red 0, red 100%),
-            linear-gradient(0deg, red 0, red 100%),
-            linear-gradient(90deg, red 0, red 100%),
-            linear-gradient(0deg, red 0, red 100%),
-            linear-gradient(90deg, red 0, red 100%),
-            linear-gradient(0deg, red 0, red 100%),
-            linear-gradient(90deg, red 0, red 100%),
-            linear-gradient(0deg, red 0, red 100%),
-        ;
-        background-size: 
-            @crop-size 2px,
-            2px @crop-size,
-            @crop-size 2px,
-            2px @crop-size,
-            @crop-size 2px,
-            2px @crop-size,
-            @crop-size 2px,
-            2px @crop-size
-        ;
-        background-position:
-            left @crop,
-            @crop top,
-            right @crop,
-            right @crop top,
-            right bottom @crop,
-            right @crop bottom,
-            left bottom @crop,
-            @crop bottom
-        ;
-        background-repeat: no-repeat;
     }
 }
 
