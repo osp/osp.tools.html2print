@@ -89,17 +89,19 @@
     }
 
     // TODO: changer le format du papier en spread pour pouvoir imprimer en planche
-    .spread .paper {
-        float: left;
-    }
-    .spread .paper:first-child {
-        margin-left: @paper-width - @crop;
-    }
-    .spread .paper:nth-child(odd) {
-        padding-left: 0;
-    }
-    .spread .paper:nth-child(even) {
-        padding-right: 0;
+    .spread {
+        .paper {
+            float: left;
+        }
+        .paper:nth-child(odd) {
+            margin-left: -@crop;
+        }
+        .paper:nth-child(even) {
+            margin-right: -@crop;
+        }
+        .paper:first-child {
+            margin-left: @page-width;
+        }
     }
 }
 

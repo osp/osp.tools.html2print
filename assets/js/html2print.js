@@ -29,10 +29,6 @@ $(function() {
         e.preventDefault();
         $(this).toggleClass("button-active");
         $("html").toggleClass("spread");
-        w = parseInt($("#master-page").attr("data-width")) * 2 + 100;
-        $("#pages").css("width",  w + "px");
-        $("html").css("width",  w + "px");
-        $(".paper:first-child").css("margin-left", w/2);
     });
 
     // __________________________________ HIGH RESOLUTION __________________________________ //
