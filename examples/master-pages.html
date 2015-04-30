@@ -256,6 +256,15 @@ but in almost every such case the Irregularity of the first generation
 is visited on the third; which either fails to attain the Pentagonal
 rank, or relapses to the Triangular.
 </p>
+<p>&quot;What need of a certificate?&quot; a Spaceland critic may ask:
+&quot;Is not the procreation of a Square Son a certificate from Nature
+herself, proving the Equal-sidedness of the Father?&quot;  I reply that no
+Lady of any position will marry an uncertified Triangle.  Square
+offspring has sometimes resulted from a slightly Irregular Triangle;
+but in almost every such case the Irregularity of the first generation
+is visited on the third; which either fails to attain the Pentagonal
+rank, or relapses to the Triangular.
+</p>
         </article>
     </div>
 
@@ -267,8 +276,10 @@ rank, or relapses to the Triangular.
 
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
-            $("#page-2").empty().html($("#master-Even").html());
-            $("#page-3").empty().html($("#master-Odd").html());
+            for (i = 1; i < 26; i ++) {
+                if (i % 2) {  $("#page-" + i).empty().html($("#master-Even").html());  }
+                else {  $("#page-" + i).empty().html($("#master-Odd").html());  }
+            }
         });
     </script>
 
