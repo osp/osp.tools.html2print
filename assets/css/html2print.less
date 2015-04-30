@@ -2,29 +2,31 @@
  * Computation
  */
 
-/* the size of a 2 pages spread */
-@spread: @page-width * 2;
 
-/* the extra space around the page */
-@crop: @crop-size + @bleed; // TODO: find a more appropriate name
+/* EXTRA SPACE AROUND THE PAGE: BLEED + CROP */
+// TODO: find a more appropriate name
+@crop: @crop-size + @bleed; 
 
-/* geometry of the print sheet */
+/* GEOMETRY OF THE PAPER SHEET */
 @paper-width: @page-width + ( @crop * 2 );
 @paper-height: @page-height + ( @crop * 2 );
 
+/* SIZE OF SPREAD */
+@spread: @page-width * 2;
+
+
 
 /**
- * Definition of the page
+ * DEFINITION OF THE PAPER SHEET
  */
 @page {
-    /* Support for `marks` is missing in every single web browser out there*/
-    size: @paper-width @paper-height;  // format avec cropmarks
+    size: @paper-width @paper-height; 
     margin: 0;
 }
 
 
 /**
- * Canvas
+ * CANVAS
  */
 
 @media all {
