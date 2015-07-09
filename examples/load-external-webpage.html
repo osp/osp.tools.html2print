@@ -63,16 +63,20 @@
     <script type="text/javascript" src="/assets/js/html2print.js"></script>
 
     <script type="text/javascript" charset="utf-8">
-        $.ajax({
-            // HERE THE URL YOU WANT TO LOAD
-            url: 'http://diplomes2014.villa-arson.org/2014/06/25/lucile-diacono/',
-            type: 'GET',
-            success: function(res) {
-                var html = $(res.responseText);
-                // REPLACE '.main-content' WITH THE IDENTIFIER CORRESPONDING TO THE PART OF THE WEBPAGE YOU WANT TO LOAD
-                // (USE THE WEB ELEMENT INSPECTOR TO GET IT)
-                html.find('.main-content').appendTo($("#my-story"));
-            }
+        $(document).ready(function(){
+            content = "";
+            $.ajax({
+                // HERE THE URL YOU WANT TO LOAD
+                url: 'http://diplomes2015.villa-arson.org/benoit-barbagli/',
+                type: 'GET',
+                success: function(res) {
+                    var html = $(res.responseText);
+                    // REPLACE '.main-content' WITH THE IDENTIFIER CORRESPONDING TO THE PART OF THE WEBPAGE YOU WANT TO LOAD
+                    // (USE THE WEB ELEMENT INSPECTOR TO GET IT)
+                    $("#my-story").html(html.find('#main'));
+                    $("#my-story .page").addClass("loaded-page").removeClass("page");
+                }
+            });
         });
     </script>
 </body>
