@@ -1,0 +1,21 @@
+#viewport {
+    position: fixed;
+    top: 0;
+    bottom: 2em;
+    left: 0;
+    right: 0;
+}
+
+#toolbar {
+    background-color: lightgrey;
+    position: fixed;
+    height: 2em;
+    bottom: 0em;
+    left: 0;
+    right: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
