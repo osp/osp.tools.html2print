@@ -1,11 +1,6 @@
 /* the geometry of the page */
-/*@page-width: 420.944881995pt;*/
-/*@page-height: 595.2755907pt;*/
-/*@page-height: 595pt;*/
 /* the size of the crop marks*/
-/*@crop-size: 19.84251969pt;*/
 /* the size of bleed */
-/*@bleed: 14.17322835pt;*/
 /**
  * Computation
  */
@@ -16,7 +11,7 @@
  * DEFINITION OF THE PAPER SHEET
  */
 @page {
-  size: 172mm 234mm;
+  size: 172mm 235mm;
   margin: 0;
 }
 /**
@@ -254,12 +249,12 @@
   position: absolute;
 }
 .recipient {
-  /*-webkit-flow-from: myStory;*/
-  /*-adobe-flow-from: myStory;*/
+  -webkit-flow-from: myStory;
+  -adobe-flow-from: myStory;
 }
 #my-story {
-  /*-webkit-flow-into: myStory;*/
-  /*-adobe-flow-into: myStory;*/
+  -webkit-flow-into: myStory;
+  -adobe-flow-into: myStory;
 }
 /* __________________________________ FOOTER __________________________________ */
 .footer {

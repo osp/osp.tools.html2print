@@ -85,6 +85,9 @@ This is where you place your marked up content. The main index file contains all
 #### main.less
 The main stylesheet. In fact, it only reroutes to other `.less` partial files. It pulls different stylesheets which have different functions. This structure is up to you, but in our experience, fragmenting into several small stylesheets really helps the authoring experience.
 
+#### main.css
+The main stylesheet. In fact, it only reroutes to other `.less` partial files. It pulls different stylesheets which have different functions. This structure is up to you, but in our experience, fragmenting into several small stylesheets really helps the authoring experience.
+
 #### index.html
 This is where it all comes together. We pull together all the requirements, all the library elements, the content, and the stylesheets. This is the file you'll be looking at when you run your development environment.
 
@@ -92,7 +95,7 @@ This is where it all comes together. We pull together all the requirements, all 
 
 - `/lib/` → all that we need for interface elements, less processing, resetting browser attitudes, etc→
 - `/js/` → interface element actions & attitudes, as well as general variable settings, namely, the amount of pages for your document.
-- `/css/` → .less partials
+- `/less/` → .less partials
 
 #### /examples/
 
