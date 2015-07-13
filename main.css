@@ -1,0 +1,336 @@
+/* the geometry of the page */
+/*@page-width: 420.944881995pt;*/
+/*@page-height: 595.2755907pt;*/
+/*@page-height: 595pt;*/
+/* the size of the crop marks*/
+/*@crop-size: 19.84251969pt;*/
+/* the size of bleed */
+/*@bleed: 14.17322835pt;*/
+/**
+ * Computation
+ */
+/* EXTRA SPACE AROUND THE PAGE: BLEED + CROP */
+/* GEOMETRY OF THE PAPER SHEET */
+/* SIZE OF SPREAD */
+/**
+ * DEFINITION OF THE PAPER SHEET
+ */
+@page {
+  size: 172mm 234mm;
+  margin: 0;
+}
+/**
+ * CANVAS
+ */
+@media all {
+  body {
+    margin: 0;
+  }
+  .paper {
+    width: 172mm;
+    height: 234mm;
+    box-sizing: border-box;
+    /* Crop marks */
+    padding: 12mm;
+    counter-increment: page-counter;
+    /* utile ou non? pour éviter qu'un papier soit coupé par le format de la
+        * page lors de la conversion et l'arrondis des unités */
+    page-break-inside: avoid;
+    page-break-after: always;
+    overflow: hidden;
+    /* Crop marks */
+    background-image: -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%);
+    background-size: 7mm 1px, 1px 7mm, 7mm 1px, 1px 7mm, 7mm 1px, 1px 7mm, 7mm 1px, 1px 7mm;
+    background-position: left 12mm, 12mm top, right 12mm, 160mm top, right 222mm, 160mm bottom, left 222mm, 12mm bottom;
+    background-repeat: no-repeat;
+  }
+  .page {
+    width: 148mm;
+    height: 210mm;
+    position: relative;
+    text-rendering: optimizeLegibility;
+  }
+  .spread .paper {
+    float: left;
+  }
+  .spread .paper:nth-child(odd) {
+    margin-left: -12mm;
+  }
+  .spread .paper:nth-child(even) {
+    margin-right: -12mm;
+  }
+  .spread .paper:first-child {
+    margin-left: 148mm;
+  }
+}
+@media screen {
+  body {
+    background-color: #F0F0F0;
+  }
+  #pages {
+    width: 172mm;
+    height: 234mm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .spread #pages {
+    width: 344mm;
+    height: 468mm;
+  }
+  .paper {
+    /* centrer la page à l'écran */
+    background-color: white;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .normal .page {
+    outline: 1px dashed lightsalmon;
+  }
+  .preview .paper {
+    background: none;
+  }
+  .preview .page {
+    outline: 1px solid lightgray;
+    background-color: white;
+  }
+  .debug #story {
+    outline: 1pt solid green;
+  }
+}
+@media print {
+  html {
+    width: 172mm;
+  }
+  body {
+    /* Allows printing of background colors */
+    background-color: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+/**
+ * UI
+ */
+@media screen {
+  .button {
+    z-index: 1000;
+    background-color: black;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 9pt !important;
+    letter-spacing: 1pt;
+    color: white;
+    margin: 0;
+    padding: 5pt 7pt;
+    cursor: pointer;
+    border: 0;
+  }
+  .button:hover {
+    background-color: white;
+    color: black;
+    outline: 1pt solid black;
+  }
+  .button-active {
+    background-color: white;
+    color: black;
+    outline: 1pt solid black;
+  }
+  .lo-res {
+    outline: 10px solid red;
+  }
+  #interface {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 10pt !important;
+    line-height: 14pt;
+    letter-spacing: 1pt;
+    position: fixed;
+    bottom: 10pt;
+    right: 10pt;
+  }
+  #interface a {
+    text-decoration: none;
+    position: static;
+  }
+  div.dropdown {
+    display: inline-block;
+    position: relative;
+  }
+  div.dropdown ul {
+    padding: 0.5em 0;
+    display: none;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    bottom: 2em;
+    height: 200pt;
+    width: 80pt;
+    overflow: auto;
+  }
+  div.dropdown ul a {
+    padding: 0 1em;
+    color: white;
+    display: block;
+  }
+  div.dropdown ul a:hover {
+    background-color: white;
+    color: black;
+  }
+  div.dropdown button {
+    width: 80pt;
+  }
+  #toc {
+    display: inline-block;
+  }
+  #toc-pages {
+    padding: 0.5em 0;
+    display: none;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    bottom: 2em;
+    height: 200pt;
+    width: 80pt;
+    overflow: auto;
+  }
+  #toc-pages a {
+    padding: 0 1em;
+    color: white;
+  }
+  #toc-pages a:hover {
+    background-color: white;
+    color: black;
+  }
+  #toc-pages button {
+    width: 80pt;
+  }
+}
+@media print {
+  #interface {
+    display: none;
+  }
+}
+/**
+ * Helpers
+ */
+.region-break {
+  /* Apply this class to an element to put it on a new region.
+     * Hint: 
+     * You can also use an empty <div class="page-break"></div> 
+     * if you want to put manual page breaks without attaching it to an HTML element
+     */
+  -webkit-region-break-before: always;
+}
+.debug .region-break {
+  border-top: 1pt dashed blue;
+}
+.header,
+.body,
+.footer {
+  box-sizing: border-box;
+}
+/* __________________________________ HEADER __________________________________ */
+.header {
+  /*position: absolute;*/
+  /*margin-top: @page-margin-top;*/
+  top: 0;
+  margin: 0;
+  padding-top: 10mm;
+  width: 100%;
+  height: 10mm;
+  text-align: left;
+}
+.header:after {
+  content: " A Romance of Many Dimensions";
+}
+/* __________________________________ MAIN SECTION __________________________________ */
+.body {
+  height: 190mm;
+  width: 148mm;
+  /*margin: @crop;*/
+  margin-bottom: 15mm;
+  padding-top: 20mm;
+  padding-bottom: 15mm;
+  position: absolute;
+}
+.recipient {
+  /*-webkit-flow-from: myStory;*/
+  /*-adobe-flow-from: myStory;*/
+}
+#my-story {
+  /*-webkit-flow-into: myStory;*/
+  /*-adobe-flow-into: myStory;*/
+}
+/* __________________________________ FOOTER __________________________________ */
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  height: 10mm;
+  text-align: center;
+}
+.footer:after {
+  content: counter(page-counter);
+}
+/* for spreads only */
+.paper:nth-child(odd) .header {
+  text-align: right;
+}
+.paper:nth-child(odd) .header,
+.paper:nth-child(odd) .body,
+.paper:nth-child(odd) .footer {
+  padding-left: 20mm;
+  padding-right: 10mm;
+}
+.paper:nth-child(even) .header,
+.paper:nth-child(even) .body,
+.paper:nth-child(even) .footer {
+  padding-left: 10mm;
+  padding-right: 20mm;
+}
+body {
+  text-rendering: optimizeLegibility;
+}
+img {
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Avoids headings to be cut or to be orphans.
+     * But it doesn't seem to work
+     * if the element after has a page-break-inside avoid. It tries its best! */
+  -webkit-region-break-inside: avoid;
+  -webkit-region-break-after: avoid;
+}
+/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
+ * HERE NO PARAGRAPH WILL BE CUT,
+ * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
+p {
+  /*-webkit-region-break-inside: avoid;*/
+}
+* {
+  -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
+}
+.debug .header {
+  outline: 1pt solid pink;
+}
+.debug .body {
+  outline: 1pt solid purple;
+}
+.debug .footer {
+  outline: 1pt solid pink;
+}
+/* __________________________________ IMAGES __________________________________ */
+/* Use those classes for images to fit width or height of parent elements or both. */
+img.fit-height {
+  height: 100%;
+}
+img.fit-width {
+  width: 100%;
+}
+/* Here you can put your specific typography, layout styles. */
