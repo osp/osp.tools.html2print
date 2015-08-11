@@ -36,14 +36,15 @@ This is where it all comes together. We pull together all the requirements, all 
 
 #### /examples/
 
-Concrete examples from which you can copy/paste specific features like:
+Concrete examples from which you can copy/paste specific features. Please note that there might be changes in the boilerplate but that you can copy/paste the isolated feature into the newest version of the boilerplate.
+
 - 2columns.html: Multi-column layout.
 - imposition.html (to come): Makes an imposition plan to print your booklet at home.
 - load-external-webpage.html: Loads as content a part of an existing webpage (i.e. from a newspaper website, a blogpost, a wiki…).
 - master-pages.html: Applying different master pages.
 - moveable.html: Move and resize elements with the mouse to make your layout and then report the properties back into the code.
 - one-layout-per-page.html: when page number set to 0, then you can specify each page structure individually.
-- pagination_region-breaks.html: Page-breaks examples + pagination starting at page 3.
+- pagination_region-breaks.html: column-breaks examples + pagination starting at page 20.
 - polyfill.html: A javascript mimicking the CSS Regions in non-webkit browsers.
 - polyfill.html: Loading an external webpage and using the polyfill at the same time (be careful of order of scripts loading).
 
