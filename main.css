@@ -25,25 +25,80 @@
     width: 172mm;
     height: 234mm;
     box-sizing: border-box;
-    /* Crop marks */
-    padding: 12mm;
     counter-increment: page-counter;
-    /* utile ou non? pour éviter qu'un papier soit coupé par le format de la
-        * page lors de la conversion et l'arrondis des unités */
     page-break-inside: avoid;
     page-break-after: always;
     overflow: hidden;
     /* Crop marks */
-    background-image: -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%);
-    background-size: 7mm 1px, 1px 7mm, 7mm 1px, 1px 7mm, 7mm 1px, 1px 7mm, 7mm 1px, 1px 7mm;
-    background-position: left 12mm, 12mm top, right 12mm, 160mm top, right 222mm, 160mm bottom, left 222mm, 12mm bottom;
-    background-repeat: no-repeat;
+    padding: 12mm;
+    position: relative;
+  }
+  .paper .crops {
+    width: 172mm;
+    height: 234mm;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .paper .crops div {
+    border-style: solid;
+    border-color: black;
+    border-width: 0;
+    width: 12mm;
+    height: 12mm;
+    position: absolute;
+    box-sizing: border-box;
+  }
+  .paper .crops div span {
+    width: 5mm;
+    height: 5mm;
+    background-color: white;
+    position: absolute;
+  }
+  .paper .crops .crop-top-left {
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    top: 0;
+    left: 0;
+  }
+  .paper .crops .crop-top-left span {
+    right: -1px;
+    bottom: -1px;
+  }
+  .paper .crops .crop-top-right {
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    top: 0;
+    right: 0;
+  }
+  .paper .crops .crop-top-right span {
+    left: -1px;
+    bottom: -1px;
+  }
+  .paper .crops .crop-bottom-right {
+    border-left-width: 1px;
+    border-top-width: 1px;
+    right: 0;
+    bottom: 0;
+  }
+  .paper .crops .crop-bottom-right span {
+    left: -1px;
+    top: -1px;
+  }
+  .paper .crops .crop-bottom-left {
+    border-right-width: 1px;
+    border-top-width: 1px;
+    left: 0;
+    bottom: 0;
+  }
+  .paper .crops .crop-bottom-left span {
+    right: -1px;
+    top: -1px;
   }
   .page {
     width: 148mm;
     height: 210mm;
     position: relative;
-    text-rendering: optimizeLegibility;
   }
   .spread .paper {
     float: left;
@@ -58,6 +113,136 @@
     margin-left: 148mm;
   }
 }
+@media print {
+  html {
+    width: 172mm;
+  }
+  body {
+    /* Allows printing of background colors */
+    background-color: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    /* Activate opentype features and kernings */
+    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
+    text-rendering: optimizeLegibility;
+  }
+}
+/**
+ * Helpers
+ */
+.region-break {
+  /* Apply this class to an element to put it on a new region.
+     * Hint: 
+     * You can also use an empty <div class="page-break"></div> 
+     * if you want to put manual page breaks without attaching it to an HTML element
+     */
+  -webkit-region-break-before: always;
+}
+.header,
+.body,
+.footer {
+  box-sizing: border-box;
+}
+/* __________________________________ HEADER __________________________________ */
+.header {
+  top: 0;
+  margin: 0;
+  padding-top: 10mm;
+  width: 100%;
+  height: 10mm;
+  text-align: left;
+}
+.header:after {
+  content: " Running title";
+}
+/* __________________________________ MAIN SECTION __________________________________ */
+.body {
+  height: 190mm;
+  width: 148mm;
+  margin-bottom: 15mm;
+  padding-top: 20mm;
+  padding-bottom: 15mm;
+  position: absolute;
+}
+.recipient {
+  -webkit-flow-from: myStory;
+  flow-from: myStory;
+}
+#my-story {
+  -webkit-flow-into: myStory;
+  flow-into: myStory;
+}
+/* __________________________________ FOOTER __________________________________ */
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  height: 10mm;
+  text-align: center;
+}
+.footer:after {
+  content: counter(page-counter);
+}
+/* mirrored pages */
+.paper:nth-child(odd) .header {
+  text-align: right;
+}
+.paper:nth-child(odd) .header,
+.paper:nth-child(odd) .body,
+.paper:nth-child(odd) .footer {
+  padding-left: 20mm;
+  padding-right: 10mm;
+}
+.paper:nth-child(even) .header,
+.paper:nth-child(even) .body,
+.paper:nth-child(even) .footer {
+  padding-left: 10mm;
+  padding-right: 20mm;
+}
+img {
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Avoids headings to be cut or to be orphans.
+     * But it doesn't seem to work
+     * if the element after has a page-break-inside avoid. It tries its best! */
+  -webkit-region-break-inside: avoid;
+  -webkit-region-break-after: avoid;
+}
+/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
+ * HERE NO PARAGRAPH WILL BE CUT,
+ * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
+p {
+  /*-webkit-region-break-inside: avoid;*/
+}
+/**
+ * DEBUG STYLES
+ */
+.debug .header {
+  outline: 1px solid pink;
+}
+.debug .body {
+  outline: 1px solid purple;
+}
+.debug .footer {
+  outline: 1px solid pink;
+}
+.debug .region-break {
+  border-top: 1px dashed blue;
+  box-sizing: border-box;
+}
+.debug img {
+  outline: 1px solid blue;
+}
+/**
+ * User Interface
+ */
 @media screen {
   body {
     background-color: #F0F0F0;
@@ -88,25 +273,6 @@
     outline: 1px solid lightgray;
     background-color: white;
   }
-  .debug #story {
-    outline: 1pt solid green;
-  }
-}
-@media print {
-  html {
-    width: 172mm;
-  }
-  body {
-    /* Allows printing of background colors */
-    background-color: white;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
-/**
- * UI
- */
-@media screen {
   .button {
     z-index: 1000;
     background-color: black;
@@ -204,128 +370,5 @@
   #interface {
     display: none;
   }
-}
-/**
- * Helpers
- */
-.region-break {
-  /* Apply this class to an element to put it on a new region.
-     * Hint: 
-     * You can also use an empty <div class="page-break"></div> 
-     * if you want to put manual page breaks without attaching it to an HTML element
-     */
-  -webkit-region-break-before: always;
-}
-.debug .region-break {
-  border-top: 1pt dashed blue;
-}
-.header,
-.body,
-.footer {
-  box-sizing: border-box;
-}
-/* __________________________________ HEADER __________________________________ */
-.header {
-  /*position: absolute;*/
-  /*margin-top: @page-margin-top;*/
-  top: 0;
-  margin: 0;
-  padding-top: 10mm;
-  width: 100%;
-  height: 10mm;
-  text-align: left;
-}
-.header:after {
-  content: " A Romance of Many Dimensions";
-}
-/* __________________________________ MAIN SECTION __________________________________ */
-.body {
-  height: 190mm;
-  width: 148mm;
-  /*margin: @crop;*/
-  margin-bottom: 15mm;
-  padding-top: 20mm;
-  padding-bottom: 15mm;
-  position: absolute;
-}
-.recipient {
-  -webkit-flow-from: myStory;
-  -adobe-flow-from: myStory;
-}
-#my-story {
-  -webkit-flow-into: myStory;
-  -adobe-flow-into: myStory;
-}
-/* __________________________________ FOOTER __________________________________ */
-.footer {
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  width: 100%;
-  height: 10mm;
-  text-align: center;
-}
-.footer:after {
-  content: counter(page-counter);
-}
-/* for spreads only */
-.paper:nth-child(odd) .header {
-  text-align: right;
-}
-.paper:nth-child(odd) .header,
-.paper:nth-child(odd) .body,
-.paper:nth-child(odd) .footer {
-  padding-left: 20mm;
-  padding-right: 10mm;
-}
-.paper:nth-child(even) .header,
-.paper:nth-child(even) .body,
-.paper:nth-child(even) .footer {
-  padding-left: 10mm;
-  padding-right: 20mm;
-}
-body {
-  text-rendering: optimizeLegibility;
-}
-img {
-  max-width: 100%;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  /* Avoids headings to be cut or to be orphans.
-     * But it doesn't seem to work
-     * if the element after has a page-break-inside avoid. It tries its best! */
-  -webkit-region-break-inside: avoid;
-  -webkit-region-break-after: avoid;
-}
-/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
- * HERE NO PARAGRAPH WILL BE CUT,
- * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
-p {
-  /*-webkit-region-break-inside: avoid;*/
-}
-* {
-  -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
-}
-.debug .header {
-  outline: 1pt solid pink;
-}
-.debug .body {
-  outline: 1pt solid purple;
-}
-.debug .footer {
-  outline: 1pt solid pink;
-}
-/* __________________________________ IMAGES __________________________________ */
-/* Use those classes for images to fit width or height of parent elements or both. */
-img.fit-height {
-  height: 100%;
-}
-img.fit-width {
-  width: 100%;
 }
 /* Here you can put your specific typography, layout styles. */
