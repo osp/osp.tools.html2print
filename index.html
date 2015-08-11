@@ -4,35 +4,40 @@
     <meta charset="utf-8">
     <title>HTML2print</title>
 
-    <!-- Uncomment the line below to reset the CSS and get rid of the browser's default CSS. -->
-    <!--<link rel="stylesheet" href="/assets/lib/reset.css" type="text/css" />-->
-    <link rel="stylesheet" href="/main.less" type="text/less" media="all" charset="utf-8">
-    <!--<link rel="stylesheet" href="/assets/lib/jquery-ui-1.10.3/css/smoothness/jquery-ui-1.10.3.custom.min.css" type="text/css" media="all" charset="utf-8">-->
+    <link rel="stylesheet" href="/assets/css/gui.css" media="screen">
 </head>
 <body>
-    <!-- PAGES -->
-    <div id="pages">
-        <div id="master-page" class="paper">
-            <div class="page">
-                <div class="header"></div>
-
-                <div class="body recipient"></div>
-
-                <div class="footer"></div>
-            </div>
-        </div>
+    <div id="viewport">
+        <iframe src="/document.html"></iframe>
     </div>
 
-    <div id="stories">
-        <article id="my-story"></article>
+    <div id="toolbar">
+        <input name="preview" value="true" type="checkbox">
+        <label for="preview">preview</label>
+
+        <input name="debug" value="true" type="checkbox">
+        <label for="debug">debug</label>
+
+        <input name="spread" value="true" type="checkbox">
+        <label for="spread">spread</label>
+
+        <input name="hi-res" value="true" type="checkbox">
+        <label for="hi-res">hi-res</label>
+
+        <input name="zoom" value="100" type="number" min="25" max="1600" step="25">
+        <label for="zoom">zoom</label>
+
+        <select name="page">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <label for="page">page</label>
+
+        <button id="print">print</button>
     </div>
 
     <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="/assets/lib/less-1.3.0.min.js"></script>
     <script type="text/javascript" src="/assets/lib/jquery.min.js"></script>
-
-    <script type="text/javascript" src="/setup/setup.js"></script>
-    <script type="text/javascript" src="/assets/js/html2print.js"></script>
-
+    <script type="text/javascript" src="/assets/js/gui.js"></script>
 </body>
 </html>
