@@ -33,7 +33,7 @@ $(function() {
     $("#spread").click(function(e){
         e.preventDefault();
         $(this).toggleClass("button-active");
-        $("html").toggleClass("spread");
+        $("body").toggleClass("spread");
     });
 
     // __________________________________ HIGH RESOLUTION __________________________________ //
