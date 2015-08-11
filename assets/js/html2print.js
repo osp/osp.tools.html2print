@@ -10,7 +10,9 @@ $(function() {
     $("#master-page").attr("data-width", $(".paper:first-child").width()).hide();
 
     // Loads main content into <article id="my-story">
-    $("#my-story").load(content);
+    if (content) {
+        $("#my-story").load(content);
+    }
 
 
     // ________________________________ PREVIEW __________________________________ //
