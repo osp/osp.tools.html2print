@@ -39,6 +39,7 @@ This is where it all comes together. We pull together all the requirements, all 
 Concrete examples from which you can copy/paste specific features. Please note that there might be changes in the boilerplate but that you can copy/paste the isolated feature into the newest version of the boilerplate.
 
 - 2columns.html: Multi-column layout.
+- flatplan.html: Displays the document as a flatplan.
 - imposition.html (to come): Makes an imposition plan to print your booklet at home.
 - load-external-webpage.html: Loads as content a part of an existing webpage (i.e. from a newspaper website, a blogpost, a wiki…).
 - master-pages.html: Applying different master pages.
