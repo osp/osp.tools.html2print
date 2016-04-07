@@ -84,7 +84,9 @@ h6 {
      * But it doesn't seem to work
      * if the element after has a page-break-inside avoid. It tries its best! */
     -webkit-region-break-inside: avoid;
+                   break-inside: avoid;
     -webkit-region-break-after: avoid;
+                   break-after: avoid;
 }
 
 /* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
@@ -92,6 +94,7 @@ h6 {
  * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
 p {
     /*-webkit-region-break-inside: avoid;*/
+    /*               break-inside: avoid;*/
 }
 
 

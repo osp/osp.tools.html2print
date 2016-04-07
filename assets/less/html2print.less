@@ -109,6 +109,8 @@
         width: @page-width;
         height: @page-height;
         position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
     // TODO: changer le format du papier en spread pour pouvoir imprimer en planche
@@ -156,4 +158,5 @@
      * if you want to put manual page breaks without attaching it to an HTML element
      */
     -webkit-region-break-before: always;
+                   break-before: always;
 }
