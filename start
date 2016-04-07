@@ -1,5 +1,9 @@
 #! /usr/bin/env bash
 
-python -m SimpleHTTPServer
+# http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+cd $DIR
+
+python -m SimpleHTTPServer
 
