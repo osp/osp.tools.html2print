@@ -1,3 +1,12 @@
+// html2print needs CSS regions
+// load a ‘polyfill’ if the browser does not support it
+if (window.chrome) {
+    console.log('running chrome, no support for css regions; loading the polyfill');
+    var script = document.createElement('script');
+    script.setAttribute('src', 'assets/lib/css-regions.min.js');
+    document.getElementsByTagName('head')[0].appendChild(script);
+};
+
 $(function() {
     // ________________________________ INIT __________________________________ //
     // Creating crop marks

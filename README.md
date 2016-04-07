@@ -79,7 +79,7 @@ Tested browsers:
 - Epiphany 3.16 (3.6.1 doesn't work)
 - Safari > 7.0
 - Chromium from versions 29 to 33
-- With polyfill (see in `examples` folder):
+- With polyfill (loaded automatically on Chrome):
   - Chromium 43
   - Firefox 39
 
