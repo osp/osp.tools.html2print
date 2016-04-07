@@ -1,0 +1,107 @@
+.h2p-header,
+.h2p-body,
+.h2p-footer {
+    box-sizing: border-box;
+}
+
+/* __________________________________ HEADER __________________________________ */
+.h2p-header {
+    /*position: absolute;*/
+    /*margin-top: @page-margin-top;*/
+    //top: 0;
+    margin: 0;
+    padding-top: @page-margin-top;
+    height: @header-height;
+    text-align: left;
+    padding-right: @page-margin-outside !important;
+
+    &:after {
+        content: @header-text;
+        right: @page-margin-outside !important;
+    }
+}
+/* __________________________________ MAIN SECTION __________________________________ */
+.h2p-body {
+    height: @page-height - (@page-margin-top + @page-margin-bottom + @footer-height);
+    width: 100%;
+    padding-top: 0;
+    overflow: hidden;
+}
+/* __________________________________ FOOTER __________________________________ */
+.h2p-footer {
+    //bottom: @page-margin-bottom;
+    margin: 0;
+    width: 100%;
+    height: @footer-height;
+    text-align: center;
+
+    &:after {
+        content: @footer-text;
+    }
+}
+
+/* for spreads only */
+.h2p-paper {
+    &:nth-child(odd) .header {
+        text-align: right;
+    }
+
+    &:nth-child(odd) .header,
+    &:nth-child(odd) .body,
+    &:nth-child(odd) .footer {
+        padding-left: @page-margin-inside;
+        padding-right: @page-margin-outside;
+    }
+    &:nth-child(even) .header,
+    &:nth-child(even) .body,
+    &:nth-child(even) .footer {
+        padding-left: @page-margin-outside;
+        padding-right: @page-margin-inside;
+    }
+}
+
+
+body {
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* Avoids headings to be cut or to be orphans.
+     * But it doesn't seem to work
+     * if the element after has a page-break-inside avoid. It tries its best! */
+    -webkit-region-break-inside: avoid;
+    -webkit-region-break-after: avoid;
+    break-inside: avoid;
+    break-after: avoid;
+}
+
+/* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
+ * HERE NO PARAGRAPH WILL BE CUT,
+ * BUT YOU MIGHT WANT TO DEACTIVATE THIS */
+p {
+    /*-webkit-region-break-inside: avoid;*/
+}
+
+* {
+    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
+}
+
+.debug .h2p-header {
+    outline: 1pt solid pink;
+}
+.debug .h2p-body {
+    outline: 1pt solid purple;
+}
+.debug .h2p-footer {
+    outline: 1pt solid pink;
+}
+

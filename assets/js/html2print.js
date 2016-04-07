@@ -1,106 +1,58 @@
-// html2print needs CSS regions
-// load a ‘polyfill’ if the browser does not support it
-if (window.chrome) {
-    console.log('running chrome, no support for css regions; loading the polyfill');
-    var script = document.createElement('script');
-    script.setAttribute('src', 'assets/lib/css-regions.min.js');
-    document.getElementsByTagName('head')[0].appendChild(script);
-};
+page_structure = '<div id="h2p-pages">\
+        <div id="h2p-master-page" class="h2p-paper">\
+            <div class="h2p-page">\
+                <section class="h2p-header"> </section>\
+                <section class="h2p-body h2p-recipient"> \
+                </section>\
+                <section class="h2p-footer"> </section>\
+            </div>\
+        </div>\
+    </div>';
 
-$(function() {
+jQuery(document).ready(function($) {
     // ________________________________ INIT __________________________________ //
-    // Creating crop marks
-    $("#master-page").append("<div class='crops'><div class='crop-top-left'><span class='bleed'></span></div><div class='crop-top-right'><span class='bleed'></span></div><div class='crop-bottom-right'><span class='bleed'></span></div><div class='crop-bottom-left'><span class='bleed'></span></div></div>")
+    $("body").wrapInner("<div id='h2p-content'></div>");
+
+    // INSERTING THE PAGES STRUCTURE
+    $("body").prepend(page_structure).ready(function(){});
+    
+    // Calculating the number of pages needed
+    var content_height = $("body").height();
+    var body_height = $($("#h2p-master-page .h2p-body")[0]).height();
+    var nb_page = Math.ceil(content_height / body_height) + 20;
 
     // Cloning the master page
-    for (i = 1; i < nb_page; i++){
-        $("#master-page").clone().attr("id","page-"+i).insertBefore($("#master-page"));
+    for (i = 1; i <= nb_page; i++){
+        $("#h2p-master-page").clone().attr("id","h2p-page-"+i).insertBefore($("#h2p-master-page"));
     }
-    $("#master-page").attr("data-width", $(".paper:first-child").width()).hide();
-
-    // Loads main content into <article id="my-story">
-    if (content) {
-        $("#my-story").load(content);
-    }
-
-
-    // ________________________________ PREVIEW __________________________________ //
-    $("#preview").click(function(e){
-        e.preventDefault();
-        $(this).toggleClass("button-active");
-        $("html").toggleClass("preview normal");
-    });
-
-    // __________________________________ DEBUG __________________________________ //
-    $("#debug").click(function(e){
-        e.preventDefault();
-        $(this).toggleClass("button-active");
-        $("html").toggleClass("debug");
-    });
-
-    // __________________________________ SPREAD __________________________________ //
-    $("#spread").click(function(e){
-        e.preventDefault();
-        $(this).toggleClass("button-active");
-        $("body").toggleClass("spread");
-    });
-
-    // __________________________________ HIGH RESOLUTION __________________________________ //
-    $("#hi-res").click(function(e){
-        e.preventDefault();
-        $(this).toggleClass("button-active");
-        $("html").toggleClass("export");
-        $("img").each(function(){
-            var hires = $(this).attr("data-alt-src");
-            var lores = $(this).attr("src");
-            $(this).attr("data-alt-src", lores)
-            $(this).attr("src", hires)
-        });
-        console.log("Wait for hi-res images to load");
-        window.setTimeout(function(){
-            console.log("Check image resolution");
-            // Redlights images too small for printing
-            $("img").each(function(){
-                if (Math.ceil(this.naturalHeight / $(this).height()) < 3) {
-                    console.log($(this).attr("src") + ": " + Math.floor(this.naturalHeight / $(this).height()) );
-                    if($(this).parent().hasClass("moveable")) {
-                        $(this).parent().toggleClass("lo-res");
-                    } else {
-                        $(this).toggleClass("lo-res");
-                    }
-                }
-            });
-        }, 2000);
-    });
-
-
-    // __________________________________ TOC __________________________________ //
-    $(".paper").each(function(){
-        page = $(this).attr("id");
-        $("#toc-pages").append("<li><a href='#" + page + "'>" + page.replace("-", " ") + "</a></li>")
-    });
-
-    $("#goto").click(function(e){
-        e.preventDefault();
-        $(this).toggleClass("button-active");
-        $("#toc-pages").toggle();
-    });
-
-
-    // __________________________________ ZOOM __________________________________ //
-    $("#zoom").click(function(e){
-        e.preventDefault();
-        $(this).toggleClass("button-active");
-        $("#zoom-list").toggle();
-    });
-    $("#zoom-list a").click(function(e){
-        e.preventDefault();
-        zoom = $(this).attr("title") / 100 ;
-        unzoom = 1 / zoom;
-        $("#pages").css("-webkit-transform", "scale(" + zoom + ")");
-        $("#pages").css("-webkit-transform-origin", "0 0");
-    });
-
-
     
+    $("#h2p-master-page").attr("data-width", $(".h2p-paper:first-child").width()).hide();
+    $("#h2p-master-page .h2p-recipient").removeClass("h2p-recipient");
+    $("body").css("width", "100%");
+    $("html").css("width", "100%");
+
+
+    // This does not seem to work
+    //window.setTimeout(function(){
+    //    var f = document.getNamedFlow('flow-main');
+    //    console.log("Wait for CSS Regions polyfill to finish its job.");
+    //    f.addEventListener('regionfragmentchange', function(event) {
+    //        
+    //        // validate the target of the event
+    //        if(event.target !== f) {debugger; return;}
+    //        
+    //        // write something in the console
+    //        console.log("CSS Regions polyfill done.");
+    //        // REMOVE EMPTY PAGES
+    //        $("cssregion").each(function(){
+    //            console.log($(this));
+    //            if(this.textContent == ""){
+    //                console.log($(this).parent().parent().parent());
+    //                $(this).parent().parent().parent().hide();
+    //            }
+    //        });
+    //    });
+    //}, 2000);
+
 });
+

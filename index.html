@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>HTML2print</title>
 
-    <link rel="stylesheet" href="/assets/css/gui.css" media="screen">
+    <link rel="stylesheet" href="assets/css/gui.css" media="screen">
 </head>
 <body>
     <div id="viewport">
-        <iframe src="/document.html"></iframe>
+        <iframe id="document" src="document.html"></iframe>
     </div>
 
     <div id="toolbar">
@@ -30,13 +30,15 @@
         <label for="page">page</label>
         <input name="page" value="1" type="number" min="1" max="100" step="1">
 
+        <button id="rm-pages">remove blank pages</button>
+
         <div class="separator"></div>
 
         <button id="print">print</button>
     </div>
 
     <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="/assets/lib/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/js/gui.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/gui.js"></script>
 </body>
 </html>

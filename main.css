@@ -11,7 +11,7 @@
  * DEFINITION OF THE PAPER SHEET
  */
 @page {
-  size: 172mm 235mm;
+  size: 297mm 213mm;
   margin: 0;
 }
 /**
@@ -21,116 +21,71 @@
   body {
     margin: 0;
   }
-  .paper {
-    width: 172mm;
-    height: 234mm;
+  .h2p-paper {
+    width: 297mm;
+    height: 208mm;
     box-sizing: border-box;
+    /* Crop marks */
+    padding: 0mm;
     counter-increment: page-counter;
+    /* utile ou non? pour éviter qu'un papier soit coupé par le format de la
+        * page lors de la conversion et l'arrondis des unités */
     page-break-inside: avoid;
-    page-break-after: always;
     overflow: hidden;
     /* Crop marks */
-    padding: 12mm;
-    position: relative;
+    background-image: -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%), -webkit-linear-gradient(90deg, black 0, black 100%), -webkit-linear-gradient(0deg, black 0, black 100%);
+    background-size: 0mm 1px, 1px 0mm, 0mm 1px, 1px 0mm, 0mm 1px, 1px 0mm, 0mm 1px, 1px 0mm;
+    background-position: left 0mm, 0mm top, right 0mm, 297mm top, right 208mm, 297mm bottom, left 208mm, 0mm bottom;
+    background-repeat: no-repeat;
   }
-  .paper .crops {
-    width: 172mm;
-    height: 234mm;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .paper .crops div {
-    border-style: solid;
-    border-color: black;
-    border-width: 0;
-    width: 12mm;
-    height: 12mm;
-    position: absolute;
+  .h2p-page {
+    width: 297mm;
+    height: 208mm;
     box-sizing: border-box;
-  }
-  .paper .crops div span {
-    width: 5mm;
-    height: 5mm;
-    background-color: white;
     position: absolute;
+    text-rendering: optimizeLegibility;
   }
-  .paper .crops .crop-top-left {
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    top: 0;
-    left: 0;
+}
+@media screen {
+  body {
+    background-color: #F0F0F0 !important;
   }
-  .paper .crops .crop-top-left span {
-    right: -1px;
-    bottom: -1px;
+  #h2p-pages {
+    width: 297mm;
+    height: 208mm;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .paper .crops .crop-top-right {
-    border-left-width: 1px;
-    border-bottom-width: 1px;
-    top: 0;
-    right: 0;
+  .h2p-spread #h2p-pages {
+    width: 594mm;
+    height: 416mm;
   }
-  .paper .crops .crop-top-right span {
-    left: -1px;
-    bottom: -1px;
-  }
-  .paper .crops .crop-bottom-right {
-    border-left-width: 1px;
-    border-top-width: 1px;
-    right: 0;
-    bottom: 0;
-  }
-  .paper .crops .crop-bottom-right span {
-    left: -1px;
-    top: -1px;
-  }
-  .paper .crops .crop-bottom-left {
-    border-right-width: 1px;
-    border-top-width: 1px;
-    left: 0;
-    bottom: 0;
-  }
-  .paper .crops .crop-bottom-left span {
-    right: -1px;
-    top: -1px;
-  }
-  .page {
-    width: 148mm;
-    height: 210mm;
-    position: relative;
-  }
-  .spread .paper {
-    float: left;
-  }
-  .spread .paper:nth-child(odd) {
-    margin-left: -12mm;
-  }
-  .spread .paper:nth-child(even) {
-    margin-right: -12mm;
-  }
-  .spread .paper:first-child {
-    margin-left: 148mm;
+  .h2p-paper {
+    /* centrer la page à l'écran */
+    background-color: white;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 }
 @media print {
   html {
-    width: 172mm;
+    width: 297mm;
   }
   body {
     /* Allows printing of background colors */
     background-color: white;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    /* Activate opentype features and kernings */
-    -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
-    text-rendering: optimizeLegibility;
+  }
+  #h2p-pages {
+    position: absolute;
+    top: 0;
   }
 }
 /**
  * Helpers
  */
-.region-break {
+.h2p-region-break {
   /* Apply this class to an element to put it on a new region.
      * Hint: 
      * You can also use an empty <div class="page-break"></div> 
@@ -138,67 +93,60 @@
      */
   -webkit-region-break-before: always;
 }
-.header,
-.body,
-.footer {
+.h2p-header,
+.h2p-body,
+.h2p-footer {
   box-sizing: border-box;
 }
 /* __________________________________ HEADER __________________________________ */
-.header {
-  top: 0;
+.h2p-header {
+  /*position: absolute;*/
+  /*margin-top: @page-margin-top;*/
   margin: 0;
-  padding-top: 10mm;
-  width: 100%;
-  height: 10mm;
+  padding-top: 15mm;
+  height: 20mm;
   text-align: left;
+  padding-right: 15mm !important;
 }
-.header:after {
-  content: " Running title";
+.h2p-header:after {
+  content: "Header Text";
+  right: 15mm !important;
 }
 /* __________________________________ MAIN SECTION __________________________________ */
-.body {
-  height: 190mm;
-  width: 148mm;
-  margin-bottom: 15mm;
-  padding-top: 20mm;
-  padding-bottom: 15mm;
-  position: absolute;
-}
-.recipient {
-  -webkit-flow-from: myStory;
-  flow-from: myStory;
-}
-#my-story {
-  -webkit-flow-into: myStory;
-  flow-into: myStory;
+.h2p-body {
+  height: 173mm;
+  width: 100%;
+  padding-top: 0;
+  overflow: hidden;
 }
 /* __________________________________ FOOTER __________________________________ */
-.footer {
-  position: absolute;
-  bottom: 0;
+.h2p-footer {
   margin: 0;
   width: 100%;
-  height: 10mm;
+  height: 5mm;
   text-align: center;
 }
-.footer:after {
+.h2p-footer:after {
   content: counter(page-counter);
 }
-/* mirrored pages */
-.paper:nth-child(odd) .header {
+/* for spreads only */
+.h2p-paper:nth-child(odd) .header {
   text-align: right;
 }
-.paper:nth-child(odd) .header,
-.paper:nth-child(odd) .body,
-.paper:nth-child(odd) .footer {
-  padding-left: 20mm;
-  padding-right: 10mm;
+.h2p-paper:nth-child(odd) .header,
+.h2p-paper:nth-child(odd) .body,
+.h2p-paper:nth-child(odd) .footer {
+  padding-left: 15mm;
+  padding-right: 15mm;
 }
-.paper:nth-child(even) .header,
-.paper:nth-child(even) .body,
-.paper:nth-child(even) .footer {
-  padding-left: 10mm;
-  padding-right: 20mm;
+.h2p-paper:nth-child(even) .header,
+.h2p-paper:nth-child(even) .body,
+.h2p-paper:nth-child(even) .footer {
+  padding-left: 15mm;
+  padding-right: 15mm;
+}
+body {
+  text-rendering: optimizeLegibility;
 }
 img {
   max-width: 100%;
@@ -214,6 +162,8 @@ h6 {
      * if the element after has a page-break-inside avoid. It tries its best! */
   -webkit-region-break-inside: avoid;
   -webkit-region-break-after: avoid;
+  break-inside: avoid;
+  break-after: avoid;
 }
 /* AN EXAMPLE TO AVOID PAGE BREAK INSIDE,
  * HERE NO PARAGRAPH WILL BE CUT,
@@ -221,154 +171,15 @@ h6 {
 p {
   /*-webkit-region-break-inside: avoid;*/
 }
-/**
- * DEBUG STYLES
- */
-.debug .header {
-  outline: 1px solid pink;
+* {
+  -webkit-font-feature-settings: "liga", "dlig", "clig", "kern";
 }
-.debug .body {
-  outline: 1px solid purple;
+.debug .h2p-header {
+  outline: 1pt solid pink;
 }
-.debug .footer {
-  outline: 1px solid pink;
+.debug .h2p-body {
+  outline: 1pt solid purple;
 }
-.debug .region-break {
-  border-top: 1px dashed blue;
-  box-sizing: border-box;
+.debug .h2p-footer {
+  outline: 1pt solid pink;
 }
-.debug img {
-  outline: 1px solid blue;
-}
-/**
- * User Interface
- */
-@media screen {
-  body {
-    background-color: #F0F0F0;
-  }
-  #pages {
-    width: 172mm;
-    height: 234mm;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .spread #pages {
-    width: 344mm;
-    height: 468mm;
-  }
-  .paper {
-    /* centrer la page à l'écran */
-    background-color: white;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-  .normal .page {
-    outline: 1px dashed lightsalmon;
-  }
-  .preview .paper {
-    background: none;
-  }
-  .preview .page {
-    outline: 1px solid lightgray;
-    background-color: white;
-  }
-  .button {
-    z-index: 1000;
-    background-color: black;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    font-size: 9pt !important;
-    letter-spacing: 1pt;
-    color: white;
-    margin: 0;
-    padding: 5pt 7pt;
-    cursor: pointer;
-    border: 0;
-  }
-  .button:hover {
-    background-color: white;
-    color: black;
-    outline: 1pt solid black;
-  }
-  .button-active {
-    background-color: white;
-    color: black;
-    outline: 1pt solid black;
-  }
-  .lo-res {
-    outline: 10px solid red;
-  }
-  #interface {
-    font-family: sans-serif;
-    text-transform: uppercase;
-    font-size: 10pt !important;
-    line-height: 14pt;
-    letter-spacing: 1pt;
-    position: fixed;
-    bottom: 10pt;
-    right: 10pt;
-  }
-  #interface a {
-    text-decoration: none;
-    position: static;
-  }
-  div.dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  div.dropdown ul {
-    padding: 0.5em 0;
-    display: none;
-    background-color: black;
-    position: absolute;
-    right: 0;
-    bottom: 2em;
-    height: 200pt;
-    width: 80pt;
-    overflow: auto;
-  }
-  div.dropdown ul a {
-    padding: 0 1em;
-    color: white;
-    display: block;
-  }
-  div.dropdown ul a:hover {
-    background-color: white;
-    color: black;
-  }
-  div.dropdown button {
-    width: 80pt;
-  }
-  #toc {
-    display: inline-block;
-  }
-  #toc-pages {
-    padding: 0.5em 0;
-    display: none;
-    background-color: black;
-    position: absolute;
-    right: 0;
-    bottom: 2em;
-    height: 200pt;
-    width: 80pt;
-    overflow: auto;
-  }
-  #toc-pages a {
-    padding: 0 1em;
-    color: white;
-  }
-  #toc-pages a:hover {
-    background-color: white;
-    color: black;
-  }
-  #toc-pages button {
-    width: 80pt;
-  }
-}
-@media print {
-  #interface {
-    display: none;
-  }
-}
-/* Here you can put your specific typography, layout styles. */

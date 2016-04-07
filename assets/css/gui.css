@@ -50,6 +50,7 @@ button {
     background-color: white;
     font-size: 11px;
     text-transform: uppercase;
+    margin-left: 1em;
     margin-right: 1em;
     height: 19px;
 }

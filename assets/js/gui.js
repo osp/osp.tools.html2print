@@ -22,9 +22,9 @@ $(function() {
 
         $('[name="spread"]').change(function() {
             if($(this).is(":checked")) {
-                doc.addClass("spread");
+                doc.addClass("h2p-spread");
             } else {
-                doc.removeClass("spread");
+                doc.removeClass("h2p-spread");
             }
         });
 
@@ -39,7 +39,7 @@ $(function() {
         $('[name="zoom"]').change(function() {
             zoomLevel = $(this).val() / 100;
 
-            doc.find("#pages").css({
+            doc.find("#h2p-pages").css({
                 "-webkit-transform": "scale(" + zoomLevel + ")",
                 "-webkit-transform-origin": "0 0"
             });
@@ -53,10 +53,18 @@ $(function() {
         $('[name="page"]').change(function() {
             var pageNumber = $(this).val() - 1;
 
-            var target = doc.find('.paper:eq(' + pageNumber + ')');
+            var target = doc.find('.h2p-paper:eq(' + pageNumber + ')');
             var offsetTop = target.offset().top;
 
             doc.find('body').scrollTop(offsetTop);
+        });
+
+        $("#rm-pages").on('click', function() {
+            $("cssregion", doc).each(function(){
+                if(this.textContent == ""){
+                    $(this).parent().parent().parent().hide();
+                }
+            });
         });
 
         $("#print").on('click', function() {
