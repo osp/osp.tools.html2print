@@ -13,50 +13,35 @@ Features
 Usage
 -----
 
+Place your HTML document in the `document` folder, name it `index.html`
+
 Add these lines of code inside the `<head></head>` part of your HTML document:
 
-    <link rel="stylesheet" type="text/css" href="main.css"/>
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/css-regions-polyfill.js" type="text/javascript"></script>
-    <script src="assets/js/html2print.js" type="text/javascript"></script>
+    <link href="/assets/css/main.less" type="text/css" rel="stylesheet/less" />
+    <script src="/assets/js/less.min.js" type="text/javascript"></script>
 
-    <style>
-         /* -------------------------------------------- FLOW ----------------------------------------- */
-         .h2p-recipient {
-             flow-from: myArticle;
-         }
-
-         #h2p-content {
-             flow-into: myArticle;
-         }
-    </style>
+    <script src="/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="layout.js" type="text/javascript"></script>
+    <script src="/assets/js/html2print.js" type="text/javascript"></script>
+    <script src="/assets/js/css-regions-polyfill.js" type="text/javascript"></script>
 
 
+Click on the `start` file and visit the URL <http://localhost:8000/> in your favorite web browser.
 
 
 * * *
 
-First launch
-------------
+### Document preferences
 
-### Local micro-server
+- Edit `document/setup.less` to change the format, margins, header or footer content.
+- Edit `document/layout.js` to change the HTML page structure (zones of text).
+- Edit `document/layout.less` to change the layout of the page structure.
 
-You can't use less.js on a local file (URL starting with "file:///").
-To bypass this limitation, you can run a simple webserver with python.
-To do so, open the file `start` and go to <http://localhost:8000/> with a compatible web browser (see in section `Print` of the README).
-
-
-### Setup
-
-- Edit `assets/css/setup.less` to change the format, margins, header or footer content.
-- Then compile the file `main.less` with:
-
-    lessc main.less main.css
 
 
 ### Print
 
-To make a PDF, print the page within the browser, and choose «Print to file».
+To make a PDF, use the PRINT button at the right of the menu and choose «Print to file».
 Important: choose the right page format (only Chromium's print preview can take the format specified by the CSS).
 In order to know your paper format (with the crop marks), inspect one ".h2p-paper" element with you web inspector, and look at its dimensions in mm. Be sure to remove all margins when creating the custom format!
 
