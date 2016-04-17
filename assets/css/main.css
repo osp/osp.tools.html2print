@@ -1,6 +1,3 @@
-/* the geometry of the page */
-/* the size of the crop marks*/
-/* the size of bleed */
 /**
  * Computation
  */
@@ -182,4 +179,16 @@ p {
 }
 .debug .h2p-footer {
   outline: 1pt solid pink;
+}
+/* PAGE FORMAT */
+/* CROP MARKS */
+/* BLEED */
+/* MARGINS */
+/* HEADER & FOOTER */
+/* FLOW */
+.h2p-recipient {
+  flow-from: myArticle;
+}
+#h2p-content {
+  flow-into: myArticle;
 }

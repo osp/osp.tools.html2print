@@ -1,22 +1,30 @@
-/* the geometry of the page */
+/* PAGE FORMAT */
 @page-width: 297mm;
-@page-height: 208mm;
+@page-height: 210mm;
 
-/* the size of the crop marks*/
+/* CROP MARKS */
 @crop-size: 0mm;
 
-/* the size of bleed */
+/* BLEED */
 @bleed: 0mm;
 
+/* MARGINS */
 @page-margin-inside: 15mm;
 @page-margin-outside: 15mm;
 @page-margin-top: 15mm;
 @page-margin-bottom: 15mm;
 
-// Header & footer variables
+/* HEADER & FOOTER */
 @header-height: 20mm;
 @header-text: "Header Text";
 @footer-height: 5mm;
 @footer-text: counter(page-counter);
 
+/* FLOW */
+.h2p-recipient {
+    flow-from: myArticle;
+}
 
+#h2p-content {
+    flow-into: myArticle;
+}
